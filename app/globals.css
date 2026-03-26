@@ -1,26 +1,148 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* =========================================
+   FONT UTILITIES (next/font → Tailwind)
+========================================= */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-dm-sans:    var(--font-dm-sans);
+  --font-baskerville: var(--font-baskerville);
+  --font-playfair:   var(--font-playfair);
+  --font-cormorant:  var(--font-cormorant);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* =========================================
+   DESIGN TOKENS — Hadassah Perez
+========================================= */
+:root {
+  --cl-bg:          #F7F1E8;
+  --cl-bg-alt:      #EDE3D4;
+  --cl-dark:        #16100C;
+  --cl-caramel:     #B8784A;
+  --cl-gold:        #C9996A;
+  --cl-gold-light:  #DFB98A;
+  --cl-olive:       #6B7558;
+  --cl-text-dark:   #1C1410;
+  --cl-text-mid:    #5E4535;
+  --cl-text-light:  #9A8070;
+  --cl-border:      rgba(94, 69, 53, 0.13);
+}
+
+/* =========================================
+   RESET
+   Dentro de @layer base para que @layer utilities
+   (classes Tailwind) possam sobrescrever margin/padding
+========================================= */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+    background: var(--cl-bg);
+    color: var(--cl-text-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* =========================================
+   HERO ENTRY ANIMATIONS
+========================================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes arrowBounce {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+
+.hero-fade-up {
+  opacity: 0;
+  animation: fadeUp 0.4s ease-out forwards;
+}
+
+/* Scroll arrow: fadeUp first, then infinite bounce */
+.hero-scroll-arrow {
+  opacity: 0;
+  animation:
+    fadeUp      0.4s ease-out 160ms forwards,
+    arrowBounce 1.2s ease-in-out 560ms infinite;
+}
+
+/* =========================================
+   PREFERS-REDUCED-MOTION
+   Disable all animations for users who prefer it
+========================================= */
+@media (prefers-reduced-motion: reduce) {
+  .hero-fade-up,
+  .hero-scroll-arrow {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  .reveal,
+  .reveal-scale,
+  .reveal-line {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* =========================================
+   SCROLL REVEAL ANIMATIONS
+========================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94) translateY(16px);
+  transition:
+    opacity   0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+
+.reveal-line {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition:
+    opacity   0.5s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-line.visible {
+  opacity: 1;
+  transform: scaleX(1);
 }
