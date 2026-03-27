@@ -396,16 +396,28 @@ export default function LinksPage() {
       <section className="relative overflow-hidden" style={{ height: "100dvh" }}>
 
         {/* Background com parallax */}
-        <div
-          ref={heroBgRef}
-          className="absolute inset-0 scale-110"
-          style={{
-            backgroundImage: "url(/moodboard/foto-hadassah.jpg)",
-            backgroundSize: "cover",
-            backgroundPosition: "center 15%",
-            backgroundColor: "#2A1C12", /* fallback enquanto imagem não chega */
-          }}
-        />
+        <div ref={heroBgRef} className="absolute inset-0 scale-110">
+          {/* Mobile */}
+          <div
+            className="absolute inset-0 md:hidden"
+            style={{
+              backgroundImage: "url('/Hadassah%20Perez.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center 15%",
+              backgroundColor: "#2A1C12",
+            }}
+          />
+          {/* Desktop */}
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+              backgroundImage: "url('/Hadassah%20Perez%20(Site).png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center 15%",
+              backgroundColor: "#2A1C12",
+            }}
+          />
+        </div>
 
         {/* Overlay gradiente */}
         <div
@@ -431,7 +443,7 @@ export default function LinksPage() {
 
           {/* Nome — Libre Baskerville (única vez na página) */}
           <h1
-            className="hero-fade-up"
+            className="hero-fade-up md:hidden"
             style={{
               fontFamily: 'var(--font-baskerville), "Libre Baskerville", serif',
               fontSize: "clamp(36px, 10vw, 44px)",
