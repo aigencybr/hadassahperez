@@ -9,13 +9,6 @@ import { useEffect, useRef } from "react";
    (o texto ao lado provê o contexto semântico)
 ============================================================ */
 
-function IconBook() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
-    </svg>
-  );
-}
 
 function IconCompass() {
   return (
@@ -166,14 +159,16 @@ function OrnamentDivider() {
 ============================================================ */
 
 interface FeaturedCardProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  imageSrc?: string;
+  imageAlt?: string;
   title: string;
   subtitle: string;
   href: string;
   delay?: number;
 }
 
-function FeaturedCard({ icon, title, subtitle, href, delay = 0 }: FeaturedCardProps) {
+function FeaturedCard({ icon, imageSrc, imageAlt = "", title, subtitle, href, delay = 0 }: FeaturedCardProps) {
   return (
     <a
       href={href}
@@ -196,23 +191,25 @@ function FeaturedCard({ icon, title, subtitle, href, delay = 0 }: FeaturedCardPr
           borderRadius: "14px",
         }}
       >
-        {/* Ícone — aria-hidden no container pois SVG já é decorativo */}
+        {/* Ícone ou imagem do produto */}
         <div
           aria-hidden="true"
-          className="flex-shrink-0 w-10 h-10 rounded-[10px] flex items-center justify-center"
-          style={{ background: "rgba(255,255,255,0.07)", color: "#DFB98A" }}
+          className="flex-shrink-0 w-24 h-24 rounded-[10px] flex items-center justify-center overflow-hidden"
+          style={{ background: imageSrc ? "transparent" : "rgba(255,255,255,0.07)", color: "#DFB98A" }}
         >
-          {icon}
+          {imageSrc ? (
+            <Image src={imageSrc} alt={imageAlt} width={96} height={96} className="w-full h-full object-contain" />
+          ) : icon}
         </div>
 
         <div className="flex-1 min-w-0">
           <p
-            className="text-sm font-medium leading-snug"
+            className="text-base font-medium leading-snug"
             style={{ fontFamily: "var(--font-dm-sans)", color: "#F5EDD8" }}
           >
             {title}
           </p>
-          <p className="text-xs mt-0.5 leading-snug" style={{ color: "#DFB98A" }}>
+          <p className="text-sm mt-1 leading-snug" style={{ color: "#DFB98A" }}>
             {subtitle}
           </p>
         </div>
@@ -231,14 +228,16 @@ function FeaturedCard({ icon, title, subtitle, href, delay = 0 }: FeaturedCardPr
 ============================================================ */
 
 interface StandardCardProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  imageSrc?: string;
+  imageAlt?: string;
   title: string;
   subtitle: string;
   href: string;
   delay?: number;
 }
 
-function StandardCard({ icon, title, subtitle, href, delay = 0 }: StandardCardProps) {
+function StandardCard({ icon, imageSrc, imageAlt = "", title, subtitle, href, delay = 0 }: StandardCardProps) {
   return (
     <a
       href={href}
@@ -249,7 +248,7 @@ function StandardCard({ icon, title, subtitle, href, delay = 0 }: StandardCardPr
       style={{ "--delay": `${delay}ms` } as React.CSSProperties}
     >
       <div
-        className="flex items-center gap-4 p-4 rounded-[12px] relative overflow-hidden"
+        className="flex items-center gap-4 p-5 rounded-[12px] relative overflow-hidden"
         style={{
           background: "rgba(255,255,255,0.55)",
           backdropFilter: "blur(10px)",
@@ -265,20 +264,22 @@ function StandardCard({ icon, title, subtitle, href, delay = 0 }: StandardCardPr
 
         <div
           aria-hidden="true"
-          className="flex-shrink-0 w-9 h-9 rounded-[10px] flex items-center justify-center"
-          style={{ background: "rgba(184, 120, 74, 0.08)", color: "#B8784A" }}
+          className="flex-shrink-0 w-24 h-24 rounded-[10px] flex items-center justify-center overflow-hidden"
+          style={{ background: imageSrc ? "rgba(184, 120, 74, 0.05)" : "rgba(184, 120, 74, 0.08)", color: "#B8784A" }}
         >
-          {icon}
+          {imageSrc ? (
+            <Image src={imageSrc} alt={imageAlt} width={96} height={96} className="w-full h-full object-contain" />
+          ) : icon}
         </div>
 
         <div className="flex-1 min-w-0">
           <p
-            className="text-sm font-medium leading-snug"
+            className="text-base font-medium leading-snug"
             style={{ fontFamily: "var(--font-dm-sans)", color: "#1C1410" }}
           >
             {title}
           </p>
-          <p className="text-xs mt-0.5 leading-snug" style={{ color: "#9A8070" }}>
+          <p className="text-sm mt-1 leading-snug" style={{ color: "#9A8070" }}>
             {subtitle}
           </p>
         </div>
@@ -297,16 +298,18 @@ function StandardCard({ icon, title, subtitle, href, delay = 0 }: StandardCardPr
 ============================================================ */
 
 interface ComingSoonCardProps {
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
+  imageSrc?: string;
+  imageAlt?: string;
   title: string;
   subtitle: string;
   delay?: number;
 }
 
-function ComingSoonCard({ icon, title, subtitle, delay = 0 }: ComingSoonCardProps) {
+function ComingSoonCard({ icon, imageSrc, imageAlt = "", title, subtitle, delay = 0 }: ComingSoonCardProps) {
   return (
     <div
-      className="reveal-scale flex items-center gap-4 p-4 rounded-[12px] relative overflow-hidden"
+      className="reveal-scale flex items-center gap-4 p-5 rounded-[12px] relative overflow-hidden"
       style={{
         "--delay": `${delay}ms`,
         background: "rgba(255,255,255,0.55)",
@@ -318,15 +321,17 @@ function ComingSoonCard({ icon, title, subtitle, delay = 0 }: ComingSoonCardProp
     >
       <div
         aria-hidden="true"
-        className="flex-shrink-0 w-9 h-9 rounded-[10px] flex items-center justify-center"
-        style={{ background: "rgba(184, 120, 74, 0.08)", color: "#B8784A" }}
+        className="flex-shrink-0 w-24 h-24 rounded-[10px] flex items-center justify-center overflow-hidden"
+        style={{ background: imageSrc ? "rgba(184, 120, 74, 0.05)" : "rgba(184, 120, 74, 0.08)", color: "#B8784A" }}
       >
-        {icon}
+        {imageSrc ? (
+          <Image src={imageSrc} alt={imageAlt} width={96} height={96} className="w-full h-full object-contain" />
+        ) : icon}
       </div>
 
       <div className="flex-1 min-w-0">
         <div
-          className="text-sm font-medium leading-snug flex items-center gap-2"
+          className="text-base font-medium leading-snug flex items-center gap-2"
           style={{ fontFamily: "var(--font-dm-sans)", color: "#1C1410" }}
         >
           {title}
@@ -337,7 +342,7 @@ function ComingSoonCard({ icon, title, subtitle, delay = 0 }: ComingSoonCardProp
             Em breve
           </span>
         </div>
-        <p className="text-xs mt-0.5 leading-snug" style={{ color: "#9A8070" }}>
+        <p className="text-sm mt-1 leading-snug" style={{ color: "#9A8070" }}>
           {subtitle}
         </p>
       </div>
@@ -397,21 +402,10 @@ export default function LinksPage() {
 
         {/* Background com parallax */}
         <div ref={heroBgRef} className="absolute inset-0 scale-110">
-          {/* Mobile */}
           <div
-            className="absolute inset-0 md:hidden"
+            className="absolute inset-0"
             style={{
-              backgroundImage: "url('/Hadassah%20Perez.png')",
-              backgroundSize: "cover",
-              backgroundPosition: "center 15%",
-              backgroundColor: "#2A1C12",
-            }}
-          />
-          {/* Desktop */}
-          <div
-            className="absolute inset-0 hidden md:block"
-            style={{
-              backgroundImage: "url('/Hadassah%20Perez%20(Site).png')",
+              backgroundImage: "url('/REG_7777.JPG')",
               backgroundSize: "cover",
               backgroundPosition: "center 15%",
               backgroundColor: "#2A1C12",
@@ -478,7 +472,7 @@ export default function LinksPage() {
                 color: "#DFB98A",
               }}
             >
-              Coach · Mentora · Cantora Gospel
+              Coach · Mentora · Cantora Cristã
             </p>
             <div className="flex items-center gap-1">
               <div className="w-[4px] h-[4px] rotate-45 opacity-30" style={{ background: "#DFB98A" }} />
@@ -550,7 +544,8 @@ export default function LinksPage() {
 
             {/* 1. Devocional Alinhamento — DESTAQUE */}
             <FeaturedCard
-              icon={<IconBook />}
+              imageSrc="/tablet alinhamento.png"
+              imageAlt="Devocional Alinhamento"
               title="Devocional Alinhamento"
               subtitle="21 dias para conectar seu coração aos planos de Deus"
               href="/alinhamento"
@@ -559,7 +554,8 @@ export default function LinksPage() {
 
             {/* 2. Mentoria O Caminho de Ester */}
             <StandardCard
-              icon={<IconCompass />}
+              imageSrc="/mentoria o caminho de ester.png"
+              imageAlt="Mentoria O Caminho de Ester"
               title='Mentoria "O Caminho de Ester"'
               subtitle="Identidade, propósito e posicionamento"
               href="/mentoria"
@@ -575,46 +571,29 @@ export default function LinksPage() {
               delay={320}
             />
 
-            {/* 4. Produtos Digitais */}
+            {/* 5. Comunidade de Mulheres */}
             <StandardCard
-              icon={<IconPackage />}
-              title="Produtos Digitais"
-              subtitle="Ebook Jejum + Devocional Voltando à Essência"
-              href="#" /* TODO: PRODUTOS_LINK */
-              delay={350}
-            />
-
-            {/* 5. Música & YouTube */}
-            <StandardCard
-              icon={<IconMusic />}
-              title="Música & YouTube"
-              subtitle='Músicas + Série "Esperança" no YouTube'
-              href="#musica"
-              delay={380}
-            />
-
-            {/* 6. Comunidade de Mulheres */}
-            <StandardCard
-              icon={<IconHeart />}
+              icon={<IconWhatsApp />}
               title="Comunidade de Mulheres"
               subtitle="Grupo no WhatsApp — entre para a comunidade"
-              href="https://docs.google.com/forms/d/e/1FAIpQLSfq_Ouen9L8kMnwmraSWS-Bs78X2qZ12YiJEpmeoy4ebnWCuA/viewform" /* TODO: WHATSAPP_COMUNIDADE_LINK */
+              href="https://wa.link/ul6ufy" /* TODO: WHATSAPP_COMUNIDADE_LINK */
               delay={410}
             />
 
-            {/* 7. Parcerias */}
+            {/* 6. Parcerias */}
             <StandardCard
               icon={<IconMail />}
               title="Parcerias"
               subtitle="Fale comigo sobre colaborações"
-              href="mailto:" /* TODO: EMAIL */
+              href="https://wa.link/ul6ufy" /* TODO: EMAIL */
               delay={440}
             />
 
-            {/* 8. Devocional Esperança — EM BREVE (variante explícita) */}
+            {/* 7. Devocional Esperança — EM BREVE (variante explícita) */}
             <ComingSoonCard
-              icon={<IconBook />}
-              title="Devocional Esperança — 60 dias"
+              imageSrc="/livro devocional esperança.png"
+              imageAlt="Devocional Esperança"
+              title="Devocional Esperança"
               subtitle="Novo lançamento em breve"
               delay={470}
             />

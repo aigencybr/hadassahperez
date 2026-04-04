@@ -1,0 +1,3094 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briefing Visual — Hadassah Perez · Aigency</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Cormorant+Garamond:ital,wght@1,400;1,500;1,600&display=swap"
+    rel="stylesheet">
+  <style>
+    /* =========================================
+       DOCUMENT RESET & BASE
+    ========================================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      /* Client palette — validada em sessão Mar/2026 */
+      --cl-bg: #F7F1E8;
+      --cl-bg-alt: #EDE3D4;
+      --cl-dark: #16100C;
+      --cl-caramel: #B8784A;
+      --cl-gold: #C9996A;
+      --cl-gold-light: #DFB98A;
+      --cl-olive: #6B7558;
+      --cl-text-dark: #1C1410;
+      --cl-text-mid: #5E4535;
+      --cl-text-light: #9A8070;
+      --cl-border: rgba(94, 69, 53, 0.13);
+
+      /* Document UI */
+      --doc-bg: #FFFFFF;
+      --doc-surface: #F8F7F5;
+      --doc-surface-2: #F2F0EC;
+      --doc-border: #E5E0D8;
+      --doc-accent: #C4895A;
+      --doc-accent-dim: rgba(196, 137, 90, 0.12);
+      --doc-text: #1A1714;
+      --doc-text-mid: #5A524A;
+      --doc-text-light: #8A7F75;
+      --doc-green: #3D7A5E;
+      --doc-green-bg: rgba(61, 122, 94, 0.08);
+
+      /* Spacing system (8px base) */
+      --s1: 8px;
+      --s2: 16px;
+      --s3: 24px;
+      --s4: 32px;
+      --s5: 40px;
+      --s6: 48px;
+      --s8: 64px;
+      --s10: 80px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--doc-bg);
+      color: var(--doc-text);
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* =========================================
+       TOP NAV
+    ========================================= */
+    .topnav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--doc-border);
+      padding: 0 var(--s4);
+    }
+
+    .topnav-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: var(--s4);
+      height: 52px;
+    }
+
+    .topnav-brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--doc-accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .topnav-divider {
+      width: 1px;
+      height: 20px;
+      background: var(--doc-border);
+      flex-shrink: 0;
+    }
+
+    .topnav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--s1);
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex: 1;
+    }
+
+    .topnav-links::-webkit-scrollbar {
+      display: none;
+    }
+
+    .topnav-links a {
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--doc-text-mid);
+      padding: 6px 10px;
+      border-radius: 6px;
+      white-space: nowrap;
+      transition: all 0.18s ease;
+    }
+
+    .topnav-links a:hover {
+      background: var(--doc-accent-dim);
+      color: var(--doc-accent);
+    }
+
+    /* =========================================
+       LAYOUT
+    ========================================= */
+    .doc-wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: var(--s8) var(--s4);
+    }
+
+    section {
+      margin-bottom: var(--s10);
+    }
+
+    /* =========================================
+       DOCUMENT HEADER
+    ========================================= */
+    .doc-header {
+      padding: var(--s8) 0 var(--s6);
+      border-bottom: 2px solid var(--cl-caramel);
+      margin-bottom: var(--s8);
+    }
+
+    .doc-header-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--s4);
+      margin-bottom: var(--s4);
+    }
+
+    .doc-header-meta {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+    }
+
+    .doc-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      background: var(--doc-accent-dim);
+      border: 1px solid rgba(196, 137, 90, 0.25);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--doc-accent);
+      letter-spacing: 0.04em;
+    }
+
+    .doc-tag.green {
+      background: var(--doc-green-bg);
+      border-color: rgba(61, 122, 94, 0.2);
+      color: var(--doc-green);
+    }
+
+    .doc-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--doc-text);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .doc-title span {
+      color: var(--doc-accent);
+    }
+
+    .doc-subtitle {
+      font-size: 14px;
+      color: var(--doc-text-light);
+      margin-top: var(--s1);
+      font-weight: 400;
+    }
+
+    .doc-header-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--s2);
+      margin-top: var(--s4);
+      padding-top: var(--s4);
+      border-top: 1px solid var(--doc-border);
+    }
+
+    .doc-meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .doc-meta-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+    }
+
+    .doc-meta-value {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--doc-text);
+    }
+
+    /* =========================================
+       SECTION HEADERS
+    ========================================= */
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      margin-bottom: var(--s4);
+    }
+
+    .section-number {
+      width: 32px;
+      height: 32px;
+      background: var(--doc-text);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--doc-text);
+      letter-spacing: -0.01em;
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--doc-text-light);
+      margin-top: 2px;
+    }
+
+    .subsection-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      margin-bottom: var(--s2);
+      padding-bottom: var(--s1);
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    /* =========================================
+       PALETTE SWATCHES
+    ========================================= */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: var(--s2);
+      margin-bottom: var(--s4);
+    }
+
+    .swatch {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--doc-border);
+    }
+
+    .swatch-color {
+      height: 80px;
+      width: 100%;
+    }
+
+    .swatch-info {
+      padding: 10px 12px;
+      background: white;
+    }
+
+    .swatch-token {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--doc-text);
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+    }
+
+    .swatch-name {
+      font-size: 11px;
+      color: var(--doc-text-light);
+      margin-top: 1px;
+    }
+
+    /* =========================================
+       TYPOGRAPHY SPECIMEN
+    ========================================= */
+    .type-specimen {
+      border: 1px solid var(--doc-border);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: var(--s3);
+    }
+
+    .type-specimen-header {
+      padding: var(--s2) var(--s3);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .type-specimen-name {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-mid);
+    }
+
+    .type-specimen-meta {
+      font-size: 11px;
+      color: var(--doc-text-light);
+    }
+
+    .type-specimen-body {
+      padding: var(--s3) var(--s4);
+      background: var(--cl-bg);
+    }
+
+    .type-row {
+      padding: var(--s3) 0;
+      border-bottom: 1px solid rgba(107, 77, 55, 0.08);
+      display: grid;
+      grid-template-columns: 100px 1fr 80px;
+      align-items: start;
+      gap: var(--s3);
+    }
+
+    .type-row:last-child {
+      border-bottom: none;
+    }
+
+    .type-row-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cl-text-light);
+      font-family: 'Inter', sans-serif;
+      padding-top: 4px;
+    }
+
+    .type-row-spec {
+      font-size: 11px;
+      color: var(--cl-text-light);
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      padding-top: 4px;
+      text-align: right;
+    }
+
+    /* =========================================
+       COMPONENTS SHOWCASE
+    ========================================= */
+    .components-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+    }
+
+    .component-card {
+      border: 1px solid var(--doc-border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .component-card-header {
+      padding: 12px var(--s3);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--doc-text-mid);
+    }
+
+    .component-card-body {
+      padding: var(--s4);
+      background: var(--cl-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+    }
+
+    .component-card-body.centered-col {
+      flex-direction: column;
+      gap: var(--s2);
+    }
+
+    .component-card-note {
+      padding: 10px var(--s3);
+      background: var(--doc-surface-2);
+      font-size: 11px;
+      color: var(--doc-text-light);
+      border-top: 1px solid var(--doc-border);
+    }
+
+    /* Client components — rendered */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 32px;
+      background: var(--cl-caramel);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      box-shadow: 0 4px 16px rgba(196, 137, 90, 0.28);
+      text-decoration: none;
+    }
+
+    .btn-primary:hover {
+      background: #B37A4E;
+      box-shadow: 0 6px 20px rgba(196, 137, 90, 0.36);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 30px;
+      background: transparent;
+      color: var(--cl-brown);
+      border: 1.5px solid var(--cl-caramel);
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      text-decoration: none;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(196, 137, 90, 0.08);
+    }
+
+    .link-card {
+      width: 100%;
+      max-width: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s2);
+      padding: 16px 20px;
+      background: #FFFFFF;
+      border: 1px solid rgba(107, 77, 55, 0.14);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      text-decoration: none;
+      box-shadow: 0 2px 8px rgba(107, 77, 55, 0.06);
+    }
+
+    .link-card:hover {
+      border-color: var(--cl-caramel);
+      box-shadow: 0 4px 16px rgba(107, 77, 55, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .link-card-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--cl-bg-alt);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .link-card-text {
+      flex: 1;
+    }
+
+    .link-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--cl-text-dark);
+    }
+
+    .link-card-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      color: var(--cl-text-light);
+      margin-top: 2px;
+    }
+
+    .link-card-arrow {
+      color: var(--cl-caramel);
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .link-card.featured {
+      background: linear-gradient(135deg, #FAF0E4, #F5E6D0);
+      border-color: rgba(196, 137, 90, 0.3);
+      box-shadow: 0 4px 16px rgba(196, 137, 90, 0.12);
+    }
+
+    .link-card.featured .link-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+    }
+
+    .separator {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      width: 100%;
+      max-width: 320px;
+    }
+
+    .separator-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(107, 77, 55, 0.2);
+    }
+
+    .separator-ornament {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--cl-caramel);
+      font-size: 16px;
+      opacity: 0.7;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      background: rgba(122, 130, 96, 0.12);
+      border: 1px solid rgba(122, 130, 96, 0.25);
+      border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--cl-olive);
+      letter-spacing: 0.04em;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      background: var(--cl-olive);
+      border-radius: 50%;
+    }
+
+    /* =========================================
+       WIREFRAMES
+    ========================================= */
+    .page-wireframe {
+      border: 1px solid var(--doc-border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: var(--s5);
+    }
+
+    .page-wireframe-header {
+      padding: var(--s3) var(--s4);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--s3);
+    }
+
+    .page-wireframe-title {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+    }
+
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .page-badge.p1 {
+      background: rgba(196, 137, 90, 0.12);
+      color: #C4895A;
+    }
+
+    .page-badge.p2 {
+      background: rgba(122, 130, 96, 0.12);
+      color: #7A8260;
+    }
+
+    .page-badge.p3 {
+      background: rgba(107, 77, 55, 0.1);
+      color: #6B4D37;
+    }
+
+    .page-wireframe-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--doc-text);
+    }
+
+    .page-url {
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      color: var(--doc-text-light);
+      background: var(--doc-surface-2);
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--doc-border);
+    }
+
+    .wireframe-sections {
+      padding: var(--s3) var(--s4);
+    }
+
+    .wf-section {
+      display: grid;
+      grid-template-columns: 180px 1fr auto;
+      gap: var(--s3);
+      align-items: start;
+      padding: var(--s2) 0;
+      border-bottom: 1px dashed var(--doc-border);
+    }
+
+    .wf-section:last-child {
+      border-bottom: none;
+    }
+
+    .wf-section-name {
+      display: flex;
+      align-items: center;
+      gap: var(--s1);
+    }
+
+    .wf-order {
+      width: 22px;
+      height: 22px;
+      background: var(--doc-accent);
+      color: white;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .wf-section-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--doc-text);
+    }
+
+    .wf-section-desc {
+      font-size: 12px;
+      color: var(--doc-text-mid);
+      line-height: 1.5;
+    }
+
+    .wf-height {
+      font-size: 10px;
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      color: var(--doc-text-light);
+      background: var(--doc-surface-2);
+      padding: 3px 8px;
+      border-radius: 5px;
+      white-space: nowrap;
+    }
+
+    .dev-notes {
+      margin-top: var(--s3);
+      padding: var(--s3);
+      background: rgba(196, 137, 90, 0.06);
+      border-left: 3px solid var(--doc-accent);
+      border-radius: 0 10px 10px 0;
+    }
+
+    .dev-notes-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-accent);
+      margin-bottom: var(--s1);
+    }
+
+    .dev-notes ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .dev-notes li {
+      font-size: 12px;
+      color: var(--doc-text-mid);
+      padding-left: 16px;
+      position: relative;
+    }
+
+    .dev-notes li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--doc-accent);
+      font-size: 11px;
+    }
+
+    /* =========================================
+       RULES & SPECS
+    ========================================= */
+    .rules-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s3);
+    }
+
+    .rule-card {
+      border: 1px solid var(--doc-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .rule-card-header {
+      padding: 12px var(--s3);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-mid);
+    }
+
+    .rule-card-body {
+      padding: var(--s3);
+    }
+
+    .rule-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--doc-border);
+      gap: var(--s2);
+    }
+
+    .rule-row:last-child {
+      border-bottom: none;
+    }
+
+    .rule-label {
+      font-size: 12px;
+      color: var(--doc-text-mid);
+      flex: 1;
+    }
+
+    .rule-value {
+      font-size: 12px;
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      color: var(--doc-text);
+      background: var(--doc-surface-2);
+      padding: 3px 8px;
+      border-radius: 5px;
+      flex-shrink: 0;
+    }
+
+    .rule-value.highlight {
+      background: var(--doc-accent-dim);
+      color: var(--doc-accent);
+    }
+
+    .spacing-demo {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: var(--s2);
+      padding: 6px 0;
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    .spacing-row:last-child {
+      border-bottom: none;
+    }
+
+    .spacing-bar {
+      height: 6px;
+      background: var(--doc-accent);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .spacing-label {
+      font-size: 11px;
+      color: var(--doc-text-mid);
+      min-width: 60px;
+    }
+
+    .spacing-val {
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      color: var(--doc-text-light);
+    }
+
+    /* =========================================
+       ASSETS CHECKLIST
+    ========================================= */
+    .assets-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--s3);
+    }
+
+    .asset-card {
+      border: 1px solid var(--doc-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .asset-card-header {
+      padding: 12px var(--s3);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--doc-text-mid);
+    }
+
+    .asset-item {
+      padding: 12px var(--s3);
+      border-bottom: 1px solid var(--doc-border);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--s2);
+    }
+
+    .asset-item:last-child {
+      border-bottom: none;
+    }
+
+    .asset-checkbox {
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--doc-border);
+      border-radius: 4px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      background: white;
+    }
+
+    .asset-item-content {}
+
+    .asset-item-name {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--doc-text);
+      margin-bottom: 2px;
+    }
+
+    .asset-item-spec {
+      font-size: 11px;
+      color: var(--doc-text-light);
+    }
+
+    .asset-item-spec code {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      font-size: 10px;
+      background: var(--doc-surface-2);
+      padding: 1px 5px;
+      border-radius: 3px;
+    }
+
+    .asset-status {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 8px;
+      border-radius: 100px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      margin-top: 4px;
+    }
+
+    .asset-status.pending {
+      background: rgba(212, 169, 106, 0.12);
+      color: #A07A30;
+    }
+
+    .asset-status.required {
+      background: rgba(180, 60, 60, 0.08);
+      color: #B43C3C;
+    }
+
+    /* =========================================
+       UTILITY
+    ========================================= */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s4);
+    }
+
+    .info-box {
+      padding: var(--s3);
+      background: var(--doc-surface);
+      border: 1px solid var(--doc-border);
+      border-radius: 12px;
+    }
+
+    .info-box-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      margin-bottom: var(--s2);
+    }
+
+    .info-box-body {
+      font-size: 12px;
+      color: var(--doc-text-mid);
+      line-height: 1.6;
+    }
+
+    .keyword-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--s1);
+      margin-top: var(--s2);
+    }
+
+    .keyword {
+      padding: 5px 12px;
+      border: 1px solid var(--doc-border);
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--doc-text-mid);
+      background: white;
+    }
+
+    .keyword.accent {
+      background: var(--doc-accent-dim);
+      border-color: rgba(196, 137, 90, 0.3);
+      color: var(--doc-accent);
+    }
+
+    /* shadow demo */
+    .shadow-demo {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s3);
+      padding: var(--s3);
+      background: var(--cl-bg);
+      border-radius: 12px;
+    }
+
+    .shadow-item {
+      display: flex;
+      align-items: center;
+      gap: var(--s3);
+    }
+
+    .shadow-box {
+      width: 64px;
+      height: 40px;
+      background: white;
+      border-radius: 10px;
+      flex-shrink: 0;
+    }
+
+    .shadow-box.s-sm {
+      box-shadow: 0 2px 8px rgba(107, 77, 55, 0.06);
+    }
+
+    .shadow-box.s-md {
+      box-shadow: 0 4px 16px rgba(107, 77, 55, 0.10);
+    }
+
+    .shadow-box.s-lg {
+      box-shadow: 0 8px 32px rgba(107, 77, 55, 0.14);
+    }
+
+    .shadow-box.s-xl {
+      box-shadow: 0 16px 48px rgba(107, 77, 55, 0.18);
+    }
+
+    .shadow-info {}
+
+    .shadow-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--doc-text);
+    }
+
+    .shadow-val {
+      font-size: 11px;
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      color: var(--doc-text-light);
+    }
+
+    /* radius demo */
+    .radius-demo {
+      display: flex;
+      align-items: flex-end;
+      gap: var(--s2);
+      flex-wrap: wrap;
+    }
+
+    .radius-box {
+      width: 56px;
+      height: 56px;
+      background: var(--doc-accent-dim);
+      border: 2px solid rgba(196, 137, 90, 0.4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .radius-box .r-name {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--doc-accent);
+    }
+
+    .radius-box .r-val {
+      font-size: 9px;
+      font-family: 'SF Mono', monospace;
+      color: var(--doc-text-mid);
+    }
+
+    /* animation table */
+    .anim-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .anim-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    .anim-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--doc-border);
+      color: var(--doc-text-mid);
+      vertical-align: top;
+    }
+
+    .anim-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .anim-table td code {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      font-size: 11px;
+      background: var(--doc-surface-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--doc-text);
+    }
+
+    /* footer */
+    .doc-footer {
+      margin-top: var(--s10);
+      padding-top: var(--s5);
+      border-top: 1px solid var(--doc-border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .doc-footer-brand {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--doc-accent);
+    }
+
+    .doc-footer-meta {
+      font-size: 11px;
+      color: var(--doc-text-light);
+    }
+
+    /* =========================================
+       CODE BLOCKS (scroll section)
+    ========================================= */
+    .code-block {
+      background: #1C1814;
+      border-radius: 10px;
+      padding: var(--s3);
+      margin: var(--s2) 0;
+      overflow-x: auto;
+    }
+
+    .code-block pre {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      font-size: 11.5px;
+      line-height: 1.65;
+      color: #E8DED0;
+      white-space: pre;
+      margin: 0;
+    }
+
+    .code-block-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      margin-bottom: var(--s1);
+    }
+
+    .scroll-techniques-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: var(--s3);
+      margin-bottom: var(--s4);
+    }
+
+    .scroll-technique-card {
+      border: 1px solid var(--doc-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .scroll-technique-header {
+      padding: 12px var(--s3);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--doc-text);
+    }
+
+    .scroll-technique-body {
+      padding: var(--s3);
+      font-size: 12px;
+      color: var(--doc-text-mid);
+      line-height: 1.6;
+    }
+
+    .stagger-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .stagger-table th {
+      text-align: left;
+      padding: 8px 12px;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--doc-text-light);
+      background: var(--doc-surface);
+      border-bottom: 1px solid var(--doc-border);
+    }
+
+    .stagger-table td {
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--doc-border);
+      color: var(--doc-text-mid);
+      vertical-align: top;
+    }
+
+    .stagger-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .stagger-table td code {
+      font-family: 'SF Mono', 'Fira Mono', monospace;
+      font-size: 11px;
+      background: var(--doc-surface-2);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--doc-text);
+    }
+
+    @media (max-width: 720px) {
+      .scroll-techniques-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* =========================================
+       RESPONSIVE
+    ========================================= */
+    @media (max-width: 720px) {
+      .doc-header-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .components-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .rules-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .assets-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .wf-section {
+        grid-template-columns: 1fr;
+      }
+
+      .type-row {
+        grid-template-columns: 80px 1fr;
+      }
+
+      .type-row-spec {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- =========================================
+     TOP NAV
+========================================= -->
+  <nav class="topnav">
+    <div class="topnav-inner">
+      <span class="topnav-brand">Aigency</span>
+      <div class="topnav-divider"></div>
+      <div class="topnav-links">
+        <a href="#identidade">Identidade Visual</a>
+        <a href="#componentes">Componentes</a>
+        <a href="#p1">Página 1 — Link Bio</a>
+        <a href="#p2">Página 2 — Mentoria</a>
+        <a href="#p3">Página 3 — Devocional</a>
+        <a href="#regras">Regras de Implementação</a>
+        <a href="#excelencia">Regras de Excelência</a>
+        <a href="#animacao">Animação &amp; Scroll</a>
+        <a href="#assets">Assets</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- =========================================
+     DOCUMENT WRAPPER
+========================================= -->
+  <div class="doc-wrapper">
+
+    <!-- HEADER -->
+    <div class="doc-header">
+      <div class="doc-header-top">
+        <div>
+          <div class="doc-header-meta" style="margin-bottom: 12px;">
+            <span class="doc-tag">3 páginas</span>
+            <span class="doc-tag">Versão 1.2</span>
+            <span class="doc-tag green">Março 2026 · Atualizado</span>
+          </div>
+          <h1 class="doc-title">Briefing Visual — <span>Hadassah Perez</span></h1>
+          <p class="doc-subtitle">Aigency · Documento interno de desenvolvimento · Março 2026</p>
+        </div>
+      </div>
+      <div class="doc-header-grid">
+        <div class="doc-meta-item">
+          <span class="doc-meta-label">Cliente</span>
+          <span class="doc-meta-value">Hadassah Perez</span>
+        </div>
+        <div class="doc-meta-item">
+          <span class="doc-meta-label">Nicho</span>
+          <span class="doc-meta-value">Coach · Mentora · Cantora Cristã</span>
+        </div>
+        <div class="doc-meta-item">
+          <span class="doc-meta-label">Escopo</span>
+          <span class="doc-meta-value">3 páginas HTML estáticas</span>
+        </div>
+        <div class="doc-meta-item">
+          <span class="doc-meta-label">Audiência</span>
+          <span class="doc-meta-value">Mulheres cristãs — 88K Instagram</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================
+       SEÇÃO 1 — IDENTIDADE VISUAL
+  ========================================= -->
+    <section id="identidade">
+      <div class="section-header">
+        <div class="section-number">1</div>
+        <div>
+          <h2 class="section-title">Identidade Visual</h2>
+          <p class="section-desc">Paleta, tipografia e tom visual extraídos do moodboard de casamentos premium 2026</p>
+        </div>
+      </div>
+
+      <!-- Tom visual -->
+      <div class="info-box" style="margin-bottom: var(--s4);">
+        <div class="info-box-title">Tom visual</div>
+        <div class="info-box-body">
+          A identidade da Hadassah une espiritualidade com sofisticação — não é religiosa no sentido austero, é
+          <strong>premium e atemporal</strong>. Cada decisão de design reforça que o conteúdo é sério, cultivado e
+          cuidado.
+        </div>
+        <div class="keyword-row">
+          <span class="keyword accent">Sofisticado</span>
+          <span class="keyword accent">Espiritual</span>
+          <span class="keyword accent">Atemporal</span>
+          <span class="keyword accent">Feminino-Premium</span>
+          <span class="keyword">Orgânico</span>
+          <span class="keyword">Quente</span>
+          <span class="keyword">Sereno</span>
+          <span class="keyword">Confiante</span>
+        </div>
+      </div>
+
+      <!-- Paleta -->
+      <p class="subsection-title">Paleta de cores — Validada em sessão · Mar/2026</p>
+
+      <div class="palette-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #F7F1E8;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--bg</div>
+            <div class="swatch-hex">#F7F1E8</div>
+            <div class="swatch-name">Creme quente — fundo principal</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #EDE3D4;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--bg-deep</div>
+            <div class="swatch-hex">#EDE3D4</div>
+            <div class="swatch-name">Bege mais profundo</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #16100C;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--dark</div>
+            <div class="swatch-hex">#16100C</div>
+            <div class="swatch-name">Preto quente — hero, featured card</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #B8784A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--caramel ★</div>
+            <div class="swatch-hex">#B8784A</div>
+            <div class="swatch-name">Accent principal</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #C9996A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--gold</div>
+            <div class="swatch-hex">#C9996A</div>
+            <div class="swatch-name">Dourado médio</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #DFB98A;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--gold-light</div>
+            <div class="swatch-hex">#DFB98A</div>
+            <div class="swatch-name">Dourado claro — texto sobre escuro</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #6B7558;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--olive ★</div>
+            <div class="swatch-hex">#6B7558</div>
+            <div class="swatch-name">Verde oliva — accent secundário</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #5E4535; border-top: 1px solid #e0d8d0;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--text-mid</div>
+            <div class="swatch-hex">#5E4535</div>
+            <div class="swatch-name">Texto médio</div>
+          </div>
+        </div>
+        <div class="swatch">
+          <div class="swatch-color" style="background: #9A8070; border-top: 1px solid #e0d8d0;"></div>
+          <div class="swatch-info">
+            <div class="swatch-token">--text-light</div>
+            <div class="swatch-hex">#9A8070</div>
+            <div class="swatch-name">Texto leve / caption</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-bottom: var(--s5);">
+        <div class="info-box-title">Lógica da paleta</div>
+        <div class="info-box-body">
+          <strong>--caramel (#B8784A)</strong> é o accent de ação (botões, CTAs, hover de borda, links ativos).
+          <strong>--gold / --gold-light</strong> são usados para textos sobre fundos escuros — nunca branco puro.
+          <strong>--olive</strong> é o accent contextual (badges, categorias, elementos secundários). <strong>--dark
+            (#16100C)</strong> é o fundo do hero e do featured card. Nunca usar azul, cinza frio ou preto puro (#000) —
+          tudo com temperatura quente. A borda padrão é <strong>rgba(94, 69, 53, 0.13)</strong>.
+        </div>
+      </div>
+
+      <!-- Tipografia -->
+      <p class="subsection-title">Tipografia — Sistema de 2 fontes · Validado em sessão Mar/2026</p>
+
+      <div class="info-box" style="margin-bottom: var(--s3); border-left: 3px solid var(--doc-accent);">
+        <div class="info-box-title">Regra de ouro da tipografia</div>
+        <div class="info-box-body">
+          <strong>Libre Baskerville</strong> aparece UMA ÚNICA VEZ por página — no nome/título principal. Isso cria
+          impacto pela escassez. <strong>DM Sans</strong> faz todo o resto: cargo, links, subtextos, cards, footer,
+          tudo. Hierarquia clara sem poluição visual.
+        </div>
+      </div>
+
+      <div class="type-specimen" style="margin-bottom: var(--s3);">
+        <div class="type-specimen-header">
+          <span class="type-specimen-name">Libre Baskerville — Nome / Título principal</span>
+          <span class="type-specimen-meta">Google Fonts · Pesos: 400, 700 · Regular + Italic · USO: UMA VEZ por página
+            apenas</span>
+        </div>
+        <div class="type-specimen-body">
+          <div class="type-row">
+            <div class="type-row-label">Nome / Hero</div>
+            <div
+              style="font-family: 'Libre Baskerville', serif; font-size: 40px; font-weight: 400; color: #F5EDD8; background: #16100C; padding: 12px 16px; border-radius: 8px; line-height: 1.15; letter-spacing: 0.01em;">
+              Hadassah Perez</div>
+            <div class="type-row-spec">36–44px / 400 / #F5EDD8</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row-label">Nome claro</div>
+            <div
+              style="font-family: 'Libre Baskerville', serif; font-size: 40px; font-weight: 400; color: #1C1410; line-height: 1.15;">
+              Hadassah Perez</div>
+            <div class="type-row-spec">36–44px / 400 / --dark</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="type-specimen" style="margin-bottom: var(--s3);">
+        <div class="type-specimen-header">
+          <span class="type-specimen-name">DM Sans — Tudo o mais</span>
+          <span class="type-specimen-meta">Google Fonts · Pesos: 300, 400, 500 · Cargo, links, subtextos, cards, footer,
+            botões, labels</span>
+        </div>
+        <div class="type-specimen-body">
+          <div class="type-row">
+            <div class="type-row-label">Cargo / Label</div>
+            <div
+              style="font-family: 'DM Sans', sans-serif; font-size: 10px; font-weight: 400; color: #DFB98A; line-height: 1.5; letter-spacing: 0.24em; text-transform: uppercase;">
+              COACH · MENTORA · CANTORA CRISTÃ</div>
+            <div class="type-row-spec">10px / 400 / 0.24em UC / gold-light</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row-label">Body Large</div>
+            <div
+              style="font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 400; color: #1C1410; line-height: 1.7;">
+              Você foi criada para mais do que uma vida ordinária. Este devocional foi construído para ser seu espelho —
+              refletindo quem Deus diz que você é.</div>
+            <div class="type-row-spec">17px / 400 / 0</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row-label">Body</div>
+            <div
+              style="font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 400; color: #5E4535; line-height: 1.7;">
+              Ao longo de 21 dias, você percorrerá três ciclos: Alinhamento, Direção e Ação com Fé.</div>
+            <div class="type-row-spec">15px / 400 / 0</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row-label">Link Card</div>
+            <div
+              style="font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; color: #1C1410; line-height: 1.4;">
+              21 Devocionais de Alinhamento</div>
+            <div class="type-row-spec">14px / 500 / card title</div>
+          </div>
+          <div class="type-row">
+            <div class="type-row-label">Caption / Sub</div>
+            <div
+              style="font-family: 'DM Sans', sans-serif; font-size: 12px; font-weight: 400; color: #9A8070; line-height: 1.5;">
+              R$149 · Acesso imediato</div>
+            <div class="type-row-spec">12px / 400 / text-light</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-bottom: var(--s3);">
+        <div class="info-box-title">Fontes para as outras páginas (Mentoria, Devocional)</div>
+        <div class="info-box-body">
+          As páginas de Mentoria e Devocional podem continuar usando <strong>Playfair Display</strong> para headings
+          internos (H1, H2, H3) e <strong>Cormorant Garamond italic</strong> para pull quotes — já definidos no briefing
+          original. A regra da Libre Baskerville se aplica especialmente à Página 1 (Link na Bio), onde ela aparece no
+          nome do hero. Nas demais páginas, Playfair é a fonte serifa principal de títulos.
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 2 — COMPONENTES BASE
+  ========================================= -->
+    <section id="componentes">
+      <div class="section-header">
+        <div class="section-number">2</div>
+        <div>
+          <h2 class="section-title">Componentes Base</h2>
+          <p class="section-desc">Elementos visuais renderizados — copiar estilos diretamente deste documento</p>
+        </div>
+      </div>
+
+      <div class="components-grid">
+
+        <!-- Botão primário -->
+        <div class="component-card">
+          <div class="component-card-header">Botão Primário — CTA principal</div>
+          <div class="component-card-body">
+            <a class="btn-primary" href="#">✦ Quero meu devocional agora</a>
+          </div>
+          <div class="component-card-note">Background caramel · border-radius 100px · box-shadow quente · hover:
+            escurece 10% + sobe 1px · fonte DM Sans 14px/500</div>
+        </div>
+
+        <!-- Botão secundário -->
+        <div class="component-card">
+          <div class="component-card-header">Botão Secundário — Ação auxiliar</div>
+          <div class="component-card-body">
+            <a class="btn-secondary" href="#">Conhecer a mentoria</a>
+          </div>
+          <div class="component-card-note">Outline caramel · fundo transparente · hover: background tint 8% · mesma
+            altura que o primário</div>
+        </div>
+
+        <!-- Card de link -->
+        <div class="component-card">
+          <div class="component-card-header">Card de Link — Link na Bio (ESTRUTURA VALIDADA)</div>
+          <div class="component-card-body centered-col">
+            <!-- Card Featured: fundo escuro #16100C -->
+            <a class="link-card featured" href="#"
+              style="background: #16100C; border: 1px solid rgba(201,153,106,0.25); box-shadow: none; position: relative; overflow: hidden;">
+              <div
+                style="position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, #C9996A, transparent); opacity: 0.55;">
+              </div>
+              <div class="link-card-icon" style="background: rgba(255,255,255,0.07);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#DFB98A" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+              </div>
+              <div class="link-card-text">
+                <div class="link-card-title"
+                  style="color: #F5EDD8; font-family: 'DM Sans', sans-serif; font-size: 14px;">21 Devocionais de
+                  Alinhamento</div>
+                <div class="link-card-sub" style="color: #DFB98A;">R$149 · Acesso imediato</div>
+              </div>
+              <div class="link-card-arrow" style="color: #C9996A;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+            <!-- Card padrão: glassmorphism leve -->
+            <a class="link-card" href="#"
+              style="background: rgba(255,255,255,0.55); backdrop-filter: blur(10px); border: 1px solid rgba(94,69,53,0.13); border-radius: 12px;">
+              <div class="link-card-icon" style="background: rgba(237,227,212,0.7);">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#B8784A" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div class="link-card-text">
+                <div class="link-card-title">Mentoria Individual</div>
+                <div class="link-card-sub">Agende uma conversa</div>
+              </div>
+              <div class="link-card-arrow">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B8784A" stroke-width="1.5"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14" />
+                  <path d="m12 5 7 7-7 7" />
+                </svg>
+              </div>
+            </a>
+          </div>
+          <div class="component-card-note">Card featured: fundo #16100C + linha dourada topo + texto creme · Card
+            padrão: glassmorphism rgba(255,255,255,0.55) + blur(10px) · Hover: borda caramel esquerda 3px +
+            translateY(-2px) · NUNCA usar emojis — sempre SVG Lucide</div>
+        </div>
+
+        <!-- Separador + Badge -->
+        <div class="component-card">
+          <div class="component-card-header">Ornamento Separador (3 losangos) + Badge</div>
+          <div class="component-card-body centered-col">
+            <!-- Ornamento: 3 losangos + linhas com gradiente fade -->
+            <div style="display: flex; align-items: center; gap: 10px; width: 100%; max-width: 320px;">
+              <div style="flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(94,69,53,0.2));">
+              </div>
+              <div style="display: flex; align-items: center; gap: 5px;">
+                <div style="width: 5px; height: 5px; background: #C9996A; transform: rotate(45deg); opacity: 0.30;">
+                </div>
+                <div style="width: 6px; height: 6px; background: #C9996A; transform: rotate(45deg); opacity: 0.55;">
+                </div>
+                <div style="width: 5px; height: 5px; background: #C9996A; transform: rotate(45deg); opacity: 0.30;">
+                </div>
+              </div>
+              <div style="flex: 1; height: 1px; background: linear-gradient(270deg, transparent, rgba(94,69,53,0.2));">
+              </div>
+            </div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;">
+              <span class="badge"><span class="badge-dot"></span>Coaching Integral</span>
+              <span class="badge"><span class="badge-dot"></span>Hillsong</span>
+              <span class="badge"><span class="badge-dot"></span>Dallas Baptist</span>
+            </div>
+          </div>
+          <div class="component-card-note">Ornamento: 3 losangos rotate(45deg) + linhas gradiente fade · Central 6px
+            opac 0.55, laterais 5px opac 0.30 · Badge: fundo olive 12% + borda olive 25% · separador vai entre logo e
+            cards de links</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 3 — PÁGINA 1: LINK NA BIO
+  ========================================= -->
+    <section id="p1">
+      <div class="section-header">
+        <div class="section-number">3</div>
+        <div>
+          <h2 class="section-title">Página 1 — Link na Bio</h2>
+          <p class="section-desc">Mobile-first · centralizado · ESTRUTURA FINAL VALIDADA em sessão Mar/2026</p>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-bottom: var(--s3); border-left: 3px solid var(--doc-accent);">
+        <div class="info-box-title">Estrutura validada — 2 seções obrigatórias nesta ordem</div>
+        <div class="info-box-body">
+          <strong>Seção 1 — Hero full-viewport (100dvh):</strong> foto da cliente como background, overlay gradiente
+          escuro, nome em Libre Baskerville, cargo em DM Sans. <strong>Seção 2 — Links (fundo creme):</strong> logo
+          olive no topo, ornamento de losangos, cards de links, ícones sociais, footer. Nunca começar direto nos links —
+          o hero com foto é obrigatório.
+        </div>
+      </div>
+
+      <div class="page-wireframe">
+        <div class="page-wireframe-header">
+          <div class="page-wireframe-title">
+            <span class="page-badge p1">P1</span>
+            <span class="page-wireframe-name">Link na Bio</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="doc-tag">Mobile-first</span>
+            <span class="doc-tag green">Estrutura Validada</span>
+            <span class="page-url">hadassahperez.com.br/links</span>
+          </div>
+        </div>
+
+        <div class="wireframe-sections">
+
+          <!-- SEÇÃO 1: HERO FULL-VIEWPORT -->
+          <div class="wf-section" style="background: rgba(22,16,12,0.04); border-radius: 8px; margin-bottom: 4px;">
+            <div class="wf-section-name">
+              <div class="wf-order" style="background: #16100C;">1</div>
+              <div class="wf-section-label">HERO — Full-Viewport (fundo escuro)</div>
+            </div>
+            <div class="wf-section-desc">
+              <strong>Background:</strong> foto da Hadassah como background-image, <code>object-fit: cover</code>,
+              <code>object-position: center 15%</code>, ocupa 100dvh.<br>
+              <strong>Overlay gradiente:</strong>
+              <code>linear-gradient(180deg, rgba(16,10,6,0.25) 0%, rgba(16,10,6,0.15) 35%, rgba(16,10,6,0.55) 70%, rgba(16,10,6,0.88) 100%)</code>.<br>
+              <strong>Conteúdo (alinhado ao bottom, padding 40px 24px):</strong><br>
+              — Linha decorativa dourada: 32px largura, 1px altura, cor #DFB98A.<br>
+              — Nome: Libre Baskerville, 36–44px, weight 400, cor #F5EDD8.<br>
+              — Cargo: ornamento decorativo (3 losangos) + "COACH · MENTORA · CANTORA" em DM Sans, 10px, letter-spacing
+              0.24em, uppercase, cor #DFB98A.<br>
+              — Seta de scroll animada (bounce, 24px) linkando para #links, cor gold-light.<br>
+              <strong>Asset necessário:</strong> foto em moodboard/foto-hadassah.jpg (retrato, min. 800×1200px). Arquivo
+              já recebido.
+            </div>
+            <div class="wf-height">100dvh</div>
+          </div>
+
+          <!-- SEÇÃO 2: LINKS (FUNDO CREME) -->
+          <div class="wf-section" style="background: rgba(247,241,232,0.5); border-radius: 8px;">
+            <div class="wf-section-name">
+              <div class="wf-order" style="background: #B8784A;">2</div>
+              <div class="wf-section-label">LINKS — Seção creme (fundo #F7F1E8)</div>
+            </div>
+            <div class="wf-section-desc">
+              <strong>Fundo:</strong> #F7F1E8 (creme quente). Padding: 40px 24px. Max-width do container: 420px
+              centralizado.<br>
+              <strong>Logo (topo):</strong> logo-olive.png centralizada — versão olive/escura porque o fundo é claro.
+              Alt: "Hadassah Perez". Height: 48px, width: auto.<br>
+              <strong>Ornamento separador:</strong> 3 losangos + linhas gradiente fade (ver componente na Seção 2).<br>
+              <strong>Card featured (produto principal):</strong> fundo #16100C, linha dourada no topo (gradiente
+              transparente→gold→transparente, 1px, opacity 0.55), título DM Sans 14px cor #F5EDD8, subtítulo #DFB98A.
+              Ícone SVG Lucide. Seta gold.<br>
+              <strong>Cards padrão:</strong> fundo rgba(255,255,255,0.55) + backdrop-filter blur(10px), border 1px solid
+              rgba(94,69,53,0.13), border-radius 12px. Hover: borda caramel esquerda 3px gradiente + translateY(-2px) +
+              box-shadow quente.<br>
+              Ordem de links: (1) Produto/Devocional (featured escuro), (2) Mentoria Individual, (3) YouTube/Música, (4)
+              WhatsApp. Todos com SVG Lucide 16px em container 36×36px.<br>
+              <strong>Ícones sociais:</strong> Instagram, YouTube, Spotify, WhatsApp — SVGs 20px, cor #9A8070, hover:
+              #B8784A.<br>
+              <strong>Footer:</strong> "Hadassah Perez" DM Sans 11px, cor #9A8070.
+            </div>
+            <div class="wf-height">auto</div>
+          </div>
+
+        </div>
+
+        <div class="dev-notes" style="margin: 0 var(--s4) var(--s4);">
+          <div class="dev-notes-title">Notas de Implementação — Página 1 (Link na Bio)</div>
+          <ul>
+            <li><strong>Hero background:</strong> usar a foto como <code>background-image</code> na seção, NÃO como tag
+              &lt;img&gt;. CSS: <code>background-size: cover; background-position: center 15%;</code></li>
+            <li><strong>Overlay:</strong> pseudo-elemento ::after ou div filho com position absolute, inset 0, gradient
+              escuro (valores acima). z-index do conteúdo acima do overlay.</li>
+            <li><strong>Logo no hero:</strong> NÃO usar logo com fundo branco sobre fundo escuro — mix-blend-mode não
+              resolve. Usar logo com fundo transparente (PNG transparente ou SVG). Logo para hero: PENDENTE — solicitar
+              PNG transparente ao cliente. Logo olive (fundo claro): logo-olive.png já recebida.</li>
+            <li><strong>Logo na seção de links:</strong> logo-olive.png funciona bem sobre fundo creme #F7F1E8.</li>
+            <li><strong>Seta de scroll:</strong> animação bounce com @keyframes: translateY(0) → translateY(6px) →
+              translateY(0), loop infinito 1.2s ease-in-out. Linkando para id="links".</li>
+            <li><strong>Grain texture:</strong> usar SVG filter feTurbulence aplicado como pseudo-elemento, opacity
+              0.04, não afeta performance.</li>
+            <li><strong>Animações de entrada:</strong> fadeUp — opacity 0 → 1 + translateY(16px → 0) — 400ms ease-out.
+              Delay escalonado: nome (0ms), cargo (80ms), seta (160ms). Na seção links: cada card com delay 40ms
+              escalonado.</li>
+            <li><strong>Breakpoints:</strong> página é mobile-only (max-width 420px). Em telas maiores: centralizar com
+              margin auto, fundo do body = #F7F1E8.</li>
+            <li>Testar em 375px (iPhone SE) e 390px (iPhone 14). Sem scroll horizontal em nenhum breakpoint.</li>
+            <li>Todos os cards: <code>cursor: pointer; transition: all 0.2s ease-out;</code></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 4 — PÁGINA 2: MENTORIA
+  ========================================= -->
+    <section id="p2">
+      <div class="section-header">
+        <div class="section-number">4</div>
+        <div>
+          <h2 class="section-title">Página 2 — Mentoria Individual</h2>
+          <p class="section-desc">Página de apresentação · convite, não pressão · elegância antes de conversão</p>
+        </div>
+      </div>
+
+      <div class="page-wireframe">
+        <div class="page-wireframe-header">
+          <div class="page-wireframe-title">
+            <span class="page-badge p2">P2</span>
+            <span class="page-wireframe-name">Mentoria</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="doc-tag">Desktop + Mobile</span>
+            <span class="page-url">hadassahperez.com.br/mentoria</span>
+          </div>
+        </div>
+
+        <div class="wireframe-sections">
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">1</div>
+              <div class="wf-section-label">Navbar</div>
+            </div>
+            <div class="wf-section-desc">
+              Logo / nome à esquerda (Playfair 18px). Links: "Devocional" e "Fale comigo" à direita (DM Sans 13px).
+              Background transparente no topo, bg creme ao fazer scroll. Sem shadow, apenas border-bottom 1px sutil ao
+              rolar.
+            </div>
+            <div class="wf-height">~64px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">2</div>
+              <div class="wf-section-label">Hero</div>
+            </div>
+            <div class="wf-section-desc">
+              Layout dividido: esquerda (55%) texto, direita (45%) foto. Esquerda: badge olive "Mentoria Individual",
+              título H1 Playfair 52px, tagline Cormorant italic 20px, parágrafo DM Sans 16px/1.7, botão CTA primário.
+              Direita: foto da Hadassah com overlay sutil (gradiente creme nas bordas). Background: bg-alt (#F0E8DC).
+              Min-height 90vh.
+            </div>
+            <div class="wf-height">~90vh</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">3</div>
+              <div class="wf-section-label">O que é</div>
+            </div>
+            <div class="wf-section-desc">
+              Seção centralizada, max-width 680px. Título H2 Playfair 36px. Parágrafo DM Sans 16px. 1 ou 2 parágrafos
+              explicando o formato da mentoria individual (encontros, duração, profundidade). Background branco.
+            </div>
+            <div class="wf-height">~300px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">4</div>
+              <div class="wf-section-label">Para quem é</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg (#F9F4ED). Grid 2 colunas (desktop) de cards com ícone sutil, título DM Sans 15px/500,
+              descrição 13px. Cada card: mulher em determinado momento de vida (ex: "sente que foi criada para mais",
+              "quer clareza sobre propósito", "está em transição de carreira/vida"). 4 a 6 cards.
+            </div>
+            <div class="wf-height">~400px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">5</div>
+              <div class="wf-section-label">O que você recebe</div>
+            </div>
+            <div class="wf-section-desc">
+              Lista visual com ícone checkmark caramel (✓). Itens em DM Sans 15px. Padding generoso entre itens.
+              Background branco. Exemplos: encontros mensais ao vivo, acompanhamento por WhatsApp, plano de ação
+              personalizado, materiais exclusivos.
+            </div>
+            <div class="wf-height">~320px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">6</div>
+              <div class="wf-section-label">Credenciais</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg-alt. Título "Formação e Credenciais" Playfair 32px. Grid de 4 cards: (1) Hillsong Leadership
+              College — Austrália; (2) Dallas Baptist University — EUA; (3) Coaching Integral Sistêmico; (4) Análise
+              Comportamental. Cada card: ícone ornamental, nome da instituição em Playfair, país/área em DM Sans 12px.
+              Badges olive para cada área.
+            </div>
+            <div class="wf-height">~360px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">7</div>
+              <div class="wf-section-label">CTA Final</div>
+            </div>
+            <div class="wf-section-desc">
+              Seção centralizada com fundo escuro (--dark #1C1410). Título Playfair 40px cor creme. Subtítulo DM Sans
+              16px cor text-light versão clara. Botão primário caramel. Texto abaixo do botão: "Vagas limitadas ·
+              Seleção por alinhamento de propósito" em DM Sans 12px opacity 60%.
+            </div>
+            <div class="wf-height">~320px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">8</div>
+              <div class="wf-section-label">Footer</div>
+            </div>
+            <div class="wf-section-desc">
+              Background dark. Logo/nome, links de navegação rápida, ícones sociais. Texto copyright DM Sans 11px
+              opacity 40%.
+            </div>
+            <div class="wf-height">~200px</div>
+          </div>
+
+        </div>
+
+        <div class="dev-notes" style="margin: 0 var(--s4) var(--s4);">
+          <div class="dev-notes-title">Notas para o desenvolvedor</div>
+          <ul>
+            <li>Max-width do conteúdo: 1160px com padding horizontal 40px (desktop), 24px (mobile).</li>
+            <li>A seção Hero deve ter parallax suave na foto de fundo — 0.3x scroll ratio, implementar com CSS transform
+              apenas (sem biblioteca).</li>
+            <li>Seção de credenciais: cards com borda-left 3px solid caramel como detalhe visual.</li>
+            <li>CTA do WhatsApp: abrir em nova aba, link href="https://wa.me/[NÚMERO]?text=Olá+Hadassah...".</li>
+            <li>Mobile: hero vira coluna única, foto acima do texto, min-height auto.</li>
+            <li>Seção "Para quem é" pode usar ícones de emoji com wrapper bg-alt e border-radius 50%.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 5 — PÁGINA 3: DEVOCIONAL
+  ========================================= -->
+    <section id="p3">
+      <div class="section-header">
+        <div class="section-number">5</div>
+        <div>
+          <h2 class="section-title">Página 3 — 21 Devocionais de Alinhamento</h2>
+          <p class="section-desc">Página de vendas · R$149 · produto digital · estrutura completa de copy</p>
+        </div>
+      </div>
+
+      <div class="page-wireframe">
+        <div class="page-wireframe-header">
+          <div class="page-wireframe-title">
+            <span class="page-badge p3">P3</span>
+            <span class="page-wireframe-name">Produto — 21 Devocionais</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <span class="doc-tag">Página de vendas</span>
+            <span class="page-url">hadassahperez.com.br/alinhamento</span>
+          </div>
+        </div>
+
+        <div class="wireframe-sections">
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">1</div>
+              <div class="wf-section-label">Hero / Ativação</div>
+            </div>
+            <div class="wf-section-desc">
+              Background gradiente escuro (dark → brown). Badge olive "21 Devocionais". Título principal H1 Playfair
+              56px cor creme: "Alinhamento". Subtítulo Cormorant italic 22px: "21 Devocionais para Conectar seu Coração
+              aos Planos de Deus". Parágrafo DM Sans 17px/1.7 cor text-light versão clara. Botão CTA primário caramel.
+              Abaixo do botão: preço "R$149 · Investimento único" em DM Sans 14px dourado. Foto ou mockup do produto à
+              direita (desktop) ou abaixo (mobile). Sem navbar distrativa.
+            </div>
+            <div class="wf-height">~100vh</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">2</div>
+              <div class="wf-section-label">Prova social rápida</div>
+            </div>
+            <div class="wf-section-desc">
+              Barra horizontal com 3 números em destaque: "88K seguidores no Instagram", "[X] alunas transformadas", "3
+              ciclos de formação". Fonte DM Sans. Background bg-alt. Separados por divisores verticais finos.
+            </div>
+            <div class="wf-height">~100px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">3</div>
+              <div class="wf-section-label">Problema / Identificação</div>
+            </div>
+            <div class="wf-section-desc">
+              Background branco. Título H2 Playfair 36px. Parágrafos em DM Sans 16px/1.8 descrevendo a dor: sentir que
+              tem um chamado mas não sabe como caminhar nele, dias que passam sem propósito claro, orar mas não sentir
+              direção. Linguagem espiritual, sem jargão clichê. Pull quote em Cormorant italic grande.
+            </div>
+            <div class="wf-height">~400px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">4</div>
+              <div class="wf-section-label">Solução — O produto</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg. Título H2 Playfair. Descrição do devocional: 21 dias, estrutura diária, o que cada dia
+              contém (reflexão, versículo, pergunta de ativação, oração guiada). Mockup do produto destacado. Lista de
+              benefícios com ícone checkmark caramel.
+            </div>
+            <div class="wf-height">~480px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">5</div>
+              <div class="wf-section-label">Os 3 Ciclos</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg-alt. Título "A jornada dos 21 dias" Playfair 36px. 3 cards em grid (desktop) ou empilhados
+              (mobile). Ciclo I: "Alinhamento · Dias 1–7" — descrição; Ciclo II: "Direção · Dias 8–14" — descrição;
+              Ciclo III: "Ação com Fé · Dias 15–21" — descrição. Cards com borda caramel no topo (border-top 3px).
+              Numeração romana em Cormorant italic grande (I, II, III) como decoração.
+            </div>
+            <div class="wf-height">~420px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">6</div>
+              <div class="wf-section-label">Para quem é</div>
+            </div>
+            <div class="wf-section-desc">
+              Background branco. Lista em 2 colunas de checkmarks: mulher que sente chamado mas não tem clareza; que
+              quer uma prática devocional com profundidade; que está em momento de transição; que quer entender os
+              planos de Deus para sua vida. Fonte DM Sans 15px.
+            </div>
+            <div class="wf-height">~320px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">7</div>
+              <div class="wf-section-label">Hadassah — Autoridade</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg. Foto grande + texto ao lado. "Quem é Hadassah Perez" — breve bio de 3 parágrafos.
+              Credenciais em badges olive abaixo da bio: Hillsong · DBU · Coaching · Análise Comportamental. Tom pessoal
+              e acolhedor, não currículo frio.
+            </div>
+            <div class="wf-height">~460px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">8</div>
+              <div class="wf-section-label">Depoimentos</div>
+            </div>
+            <div class="wf-section-desc">
+              Background bg-alt. Título "O que dizem as que já caminharam". Grid de 3 cards de depoimento. Cada card:
+              foto circular da aluna (40px), nome, texto em aspas Cormorant italic 18px, estrelas ou ornamento. Fundo
+              branco. Sombra suave. Se não houver depoimentos ainda, usar placeholders e indicar no código com
+              <!-- DEPOIMENTO -->.
+            </div>
+            <div class="wf-height">~400px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">9</div>
+              <div class="wf-section-label">Oferta + Garantia</div>
+            </div>
+            <div class="wf-section-desc">
+              Box central com borda caramel 2px border-radius 20px. Título do produto Playfair 28px. Lista do que está
+              incluso. Preço R$149 em Playfair 52px caramel. "Investimento único · Acesso imediato" DM Sans 14px. Botão
+              CTA primário largo. Abaixo: garantia com ícone escudo — "7 dias de garantia incondicional — se não for
+              para você, devolvo 100%". DM Sans 13px text-mid.
+            </div>
+            <div class="wf-height">~480px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">10</div>
+              <div class="wf-section-label">FAQ</div>
+            </div>
+            <div class="wf-section-desc">
+              Background branco. Accordion simples: 5 a 7 perguntas frequentes. Exemplo: "Como acesso após a compra?",
+              "É um livro físico?", "Quanto tempo leva por dia?", "E se eu não me identificar?". Cada item: padding
+              20px, borda-bottom 1px, seta → que rotaciona ao abrir. Animação: max-height 0 → auto com transition 0.25s
+              ease-out.
+            </div>
+            <div class="wf-height">~400px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">11</div>
+              <div class="wf-section-label">CTA Final</div>
+            </div>
+            <div class="wf-section-desc">
+              Background dark. Título Playfair 44px cor creme. Subtítulo Cormorant italic 20px cor gold (#D4A96A). Botão
+              CTA primário. Preço abaixo. Urgência sutil: "Acesso liberado imediatamente após a compra".
+            </div>
+            <div class="wf-height">~340px</div>
+          </div>
+
+          <div class="wf-section">
+            <div class="wf-section-name">
+              <div class="wf-order">12</div>
+              <div class="wf-section-label">Footer</div>
+            </div>
+            <div class="wf-section-desc">
+              Footer simples: nome, links legais (política de privacidade, termos), copyright. Background dark ou
+              bg-alt.
+            </div>
+            <div class="wf-height">~160px</div>
+          </div>
+
+        </div>
+
+        <div class="dev-notes" style="margin: 0 var(--s4) var(--s4);">
+          <div class="dev-notes-title">Notas para o desenvolvedor</div>
+          <ul>
+            <li>Botão de compra: href para checkout Kiwify (receber link da cliente antes de implementar). Colocar
+              <!-- KIWIFY_LINK --> como placeholder.</li>
+            <li>CTA principal aparece 3 vezes: hero, seção oferta e CTA final. Manter consistência.</li>
+            <li>Seção hero com fundo escuro — garantir contraste mínimo de 4.5:1 para texto.</li>
+            <li>Accordion do FAQ: implementar com JavaScript puro, sem jQuery. Máximo 20 linhas de JS.</li>
+            <li>Mockup do produto: se não houver imagem, criar placeholder visual com CSS (box bege, sombra, texto
+              "Devocional").</li>
+            <li>Pixel do Meta/GTM: deixar <!-- META_PIXEL --> no head para inserção posterior.</li>
+            <li>Página deve carregar em menos de 3s em 4G. Sem animações pesadas no hero.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 6 — REGRAS DE IMPLEMENTAÇÃO
+  ========================================= -->
+    <section id="regras">
+      <div class="section-header">
+        <div class="section-number">6</div>
+        <div>
+          <h2 class="section-title">Regras de Implementação</h2>
+          <p class="section-desc">Sistema de design — valores exatos para garantir consistência entre as 3 páginas</p>
+        </div>
+      </div>
+
+      <div class="rules-grid">
+
+        <!-- Tipografia escalas -->
+        <div class="rule-card">
+          <div class="rule-card-header">Escala Tipográfica</div>
+          <div class="rule-card-body">
+            <div class="rule-row">
+              <span class="rule-label">H1 / Hero</span>
+              <span class="rule-value">52–56px · Playfair 500</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">H2 / Seção</span>
+              <span class="rule-value">32–36px · Playfair 500</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">H3 / Card</span>
+              <span class="rule-value">22–24px · Playfair 400</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">H4 / Sub</span>
+              <span class="rule-value">17–18px · Playfair 400</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Body Large</span>
+              <span class="rule-value">16–17px · DM Sans 400</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Body</span>
+              <span class="rule-value">14–15px · DM Sans 400</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Caption / Label</span>
+              <span class="rule-value">11–12px · DM Sans 500</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Micro</span>
+              <span class="rule-value">10–11px · DM Sans 400</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Pull Quote</span>
+              <span class="rule-value">22–28px · Cormorant 400i</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Raios de borda -->
+        <div class="rule-card">
+          <div class="rule-card-header">Border Radius</div>
+          <div class="rule-card-body">
+            <div class="rule-row">
+              <span class="rule-label">Botões</span>
+              <span class="rule-value highlight">100px (pill)</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Cards grandes</span>
+              <span class="rule-value">20px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Cards médios / link cards</span>
+              <span class="rule-value">14px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Badges / tags</span>
+              <span class="rule-value">100px (pill)</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Ícone containers</span>
+              <span class="rule-value">10–12px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Inputs / campos</span>
+              <span class="rule-value">10px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Imagens de seção</span>
+              <span class="rule-value">16–20px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Foto circular (perfil)</span>
+              <span class="rule-value">50% (círculo)</span>
+            </div>
+            <div style="padding-top: var(--s2);">
+              <div class="radius-demo">
+                <div class="radius-box" style="border-radius: 100px;"><span class="r-name">PILL</span><span
+                    class="r-val">100px</span></div>
+                <div class="radius-box" style="border-radius: 20px;"><span class="r-name">LG</span><span
+                    class="r-val">20px</span></div>
+                <div class="radius-box" style="border-radius: 14px;"><span class="r-name">MD</span><span
+                    class="r-val">14px</span></div>
+                <div class="radius-box" style="border-radius: 10px;"><span class="r-name">SM</span><span
+                    class="r-val">10px</span></div>
+                <div class="radius-box" style="border-radius: 6px;"><span class="r-name">XS</span><span
+                    class="r-val">6px</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Espaçamento -->
+        <div class="rule-card">
+          <div class="rule-card-header">Sistema de Espaçamento (base 8px)</div>
+          <div class="rule-card-body">
+            <div class="spacing-demo">
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 8px;"></div>
+                <span class="spacing-label">--s1 / 8px</span>
+                <span class="spacing-val">gap mínimo, padding micro</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 16px;"></div>
+                <span class="spacing-label">--s2 / 16px</span>
+                <span class="spacing-val">gap entre elementos inline</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 24px;"></div>
+                <span class="spacing-label">--s3 / 24px</span>
+                <span class="spacing-val">padding de cards</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 32px;"></div>
+                <span class="spacing-label">--s4 / 32px</span>
+                <span class="spacing-val">gap entre cards, seções internas</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 40px;"></div>
+                <span class="spacing-label">--s5 / 40px</span>
+                <span class="spacing-val">padding lateral mobile</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 48px;"></div>
+                <span class="spacing-label">--s6 / 48px</span>
+                <span class="spacing-val">padding vertical de seções small</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 64px;"></div>
+                <span class="spacing-label">--s8 / 64px</span>
+                <span class="spacing-val">padding vertical padrão de seções</span>
+              </div>
+              <div class="spacing-row">
+                <div class="spacing-bar" style="width: 80px;"></div>
+                <span class="spacing-label">--s10 / 80px</span>
+                <span class="spacing-val">padding vertical de seções hero</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sombras -->
+        <div class="rule-card">
+          <div class="rule-card-header">Sombras — Sempre quentes (nunca cinza/azul)</div>
+          <div class="rule-card-body">
+            <div class="shadow-demo">
+              <div class="shadow-item">
+                <div class="shadow-box s-sm"></div>
+                <div class="shadow-info">
+                  <div class="shadow-name">Small — hover sutil, badges</div>
+                  <div class="shadow-val">0 2px 8px rgba(107,77,55, 0.06)</div>
+                </div>
+              </div>
+              <div class="shadow-item">
+                <div class="shadow-box s-md"></div>
+                <div class="shadow-info">
+                  <div class="shadow-name">Medium — cards, link cards</div>
+                  <div class="shadow-val">0 4px 16px rgba(107,77,55, 0.10)</div>
+                </div>
+              </div>
+              <div class="shadow-item">
+                <div class="shadow-box s-lg"></div>
+                <div class="shadow-info">
+                  <div class="shadow-name">Large — modais, dropdowns</div>
+                  <div class="shadow-val">0 8px 32px rgba(107,77,55, 0.14)</div>
+                </div>
+              </div>
+              <div class="shadow-item">
+                <div class="shadow-box s-xl"></div>
+                <div class="shadow-info">
+                  <div class="shadow-name">XL — hero cards, destaques</div>
+                  <div class="shadow-val">0 16px 48px rgba(107,77,55, 0.18)</div>
+                </div>
+              </div>
+            </div>
+            <div
+              style="margin-top: var(--s3); padding: var(--s2); background: var(--doc-accent-dim); border-radius: 8px;">
+              <div style="font-size: 11px; color: var(--doc-accent); font-weight: 600; margin-bottom: 4px;">Sombra de
+                botão CTA</div>
+              <div style="font-size: 11px; font-family: monospace; color: var(--doc-text-mid);">0 4px 16px
+                rgba(196,137,90, 0.28)</div>
+              <div style="font-size: 11px; color: var(--doc-text-light); margin-top: 2px;">Usa a cor caramel, não o
+                marrom — reforça o CTA</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Animações -->
+      <div style="margin-top: var(--s3);">
+        <div class="rule-card">
+          <div class="rule-card-header">Animações e Transições — Guia de Comportamento</div>
+          <div class="rule-card-body" style="padding: 0;">
+            <table class="anim-table">
+              <thead>
+                <tr>
+                  <th>Elemento</th>
+                  <th>Propriedade</th>
+                  <th>Duração</th>
+                  <th>Easing</th>
+                  <th>Observação</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Botões (hover)</td>
+                  <td><code>background, transform, box-shadow</code></td>
+                  <td><code>200ms</code></td>
+                  <td><code>ease-out</code></td>
+                  <td>transform: translateY(-1px) — sobe apenas 1px</td>
+                </tr>
+                <tr>
+                  <td>Cards de link (hover)</td>
+                  <td><code>border-color, box-shadow, transform</code></td>
+                  <td><code>200ms</code></td>
+                  <td><code>ease-out</code></td>
+                  <td>Sem mudança de escala — apenas posição Y e sombra</td>
+                </tr>
+                <tr>
+                  <td>Navbar ao scroll</td>
+                  <td><code>background, border-color</code></td>
+                  <td><code>300ms</code></td>
+                  <td><code>ease</code></td>
+                  <td>Usar backdrop-filter: blur(8px) com background opacity</td>
+                </tr>
+                <tr>
+                  <td>Accordion FAQ</td>
+                  <td><code>max-height, opacity</code></td>
+                  <td><code>250ms</code></td>
+                  <td><code>ease-out</code></td>
+                  <td>Seta rotaciona 180deg com transition simultânea</td>
+                </tr>
+                <tr>
+                  <td>Entrada de seções</td>
+                  <td><code>opacity, translateY</code></td>
+                  <td><code>400ms</code></td>
+                  <td><code>ease-out</code></td>
+                  <td>IntersectionObserver. Delay escalonado nos cards: 0, 80, 160ms</td>
+                </tr>
+                <tr>
+                  <td>Links / navegação</td>
+                  <td><code>color, opacity</code></td>
+                  <td><code>150ms</code></td>
+                  <td><code>ease</code></td>
+                  <td>Sem underline por padrão — usar opacidade ou cor</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Breakpoints -->
+      <div style="margin-top: var(--s3);">
+        <div class="rule-card">
+          <div class="rule-card-header">Breakpoints Responsivos</div>
+          <div class="rule-card-body">
+            <div class="rule-row">
+              <span class="rule-label">Mobile (padrão)</span>
+              <span class="rule-value">≤ 480px · coluna única · padding 20–24px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Tablet</span>
+              <span class="rule-value">481px – 768px · 2 colunas onde aplicável</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Desktop</span>
+              <span class="rule-value">769px – 1200px · layout completo</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Wide</span>
+              <span class="rule-value">≥ 1201px · max-width 1160px centralizado</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Link na Bio</span>
+              <span class="rule-value">max-width 420px — sempre centralizado</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 7 — REGRAS DE EXCELÊNCIA VISUAL
+  ========================================= -->
+    <section id="excelencia">
+      <div class="section-header">
+        <div class="section-number">7</div>
+        <div>
+          <h2 class="section-title">Regras de Excelência Visual</h2>
+          <p class="section-desc">Princípios não-negociáveis validados em sessão — aplicam a todas as 3 páginas</p>
+        </div>
+      </div>
+
+      <div class="rules-grid">
+
+        <div class="rule-card" style="border-color: rgba(180,60,60,0.3);">
+          <div class="rule-card-header" style="background: rgba(180,60,60,0.06); color: #B43C3C;">Proibido — Nunca fazer
+          </div>
+          <div class="rule-card-body">
+            <div class="rule-row">
+              <span class="rule-label">Emojis como ícones</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NUNCA</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Logo PNG fundo branco sobre hero escuro</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NUNCA</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">mix-blend-mode para "consertar" logo</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NÃO funciona</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Começar página de links sem hero com foto</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NUNCA</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Fonte especial em mais de 1 elemento/página</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NUNCA</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Azul, cinza frio, preto puro (#000)</span>
+              <span class="rule-value" style="background: rgba(180,60,60,0.08); color: #B43C3C;">NUNCA</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rule-card" style="border-color: rgba(61,122,94,0.3);">
+          <div class="rule-card-header" style="background: rgba(61,122,94,0.06); color: #3D7A5E;">Obrigatório — Sempre
+            fazer</div>
+          <div class="rule-card-body">
+            <div class="rule-row">
+              <span class="rule-label">Ícones: SVGs Lucide/Heroicons</span>
+              <span class="rule-value highlight">Stroke 1.5px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Tamanho ícone</span>
+              <span class="rule-value highlight">16px / container 36×36px</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Logo sobre fundo escuro</span>
+              <span class="rule-value highlight">PNG transparente ou SVG</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Libre Baskerville: onde usar</span>
+              <span class="rule-value highlight">1 vez por página — nome</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Estrutura Link na Bio</span>
+              <span class="rule-value highlight">Hero foto → Links</span>
+            </div>
+            <div class="rule-row">
+              <span class="rule-label">Temperatura de cores</span>
+              <span class="rule-value highlight">Sempre quente</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Regra dos ícones — detalhe -->
+      <div class="dev-notes" style="margin-top: var(--s3);">
+        <div class="dev-notes-title">Por que nunca usar emojis como ícones</div>
+        <ul>
+          <li>Emojis têm renderização inconsistente entre sistemas operacionais (Apple, Android, Windows têm designs
+            diferentes).</li>
+          <li>Emojis não seguem o weight visual do design — parecem colados, fora de contexto.</li>
+          <li>Em um projeto premium, emojis comunicam amadorismo imediatamente — mata a percepção de valor antes do
+            usuário ler uma linha.</li>
+          <li>SVG Lucide: stroke 1.5px, tamanho 14–16px, dentro de container 36×36px com fundo sutil (rgba do bg-alt).
+            Cor segue a paleta.</li>
+        </ul>
+      </div>
+
+      <!-- Regra da logo -->
+      <div class="dev-notes" style="margin-top: var(--s2);">
+        <div class="dev-notes-title">Por que logo com fundo branco não funciona em hero escuro</div>
+        <ul>
+          <li>PNG com fundo branco sobre fundo escuro cria um retângulo branco visível — impossível de esconder sem
+            perda de qualidade.</li>
+          <li>mix-blend-mode: multiply esconde o branco mas altera as cores da logo (as partes escuras ficam
+            transparentes também), resultado imprevisível.</li>
+          <li>A solução correta é sempre pedir ao cliente o arquivo com fundo transparente — PNG transparente ou SVG.
+          </li>
+          <li>Na seção de links (fundo creme), qualquer versão da logo funciona — o problema só existe em fundos
+            escuros.</li>
+          <li><strong>Arquivo pendente da Hadassah:</strong> solicitar logo PNG com fundo transparente antes de
+            implementar o hero.</li>
+        </ul>
+      </div>
+
+      <!-- Regra da fonte especial -->
+      <div class="dev-notes" style="margin-top: var(--s2);">
+        <div class="dev-notes-title">Regra da fonte especial — Impacto pela escassez</div>
+        <ul>
+          <li>Livre Baskerville (ou Playfair nas demais páginas) deve aparecer UMA ÚNICA VEZ por página — no elemento
+            mais importante.</li>
+          <li>Na Página 1 (Link na Bio): apenas no nome "Hadassah Perez" no hero. Cargo, links, footer: tudo DM Sans.
+          </li>
+          <li>Quando a fonte especial aparece em mais de um lugar, ela perde impacto — o olho não sabe onde focar e tudo
+            vira "decoração".</li>
+          <li>DM Sans é limpa, moderna e legível — perfeita para interface. Não precisa de "ajuda" da fonte especial
+            para funcionar.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 8 — ANIMAÇÃO & SCROLL
+  ========================================= -->
+    <section id="animacao">
+      <div class="section-header">
+        <div class="section-number">8</div>
+        <div>
+          <h2 class="section-title">Animação &amp; Scroll</h2>
+          <p class="section-desc">Scroll com efeitos — obrigatório em toda página entregue pela Aigency</p>
+        </div>
+      </div>
+
+      <div class="dev-notes" style="margin-bottom: var(--s4); border-left-color: var(--doc-accent);">
+        <div class="dev-notes-title">Regra inegociável de qualidade</div>
+        <ul>
+          <li>Toda página entregue pela Aigency DEVE ter scroll diferenciado. Página sem efeito de scroll = página sem
+            alma.</li>
+          <li>Três técnicas obrigatórias: Parallax no hero, Reveal por IntersectionObserver, Stagger progressivo nos
+            elementos em sequência.</li>
+          <li>Nunca usar <code>animation</code> CSS fixa para elementos abaixo do fold — usar IntersectionObserver para
+            ativar apenas quando visível.</li>
+          <li>Respeitar <code>prefers-reduced-motion</code> em implementações futuras.</li>
+        </ul>
+      </div>
+
+      <!-- Cards das 3 técnicas -->
+      <div class="scroll-techniques-grid">
+
+        <div class="scroll-technique-card">
+          <div class="scroll-technique-header">A — Parallax no hero</div>
+          <div class="scroll-technique-body">
+            A foto de fundo do hero se move a ~38% da velocidade do scroll, criando profundidade. Implementar via
+            JavaScript com <code>window.addEventListener('scroll')</code> e <code>transform: translateY()</code>. Usar
+            <code>{ passive: true }</code> para não bloquear o thread principal.
+          </div>
+        </div>
+
+        <div class="scroll-technique-card">
+          <div class="scroll-technique-header">B — Reveal ao entrar na viewport</div>
+          <div class="scroll-technique-body">
+            Elementos entram com <strong>fade-in + translateY(28px → 0)</strong> ao ficarem visíveis. Usa
+            <code>IntersectionObserver</code> com threshold 0.12. Três classes disponíveis: <code>.reveal</code>
+            (padrão), <code>.reveal-scale</code> (cards), <code>.reveal-line</code> (ornamentos/linhas). Após animar, o
+            observer para de observar o elemento.
+          </div>
+        </div>
+
+        <div class="scroll-technique-card">
+          <div class="scroll-technique-header">C — Stagger progressivo</div>
+          <div class="scroll-technique-body">
+            Elementos em sequência entram em cascata via CSS custom property <code>--delay</code>. Cada elemento recebe
+            um delay crescente (0ms → 500ms). O efeito cria ritmo visual e guia o olho do usuário pelo conteúdo sem
+            necessidade de JavaScript extra além do IntersectionObserver.
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Tabela de classes CSS -->
+      <p class="subsection-title">Classes CSS — Comportamentos</p>
+      <div
+        style="border: 1px solid var(--doc-border); border-radius: 14px; overflow: hidden; margin-bottom: var(--s4);">
+        <table class="stagger-table">
+          <thead>
+            <tr>
+              <th>Classe</th>
+              <th>Estado inicial</th>
+              <th>Estado final (.visible)</th>
+              <th>Duração / Easing</th>
+              <th>Uso indicado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>.reveal</code></td>
+              <td><code>opacity: 0; translateY(28px)</code></td>
+              <td><code>opacity: 1; translateY(0)</code></td>
+              <td>0.65s · cubic-bezier(0.22, 1, 0.36, 1)</td>
+              <td>Textos, títulos, itens de lista</td>
+            </tr>
+            <tr>
+              <td><code>.reveal-scale</code></td>
+              <td><code>opacity: 0; scale(0.94) translateY(16px)</code></td>
+              <td><code>opacity: 1; scale(1) translateY(0)</code></td>
+              <td>0.6s · cubic-bezier(0.22, 1, 0.36, 1)</td>
+              <td>Cards, imagens, blocos de destaque</td>
+            </tr>
+            <tr>
+              <td><code>.reveal-line</code></td>
+              <td><code>opacity: 0; scaleX(0)</code></td>
+              <td><code>opacity: 1; scaleX(1)</code></td>
+              <td>0.7s · cubic-bezier(0.22, 1, 0.36, 1)</td>
+              <td>Ornamentos, linhas divisórias, separadores</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Tabela de stagger -->
+      <p class="subsection-title">Stagger padrão — Sequência de delay por elemento</p>
+      <div
+        style="border: 1px solid var(--doc-border); border-radius: 14px; overflow: hidden; margin-bottom: var(--s4);">
+        <table class="stagger-table">
+          <thead>
+            <tr>
+              <th>Elemento</th>
+              <th>Classe sugerida</th>
+              <th>--delay</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Logo</td>
+              <td><code>.reveal</code></td>
+              <td><code>--delay: 0ms</code></td>
+            </tr>
+            <tr>
+              <td>Ornamento separador</td>
+              <td><code>.reveal-line</code></td>
+              <td><code>--delay: 120ms</code></td>
+            </tr>
+            <tr>
+              <td>Card featured (produto principal)</td>
+              <td><code>.reveal-scale</code></td>
+              <td><code>--delay: 180ms</code></td>
+            </tr>
+            <tr>
+              <td>Card normal 1</td>
+              <td><code>.reveal-scale</code></td>
+              <td><code>--delay: 260ms</code></td>
+            </tr>
+            <tr>
+              <td>Card normal 2</td>
+              <td><code>.reveal-scale</code></td>
+              <td><code>--delay: 320ms</code></td>
+            </tr>
+            <tr>
+              <td>Card normal 3</td>
+              <td><code>.reveal-scale</code></td>
+              <td><code>--delay: 380ms</code></td>
+            </tr>
+            <tr>
+              <td>Social / Redes</td>
+              <td><code>.reveal</code></td>
+              <td><code>--delay: 440ms</code></td>
+            </tr>
+            <tr>
+              <td>Footer</td>
+              <td><code>.reveal</code></td>
+              <td><code>--delay: 500ms</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Código de referência — Parallax -->
+      <p class="subsection-title">Código de referência — A. Parallax no hero</p>
+      <div class="code-block">
+        <pre>const heroBg = document.querySelector('.hero-bg img');
+function onScroll() {
+  const y = window.scrollY;
+  if (heroBg) heroBg.style.transform = `translateY(${y * 0.38}px)`;
+}
+window.addEventListener('scroll', onScroll, { passive: true });</pre>
+      </div>
+
+      <!-- Código de referência — CSS Reveal -->
+      <p class="subsection-title" style="margin-top: var(--s3);">Código de referência — B. CSS das classes de reveal</p>
+      <div class="code-block">
+        <pre>.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.94) translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1) translateY(0); }
+
+.reveal-line {
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: opacity 0.5s ease,
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--delay, 0ms);
+}
+.reveal-line.visible { opacity: 1; transform: scaleX(1); }</pre>
+      </div>
+
+      <!-- Código de referência — JS IntersectionObserver -->
+      <p class="subsection-title" style="margin-top: var(--s3);">Código de referência — B. JavaScript
+        IntersectionObserver</p>
+      <div class="code-block">
+        <pre>const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.reveal, .reveal-scale, .reveal-line')
+  .forEach(el => observer.observe(el));</pre>
+      </div>
+
+      <!-- Anti-padrões -->
+      <div class="dev-notes"
+        style="margin-top: var(--s4); border-left-color: #B43C3C; background: rgba(180,60,60,0.05);">
+        <div class="dev-notes-title" style="color: #B43C3C;">Anti-padrões — Nunca fazer</div>
+        <ul>
+          <li>Scroll plano sem efeitos — entrega sem alma, abaixo do padrão Aigency.</li>
+          <li>Usar <code>animation</code> CSS fixa em elementos abaixo do fold — o usuário não vê a animação porque ela
+            já terminou antes de chegar lá.</li>
+          <li>Aplicar <code>.reveal</code> no hero ou em elementos acima do fold — esses elementos já estão visíveis no
+            load, o IntersectionObserver dispara imediatamente e o efeito some antes do usuário perceber.</li>
+          <li>Stagger acima de 600ms — o usuário começa a perceber a espera como lentidão, não como ritmo.</li>
+          <li>Ignorar <code>prefers-reduced-motion</code> — em implementações futuras, envolver os transitions em
+            <code>@media (prefers-reduced-motion: no-preference)</code>.</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- =========================================
+       SEÇÃO 9 — ASSETS NECESSÁRIOS
+  ========================================= -->
+    <section id="assets">
+      <div class="section-header">
+        <div class="section-number">9</div>
+        <div>
+          <h2 class="section-title">Assets Necessários</h2>
+          <p class="section-desc">Checklist do que precisa ser recebido da cliente antes de finalizar as páginas</p>
+        </div>
+      </div>
+
+      <div class="assets-grid">
+
+        <!-- Imagens -->
+        <div class="asset-card">
+          <div class="asset-card-header">Imagens & Fotos</div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox" style="background: #3D7A5E; border-color: #3D7A5E;"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Foto da Hadassah — Hero Link na Bio</div>
+              <div class="asset-item-spec">Caminho real: <code>moodboard/foto-hadassah.jpg</code> · Retrato, fundo
+                neutro · Usada como background full-viewport na Seção 1</div>
+              <span class="asset-status"
+                style="background: var(--doc-green-bg); color: var(--doc-green); border: 1px solid rgba(61,122,94,0.2);">✓
+                Recebida</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Foto hero — Página de Mentoria</div>
+              <div class="asset-item-spec">Formato: <code>JPG</code> · Min. <code>1200×800px</code> · Orientação retrato
+                ou paisagem · Alta resolução · Iluminação natural</div>
+              <span class="asset-status required">● Obrigatório antes de começar</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Foto ou mockup — Devocional</div>
+              <div class="asset-item-spec">Mockup do produto digital <code>1200×800px</code> · Ou foto da Hadassah para
+                hero da página de vendas</div>
+              <span class="asset-status pending">◐ Pode usar placeholder temporário</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Foto de autoridade — Seção "Quem é"</div>
+              <div class="asset-item-spec">Foto editorial / profissional · Min. <code>800×1000px</code> · Pode ser a
+                mesma da mentoria com recorte diferente</div>
+              <span class="asset-status pending">◐ Pode usar placeholder temporário</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Identidade & Textos -->
+        <div class="asset-card">
+          <div class="asset-card-header">Identidade & Textos</div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox" style="background: #3D7A5E; border-color: #3D7A5E;"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Logo olive (fundo claro) — Seção de Links</div>
+              <div class="asset-item-spec">Caminho real: <code>logo-olive.png</code> · Versão escura/olive para usar
+                sobre fundo creme #F7F1E8 · Recebida e funcionando</div>
+              <span class="asset-status"
+                style="background: var(--doc-green-bg); color: var(--doc-green); border: 1px solid rgba(61,122,94,0.2);">✓
+                Recebida</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox" style="background: #3D7A5E; border-color: #3D7A5E;"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Logo dourada (fundo claro) — Variação</div>
+              <div class="asset-item-spec">Caminho real: <code>logo-gold.png</code> · Variação dourada, também funciona
+                sobre fundo creme</div>
+              <span class="asset-status"
+                style="background: var(--doc-green-bg); color: var(--doc-green); border: 1px solid rgba(61,122,94,0.2);">✓
+                Recebida</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox" style="border-color: #B43C3C;"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Logo com fundo TRANSPARENTE — Hero escuro</div>
+              <div class="asset-item-spec">Necessária para uso no hero com fundo #16100C · PNG com fundo transparente ou
+                SVG · CRÍTICO: logo com fundo branco NÃO funciona sobre fundo escuro — mix-blend-mode não resolve
+                satisfatoriamente</div>
+              <span class="asset-status required">● PENDENTE — solicitar ao cliente</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Tagline / bio curta (Link na Bio)</div>
+              <div class="asset-item-spec">Máx. 1 linha · Tom espiritual · Ex: "Conectando mulheres ao chamado que Deus
+                preparou"</div>
+              <span class="asset-status required">● Obrigatório</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Textos da Mentoria</div>
+              <div class="asset-item-spec">O que é, para quem é, o que está incluso, formato (duração, encontros), preço
+                e CTA. <code>TXT</code> ou <code>DOCX</code></div>
+              <span class="asset-status required">● Obrigatório antes de publicar</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Textos do Devocional (copy)</div>
+              <div class="asset-item-spec">Headlines, benefícios, descrição dos 3 ciclos, texto de garantia, FAQ. Copy
+                já foi iniciada — confirmar versão final</div>
+              <span class="asset-status pending">◐ Estrutura mapeada — revisar com cliente</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Bio para "Quem é Hadassah"</div>
+              <div class="asset-item-spec">3 parágrafos · Tom pessoal · Mencionar Hillsong, DBU, coaching · Máx. 250
+                palavras</div>
+              <span class="asset-status pending">◐ Pode usar rascunho e revisar</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Técnico & Social -->
+        <div class="asset-card">
+          <div class="asset-card-header">Técnico & Social</div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Link de checkout — Kiwify</div>
+              <div class="asset-item-spec">URL completa do produto no Kiwify para o botão de compra do devocional R$149
+              </div>
+              <span class="asset-status required">● Obrigatório antes de publicar</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Link do WhatsApp</div>
+              <div class="asset-item-spec">Número + mensagem pré-preenchida · Formato:
+                <code>wa.me/55[DDD][NÚMERO]?text=...</code></div>
+              <span class="asset-status required">● Obrigatório</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Links das redes sociais</div>
+              <div class="asset-item-spec">Instagram · YouTube · Spotify (se tiver) · Handles exatos para gerar links
+                corretos</div>
+              <span class="asset-status required">● Obrigatório</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Pixel do Meta / Google Analytics</div>
+              <div class="asset-item-spec">ID do Pixel para inserção no <code>&lt;head&gt;</code> das páginas de produto
+                e mentoria</div>
+              <span class="asset-status pending">◐ Recomendado para rastreio de conversão</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Depoimentos de alunas</div>
+              <div class="asset-item-spec">Nome + texto de depoimento + foto (opcional) · Mín. 3 depoimentos para a
+                página do devocional</div>
+              <span class="asset-status pending">◐ Pode publicar sem e adicionar depois</span>
+            </div>
+          </div>
+
+          <div class="asset-item">
+            <div class="asset-checkbox"></div>
+            <div class="asset-item-content">
+              <div class="asset-item-name">Domínio / Hospedagem</div>
+              <div class="asset-item-spec">Definir onde as páginas serão hospedadas: Netlify, Vercel, servidor próprio,
+                ou Hostinger. Confirmar domínio <code>hadassahperez.com.br</code></div>
+              <span class="asset-status required">● Obrigatório antes de publicar</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Nota final de processo -->
+      <div class="info-box" style="margin-top: var(--s4); border-left: 3px solid var(--doc-accent);">
+        <div class="info-box-title">Processo sugerido de entrega — Status Mar/2026</div>
+        <div class="info-box-body">
+          <strong>Fase 1 (em andamento):</strong> Foto recebida (moodboard/foto-hadassah.jpg), logos recebidas
+          (logo-olive.png, logo-gold.png). Pendente: logo PNG com fundo transparente + links reais + URL do domínio →
+          Desenvolver e entregar Link na Bio completa.<br>
+          <strong>Fase 2:</strong> Cliente envia fotos hero e textos da Mentoria → Desenvolver e entregar Página de
+          Mentoria.<br>
+          <strong>Fase 3:</strong> Cliente confirma copy do Devocional e envia link Kiwify → Desenvolver e entregar
+          Página de Vendas.<br>
+          <strong>Fase 4:</strong> Revisão conjunta, ajustes finais, publicação.
+        </div>
+      </div>
+
+    </section>
+
+    <!-- FOOTER DO DOCUMENTO -->
+    <div class="doc-footer">
+      <div class="doc-footer-brand">Aigency</div>
+      <div class="doc-footer-meta">Briefing Visual — Hadassah Perez · Versão 1.2 · Março 2026 · Uso interno</div>
+    </div>
+
+  </div><!-- /doc-wrapper -->
+
+</body>
+
+</html>

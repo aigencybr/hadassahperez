@@ -39,7 +39,7 @@ const cormorantGaramond = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: "Hadassah Perez",
-  description: "Coach · Mentora · Cantora Gospel",
+  description: "Coach · Mentora · Cantora Cristã",
 };
 
 export default function RootLayout({

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checklist — Link na Bio · Hadassah Perez</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0E0B08;
+    --card: #1A1510;
+    --border: rgba(196, 149, 106, 0.15);
+    --gold: #C9996A;
+    --gold-light: #DFB98A;
+    --text: #F0E6D3;
+    --text-muted: #8A7A6A;
+    --green: #6B8A6B;
+    --olive: #6B7558;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 48px 24px;
+  }
+
+  .container { max-width: 720px; margin: 0 auto; }
+
+  header {
+    margin-bottom: 48px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  h1 { font-size: 28px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+  .subtitle { font-size: 14px; color: var(--text-muted); }
+
+  .progress-bar { margin-top: 20px; height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 2px; transition: width 0.3s ease; width: 0%; }
+  .progress-label { margin-top: 8px; font-size: 12px; color: var(--text-muted); }
+
+  .section { margin-bottom: 32px; }
+
+  .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+
+  .section-number {
+    width: 24px; height: 24px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 600; color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    transition: border-color 0.2s, background 0.2s;
+    background: var(--card);
+    user-select: none;
+  }
+
+  .item:hover { border-color: rgba(196, 149, 106, 0.35); }
+  .item.checked { border-color: rgba(107, 138, 107, 0.4); background: rgba(107, 138, 107, 0.06); }
+
+  .checkbox {
+    width: 18px; height: 18px;
+    border: 1.5px solid var(--text-muted);
+    border-radius: 4px; flex-shrink: 0; margin-top: 1px;
+    display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .item.checked .checkbox { background: var(--green); border-color: var(--green); }
+  .checkmark { display: none; }
+  .item.checked .checkmark { display: block; }
+  .item-content { flex: 1; }
+  .item-text { font-size: 14px; color: var(--text); line-height: 1.5; }
+  .item.checked .item-text { color: var(--text-muted); text-decoration: line-through; }
+  .item-note { font-size: 12px; color: var(--text-muted); margin-top: 3px; line-height: 1.4; }
+
+  .tag {
+    font-size: 10px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 2px 7px; border-radius: 10px;
+    flex-shrink: 0; margin-top: 2px; white-space: nowrap;
+  }
+  .tag-pending { background: rgba(138,106,58,0.2); color: #C4A06A; }
+  .tag-solicitar { background: rgba(107,117,88,0.2); color: #A8B08A; }
+
+  .ref-box {
+    background: rgba(196, 149, 106, 0.06);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 6px;
+  }
+  .ref-label {
+    font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .ref-link {
+    font-size: 12px; color: var(--text-muted);
+    word-break: break-all; line-height: 1.5;
+    text-decoration: none;
+  }
+  .ref-link:hover { color: var(--gold-light); }
+
+  footer {
+    margin-top: 48px; padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+
+  .footer-text { font-size: 12px; color: var(--text-muted); }
+
+  .reset-btn {
+    font-size: 12px; color: var(--text-muted);
+    background: none; border: 1px solid var(--border);
+    padding: 6px 14px; border-radius: 6px;
+    cursor: pointer; font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .reset-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+  code {
+    font-size: 12px;
+    background: rgba(255,255,255,0.06);
+    padding: 1px 5px; border-radius: 3px;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <div class="label">Hadassah Perez · Aigency</div>
+    <h1>Checklist — Link na Bio</h1>
+    <div class="subtitle">O que a Hadassah pediu — palavras dela</div>
+    <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 de 0 itens concluídos</div>
+  </header>
+
+  <!-- 1. CARDS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Cards de links</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Devocional Alinhamento</div>
+        <div class="item-note">Produto principal atual — card em destaque (featured)</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Mentoria "O Caminho de Ester"</div>
+        <div class="item-note">Identidade, propósito e posicionamento</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Coach Life</div>
+        <div class="item-note">Individual · Grupos · Igrejas, células e empresas com foco em Life</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Produtos Digitais</div>
+        <div class="item-note">Ebook Jejum + Devocional Voltando à Essência</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Música & YouTube</div>
+        <div class="item-note">Música + Série "Esperança" no YouTube</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Comunidade de Mulheres</div>
+        <div class="item-note">Grupo no WhatsApp — link para entrar</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Parcerias</div>
+        <div class="item-note">Rodapé com email ou formulário de contato</div>
+      </div>
+      <div class="tag tag-pendente">PENDENTE</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Livro "Devocional Esperança — 60 dias"</div>
+        <div class="item-note">Futuro lançamento — adicionar card "em breve" quando estiver próximo</div>
+      </div>
+      <div class="tag tag-solicitar">EM BREVE</div>
+    </div>
+  </div>
+
+  <!-- 2. MÚSICAS SPOTIFY -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Players do Spotify na página</div>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Músicas do Spotify embutidas direto na página</div>
+        <div class="item-note">Ela quer que ao clicar em "Música" o player apareça na própria página — não redirecionar para fora</div>
+      </div>
+      <div class="tag tag-pending">PENDENTE</div>
+    </div>
+
+    <div class="ref-box">
+      <div class="ref-label">Referência — Spotify da Hadassah</div>
+      <a class="ref-link" href="https://open.spotify.com/intl-pt/artist/0xGcz3etCHBOf6ZmZB6YAb" target="_blank">
+        open.spotify.com/intl-pt/artist/0xGcz3etCHBOf6ZmZB6YAb
+      </a>
+    </div>
+
+    <div class="item" onclick="toggle(this)">
+      <div class="checkbox"><svg class="checkmark" width="10" height="8" viewBox="0 0 10 8" fill="none"><path d="M1 4L3.5 6.5L9 1" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="item-content">
+        <div class="item-text">Escolher quais músicas/playlists vão aparecer nos players</div>
+        <div class="item-note">Pegar IDs em: open.spotify.com/track/[ID] ou /playlist/[ID]</div>
+      </div>
+      <div class="tag tag-solicitar">SOLICITAR</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-text">Hadassah Perez · Link na Bio · Aigency</div>
+    <button class="reset-btn" onclick="resetAll()">Resetar checklist</button>
+  </footer>
+
+</div>
+
+<script>
+  function toggle(item) {
+    item.classList.toggle('checked');
+    updateProgress();
+  }
+
+  function updateProgress() {
+    const items = document.querySelectorAll('.item');
+    const checked = document.querySelectorAll('.item.checked');
+    const total = items.length;
+    const done = checked.length;
+    const pct = total > 0 ? Math.round((done / total) * 100) : 0;
+    document.getElementById('progressFill').style.width = pct + '%';
+    document.getElementById('progressLabel').textContent = done + ' de ' + total + ' itens concluídos';
+  }
+
+  function resetAll() {
+    document.querySelectorAll('.item.checked').forEach(i => i.classList.remove('checked'));
+    updateProgress();
+  }
+
+  updateProgress();
+</script>
+</body>
+</html>
