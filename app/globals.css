@@ -90,7 +90,9 @@
 ========================================= */
 @media (prefers-reduced-motion: reduce) {
   .hero-fade-up,
-  .hero-scroll-arrow {
+  .hero-scroll-arrow,
+  .animate-reveal,
+  .animate-scroll-pulse {
     animation: none !important;
     opacity: 1;
   }
@@ -145,4 +147,65 @@
 .reveal-line.visible {
   opacity: 1;
   transform: scaleX(1);
+}
+
+/* =========================================
+   BUTTON GRADIENT — Página Alinhamento
+========================================= */
+.btn-grad {
+  background: linear-gradient(180deg, #78AC76 0%, #588A65 100%);
+  transition: filter 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
+}
+.btn-grad:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+.btn-grad:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   RADIAL GLOWS — Página Alinhamento
+========================================= */
+.hero-glow {
+  background: radial-gradient(circle, rgba(88, 138, 101, 0.18) 0%, transparent 70%);
+}
+
+.final-glow {
+  background: radial-gradient(circle, rgba(88, 138, 101, 0.15) 0%, transparent 70%);
+}
+
+/* =========================================
+   ANIMATE-REVEAL — entrada hero (Alinhamento)
+   Usa a mesma keyframe fadeUp já definida acima
+========================================= */
+.animate-reveal {
+  opacity: 0;
+  animation: fadeUp 0.5s ease-out forwards;
+}
+
+/* =========================================
+   ANIMATE-SCROLL-PULSE — linha de scroll hint
+========================================= */
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.2; }
+  50%       { opacity: 0.6; }
+}
+
+.animate-scroll-pulse {
+  animation: scrollPulse 1.6s ease-in-out infinite;
+}
+
+/* =========================================
+   AIGENCY LINK — rodapé Página 1
+========================================= */
+.aigency-link {
+  color: var(--cl-text-light);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(184, 120, 74, 0.30);
+  padding-bottom: 1px;
+  transition: color 0.15s ease;
+}
+.aigency-link:hover {
+  color: var(--cl-caramel);
 }

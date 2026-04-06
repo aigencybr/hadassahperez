@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /* ============================================================
    ÍCONES — SVG Lucide, stroke 1.5px, 16×16
@@ -10,15 +10,6 @@ import { useEffect, useRef } from "react";
 ============================================================ */
 
 
-function IconCompass() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
-    </svg>
-  );
-}
-
 function IconUsers() {
   return (
     <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -26,34 +17,6 @@ function IconUsers() {
       <circle cx="9" cy="7" r="4" />
       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
       <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function IconPackage() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
-      <polyline points="3.29 7 12 12 20.71 7" />
-      <line x1="12" y1="22" x2="12" y2="12" />
-    </svg>
-  );
-}
-
-function IconMusic() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M9 18V5l12-2v13" />
-      <circle cx="6" cy="18" r="3" />
-      <circle cx="18" cy="16" r="3" />
-    </svg>
-  );
-}
-
-function IconHeart() {
-  return (
-    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
   );
 }
@@ -186,7 +149,7 @@ function FeaturedCard({ icon, imageSrc, imageAlt = "", title, subtitle, href, de
       <div
         className="flex items-center gap-4 p-5"
         style={{
-          background: "#16100C",
+          background: "#362214ff",
           border: "1px solid rgba(201, 153, 106, 0.25)",
           borderRadius: "14px",
         }}
@@ -356,6 +319,7 @@ function ComingSoonCard({ icon, imageSrc, imageAlt = "", title, subtitle, delay 
 
 export default function LinksPage() {
   const heroBgRef = useRef<HTMLDivElement>(null);
+  const [logoError, setLogoError] = useState(false);
 
   // Parallax no hero — desativado se usuário prefere movimento reduzido
   useEffect(() => {
@@ -402,10 +366,21 @@ export default function LinksPage() {
 
         {/* Background com parallax */}
         <div ref={heroBgRef} className="absolute inset-0 scale-110">
+          {/* Mobile */}
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 md:hidden"
             style={{
               backgroundImage: "url('/REG_7777.JPG')",
+              backgroundSize: "cover",
+              backgroundPosition: "center 15%",
+              backgroundColor: "#2A1C12",
+            }}
+          />
+          {/* Desktop */}
+          <div
+            className="absolute inset-0 hidden md:block"
+            style={{
+              backgroundImage: "url('/hadassah-desktop.jpeg')",
               backgroundSize: "cover",
               backgroundPosition: "center 15%",
               backgroundColor: "#2A1C12",
@@ -437,7 +412,7 @@ export default function LinksPage() {
 
           {/* Nome — Libre Baskerville (única vez na página) */}
           <h1
-            className="hero-fade-up md:hidden"
+            className="hero-fade-up"
             style={{
               fontFamily: 'var(--font-baskerville), "Libre Baskerville", serif',
               fontSize: "clamp(36px, 10vw, 44px)",
@@ -505,30 +480,28 @@ export default function LinksPage() {
             className="reveal flex justify-center gap-5"
             style={{ "--delay": "0ms" } as React.CSSProperties}
           >
-            <Image
-              src="/logo-olive.png"
-              alt="Hadassah Perez"
-              width="160"
-              height="160"
-              className="h-36 w-auto"
-              loading="eager"
-              onError={(e) => {
-                const target = e.currentTarget as HTMLImageElement;
-                target.style.display = "none";
-                const fallback = target.nextElementSibling as HTMLElement;
-                if (fallback) fallback.style.display = "block";
-              }}
-            />
-            <p
-              className="hidden text-base font-medium tracking-widest uppercase"
-              style={{
-                fontFamily: 'var(--font-dm-sans), "DM Sans", sans-serif',
-                color: "#5E4535",
-                letterSpacing: "0.18em",
-              }}
-            >
-              Hadassah Perez
-            </p>
+            {!logoError ? (
+              <Image
+                src="/logo-olive.png"
+                alt="Hadassah Perez"
+                width={160}
+                height={160}
+                className="h-36 w-auto"
+                loading="eager"
+                onError={() => setLogoError(true)}
+              />
+            ) : (
+              <p
+                className="text-base font-medium tracking-widest uppercase"
+                style={{
+                  fontFamily: 'var(--font-dm-sans), "DM Sans", sans-serif',
+                  color: "#5E4535",
+                  letterSpacing: "0.18em",
+                }}
+              >
+                Hadassah Perez
+              </p>
+            )}
           </div>
 
           {/* Ornamento separador */}
@@ -564,7 +537,8 @@ export default function LinksPage() {
 
             {/* 3. Coach Life */}
             <StandardCard
-              icon={<IconUsers />}
+              imageAlt="Coach Life"
+              imageSrc="/coach life hadassa.jpeg"
               title="Coach Life"
               subtitle="Individual · Grupos · Igrejas e empresas"
               href="#" /* TODO: COACH_LIFE_LINK */
@@ -573,7 +547,8 @@ export default function LinksPage() {
 
             {/* 5. Comunidade de Mulheres */}
             <StandardCard
-              icon={<IconWhatsApp />}
+              imageAlt="Comunidade de Mulheres"
+              imageSrc="/tablet alinhamento copy.png"
               title="Comunidade de Mulheres"
               subtitle="Grupo no WhatsApp — entre para a comunidade"
               href="https://wa.link/ul6ufy" /* TODO: WHATSAPP_COMUNIDADE_LINK */
@@ -582,7 +557,8 @@ export default function LinksPage() {
 
             {/* 6. Parcerias */}
             <StandardCard
-              icon={<IconMail />}
+              imageSrc="/parceria.png"
+              imageAlt="Parcerias"
               title="Parcerias"
               subtitle="Fale comigo sobre colaborações"
               href="https://wa.link/ul6ufy" /* TODO: EMAIL */
@@ -733,18 +709,12 @@ export default function LinksPage() {
                 href="https://www.instagram.com/aigencybr"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="transition-colors duration-150 focus-visible:outline-none focus-visible:rounded"
+                className="aigency-link focus-visible:outline-none focus-visible:rounded"
                 style={{
                   fontFamily: 'var(--font-dm-sans), "DM Sans", sans-serif',
                   fontSize: "10px",
-                  color: "#9A8070",
                   letterSpacing: "0.04em",
-                  textDecoration: "none",
-                  borderBottom: "1px solid rgba(184,120,74,0.30)",
-                  paddingBottom: "1px",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "#B8784A")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9A8070")}
               >
                 Aigency
               </a>
