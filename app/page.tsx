@@ -323,10 +323,11 @@ export default function LinksPage() {
   const heroBgRef = useRef<HTMLDivElement>(null);
   const [logoError, setLogoError] = useState(false);
 
-  // Parallax no hero — desativado se usuário prefere movimento reduzido
+  // Parallax no hero — desativado em mobile e se usuário prefere movimento reduzido
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (prefersReduced) return;
+    const isMobile = window.innerWidth < 768;
+    if (prefersReduced || isMobile) return;
 
     function onScroll() {
       if (heroBgRef.current) {
@@ -367,7 +368,7 @@ export default function LinksPage() {
       <section className="relative overflow-hidden" style={{ height: "100dvh" }}>
 
         {/* Background com parallax */}
-        <div ref={heroBgRef} className="absolute inset-0 scale-110">
+        <div ref={heroBgRef} className="absolute inset-0 md:scale-110">
           {/* Mobile */}
           <div
             className="absolute inset-0 md:hidden"
