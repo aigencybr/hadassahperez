@@ -294,16 +294,18 @@ function ComingSoonCard({ icon, imageSrc, imageAlt = "", title, subtitle, delay 
 
       <div className="flex-1 min-w-0">
         <div
-          className="text-base font-medium leading-snug flex items-center gap-2"
+          className="text-base font-medium leading-snug"
           style={{ fontFamily: "var(--font-dm-sans)", color: "#1C1410" }}
         >
-          <span className="whitespace-nowrap">{title}</span>
-          <span
-            className="text-[10px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0"
-            style={{ background: "rgba(107,117,88,0.15)", color: "#6B7558" }}
-          >
-            Em breve
-          </span>
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="whitespace-nowrap">{title}</span>
+            <span
+              className="text-[10px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0"
+              style={{ background: "rgba(107,117,88,0.15)", color: "#6B7558" }}
+            >
+              Em breve
+            </span>
+          </div>
         </div>
         <p className="text-sm mt-1 leading-snug" style={{ color: "#9A8070" }}>
           {subtitle}
