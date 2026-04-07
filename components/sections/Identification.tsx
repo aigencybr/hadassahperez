@@ -35,7 +35,7 @@ export default function Identification() {
 
               <h2
                 className="mb-6 font-extrabold leading-[1.2] tracking-[-0.01em] text-[#111111]"
-                style={{ fontSize: "clamp(24px, 3vw, 36px)" }}
+                style={{ fontSize: "clamp(24px, 3vw, 36px)", fontFamily: "var(--font-silver)" }}
               >
                 "Para onde Deus quer que eu vá?"
               </h2>

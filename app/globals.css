@@ -4,27 +4,28 @@
    FONT UTILITIES (next/font → Tailwind)
 ========================================= */
 @theme inline {
-  --font-dm-sans:    var(--font-dm-sans);
+  --font-dm-sans: var(--font-dm-sans);
   --font-baskerville: var(--font-baskerville);
-  --font-playfair:   var(--font-playfair);
-  --font-cormorant:  var(--font-cormorant);
+  --font-playfair: var(--font-playfair);
+  --font-cormorant: var(--font-cormorant);
+  --font-silver: var(--font-silver);
 }
 
 /* =========================================
    DESIGN TOKENS — Hadassah Perez
 ========================================= */
 :root {
-  --cl-bg:          #F7F1E8;
-  --cl-bg-alt:      #EDE3D4;
-  --cl-dark:        #16100C;
-  --cl-caramel:     #B8784A;
-  --cl-gold:        #C9996A;
-  --cl-gold-light:  #DFB98A;
-  --cl-olive:       #6B7558;
-  --cl-text-dark:   #1C1410;
-  --cl-text-mid:    #5E4535;
-  --cl-text-light:  #9A8070;
-  --cl-border:      rgba(94, 69, 53, 0.13);
+  --cl-bg: #F7F1E8;
+  --cl-bg-alt: #EDE3D4;
+  --cl-dark: #16100C;
+  --cl-caramel: #B8784A;
+  --cl-gold: #C9996A;
+  --cl-gold-light: #DFB98A;
+  --cl-olive: #6B7558;
+  --cl-text-dark: #1C1410;
+  --cl-text-mid: #5E4535;
+  --cl-text-light: #9A8070;
+  --cl-border: rgba(94, 69, 53, 0.13);
 }
 
 /* =========================================
@@ -33,7 +34,10 @@
    (classes Tailwind) possam sobrescrever margin/padding
 ========================================= */
 @layer base {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -60,6 +64,7 @@
     opacity: 0;
     transform: translateY(16px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -67,8 +72,15 @@
 }
 
 @keyframes arrowBounce {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(8px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(8px);
+  }
 }
 
 .hero-fade-up {
@@ -80,7 +92,7 @@
 .hero-scroll-arrow {
   opacity: 0;
   animation:
-    fadeUp      0.4s ease-out 160ms forwards,
+    fadeUp 0.4s ease-out 160ms forwards,
     arrowBounce 1.2s ease-in-out 560ms infinite;
 }
 
@@ -89,6 +101,7 @@
    Disable all animations for users who prefer it
 ========================================= */
 @media (prefers-reduced-motion: reduce) {
+
   .hero-fade-up,
   .hero-scroll-arrow,
   .animate-reveal,
@@ -113,10 +126,11 @@
   opacity: 0;
   transform: translateY(28px);
   transition:
-    opacity   0.65s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
+
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
@@ -126,10 +140,11 @@
   opacity: 0;
   transform: scale(0.94) translateY(16px);
   transition:
-    opacity   0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
     transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
+
 .reveal-scale.visible {
   opacity: 1;
   transform: scale(1) translateY(0);
@@ -140,10 +155,11 @@
   transform: scaleX(0);
   transform-origin: center;
   transition:
-    opacity   0.5s ease,
+    opacity 0.5s ease,
     transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
   transition-delay: var(--delay, 0ms);
 }
+
 .reveal-line.visible {
   opacity: 1;
   transform: scaleX(1);
@@ -153,13 +169,15 @@
    BUTTON GRADIENT — Página Alinhamento
 ========================================= */
 .btn-grad {
-  background: linear-gradient(180deg, #78AC76 0%, #588A65 100%);
+  background: linear-gradient(180deg, #8fa090 0%, #588A65 100%);
   transition: filter 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
+
 .btn-grad:hover {
   filter: brightness(1.08);
   transform: translateY(-1px);
 }
+
 .btn-grad:active {
   transform: translateY(0);
 }
@@ -188,8 +206,15 @@
    ANIMATE-SCROLL-PULSE — linha de scroll hint
 ========================================= */
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.2; }
-  50%       { opacity: 0.6; }
+
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
 }
 
 .animate-scroll-pulse {
@@ -206,6 +231,7 @@
   padding-bottom: 1px;
   transition: color 0.15s ease;
 }
+
 .aigency-link:hover {
   color: var(--cl-caramel);
 }

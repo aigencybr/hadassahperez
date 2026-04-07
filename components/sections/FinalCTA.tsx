@@ -32,10 +32,10 @@ export default function FinalCTA() {
         <RevealWrapper delay={80}>
           <h2
             className="mb-5 font-extrabold leading-[1.2] tracking-[-0.02em] text-[#f6f6f6]"
-            style={{ fontSize: "clamp(28px, 4vw, 44px)" }}
+            style={{ fontSize: "clamp(28px, 4vw, 44px)", fontFamily: "var(--font-silver)" }}
           >
-            21 dias. Uma decisão.{" "}
-            <span className="font-semibold italic" style={{ color: "#8fa090" }}>
+            21 dias. Uma decisão.{" "} <br />
+            <span className="font-semibold italic" style={{ color: "#6B7558" }}>
               Uma vida diferente.
             </span>
           </h2>

@@ -89,12 +89,12 @@ export default function Pricing() {
             {/* Price */}
             <div
               className="mb-3 flex items-start justify-center gap-1"
-              aria-label="R$ 149"
+              aria-label="R$ 97"
             >
               <span
                 className="mt-[18px] text-[28px] font-bold text-[#111111]"
                 aria-hidden="true"
-                style={{ fontFamily: "var(--font-nunito)" }}
+                style={{ fontFamily: "var(--font-silver)" }}
               >
                 R$
               </span>
@@ -102,11 +102,11 @@ export default function Pricing() {
                 className="font-extrabold leading-none tracking-[-0.04em] text-[#111111]"
                 aria-hidden="true"
                 style={{
-                  fontFamily: "var(--font-nunito)",
+                  fontFamily: "var(--font-silver)",
                   fontSize: "clamp(72px, 12vw, 96px)",
                 }}
               >
-                149
+                97
               </span>
             </div>
 
@@ -126,7 +126,7 @@ export default function Pricing() {
                   fontSize: "16px",
                   letterSpacing: "0.04em",
                 }}
-                aria-label="Comprar Alinhamento por R$149"
+                aria-label="Comprar Alinhamento por R$97"
               >
                 Quero meu alinhamento com Deus
                 <ArrowRight size={16} strokeWidth={2.5} />

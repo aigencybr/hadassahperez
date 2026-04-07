@@ -106,10 +106,10 @@ export default function Cycles() {
               A jornada
             </div>
             <h2
-              className="mb-6 font-bold leading-[1.2] tracking-[-0.01em] text-[#111111]"
-              style={{ fontSize: "clamp(28px, 3.8vw, 44px)" }}
+              className="mb-6 font-bold leading-[1.35] tracking-[-0.01em] text-[#111111]"
+              style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
-              Três semanas.{" "}
+              Três semanas.{" "} <br />
               <span className="font-semibold italic" style={{ color: "#718472" }}>
                 Uma transformação.
               </span>

@@ -21,7 +21,7 @@ export default function Discipline() {
 
             <h2
               className="mb-8 font-bold leading-[1.2] tracking-[-0.02em] text-[#f6f6f6]"
-              style={{ fontSize: "clamp(28px, 3.8vw, 44px)" }}
+              style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
               "Não sei se tenho disciplina para 21 dias."
             </h2>
@@ -42,7 +42,7 @@ export default function Discipline() {
               style={{
                 fontFamily: "var(--font-montserrat)",
                 borderColor: "rgba(143,160,144,0.5)",
-                color: "#8fa090",
+                color: "#6B7558",
               }}
               aria-label="Comprar agora"
             >

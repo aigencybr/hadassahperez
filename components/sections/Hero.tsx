@@ -13,7 +13,7 @@ export default function Hero() {
     >
       {/* Background image */}
       <Image
-        src="/hero.jpg"
+        src="/hero.DNG"
         alt=""
         fill
         priority
@@ -43,19 +43,14 @@ export default function Hero() {
 
         {/* H1 */}
         <h1
-          className="animate-reveal mb-6 font-extrabold leading-[1.18] tracking-[-0.02em] text-[#f6f6f6]"
+          className="animate-reveal mb-6 leading-[1.18] tracking-[-0.02em] text-[#f6f6f6]"
           style={{
+            fontFamily: "var(--font-silver)",
             fontSize: "clamp(30px, 5vw, 52px)",
             animationDelay: "80ms",
           }}
         >
-          Você ora, você crê, você tenta — e ainda assim{" "}
-          <span
-            className="font-semibold italic"
-            style={{ color: "#8fa090" }}
-          >
-            não sabe para onde ir.
-          </span>
+          Volte a sentir a presença de Deus na sua rotina, mesmo que hoje você esteja distante
         </h1>
 
         {/* Subheadline */}
@@ -66,8 +61,7 @@ export default function Hero() {
             animationDelay: "160ms",
           }}
         >
-          21 dias para sair do ruído e entrar no que Deus planejou
-          especificamente para você.
+          Em 21 dias, você percorre um caminho guiado que te ajuda a retomar sua conexão com Deus, entender o que Ele quer para sua vida e transformar sua fé em atitudes reais.
         </p>
 
         {/* CTA */}
@@ -91,7 +85,7 @@ export default function Hero() {
 
           {/* Trust microcopy */}
           <div
-            className="flex flex-wrap items-center justify-center gap-4 text-white/30"
+            className="flex flex-wrap items-center justify-center gap-4 text-white/80"
             style={{
               fontFamily: "var(--font-montserrat)",
               fontSize: "12px",
@@ -101,7 +95,7 @@ export default function Hero() {
             {["Acesso imediato", "100% digital", "Garantia de 7 dias"].map(
               (item) => (
                 <span key={item} className="flex items-center gap-1.5">
-                  <span style={{ color: "#8fa090", fontWeight: 700 }}>✓</span>
+                  <span style={{ color: "#ffffffff", fontWeight: 700 }}>✓</span>
                   {item}
                 </span>
               )
@@ -119,14 +113,14 @@ export default function Hero() {
           fontSize: "10px",
           letterSpacing: "0.2em",
           textTransform: "uppercase",
-          color: "rgba(246,246,246,0.2)",
+          color: "rgba(246, 246, 246, 0.83)",
         }}
       >
         <div
           className="animate-scroll-pulse h-9 w-px"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(246,246,246,0.2), transparent)",
+              "linear-gradient(to bottom, rgba(246, 246, 246, 0.86), transparent)",
           }}
         />
         <span>continuar</span>

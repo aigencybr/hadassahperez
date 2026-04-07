@@ -5,6 +5,7 @@ import {
   Playfair_Display,
   Cormorant_Garamond,
 } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const libreBaskerville = Libre_Baskerville({
@@ -29,6 +30,12 @@ const playfairDisplay = Playfair_Display({
   display: "swap",
 });
 
+const theSilverEditorial = localFont({
+  src: "../public/TheSilverEditorial-Regular.ttf",
+  variable: "--font-silver",
+  display: "swap",
+});
+
 const cormorantGaramond = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
@@ -50,7 +57,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${libreBaskerville.variable} ${dmSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable}`}
+      className={`${libreBaskerville.variable} ${dmSans.variable} ${playfairDisplay.variable} ${cormorantGaramond.variable} ${theSilverEditorial.variable}`}
     >
       <body>{children}</body>
     </html>

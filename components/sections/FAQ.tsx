@@ -92,7 +92,7 @@ export default function FAQ() {
             </div>
             <h2
               className="font-bold leading-[1.2] tracking-[-0.01em] text-[#111111]"
-              style={{ fontSize: "clamp(28px, 3.8vw, 44px)" }}
+              style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
               Ainda tem dúvidas?
             </h2>

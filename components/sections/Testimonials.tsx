@@ -38,7 +38,7 @@ export default function Testimonials() {
             </div>
             <h2
               className="font-bold leading-[1.2] tracking-[-0.01em] text-[#f6f6f6]"
-              style={{ fontSize: "clamp(28px, 3.8vw, 44px)" }}
+              style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
               O que está mudando na vida de quem fez essa jornada
             </h2>

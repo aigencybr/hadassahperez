@@ -32,7 +32,7 @@ Stack: **Next.js 15 + Tailwind CSS v4 · TypeScript · sem banco de dados.**
 
 ### Página 3 — Devocional Alinhamento (Sales Page)
 - **Rota:** `/alinhamento` (arquivo: `app/alinhamento/page.tsx`)
-- **Propósito:** Página de vendas do produto digital R$149
+- **Propósito:** Página de vendas do produto digital R$97
 - **Detalhes:** ver seção `PÁGINA 3` abaixo
 
 ---
@@ -389,12 +389,12 @@ window.addEventListener('scroll', onScroll, { passive: true });
 
 **Rota:** `/alinhamento`
 **URL final:** hadassahperez.com.br/alinhamento
-**Produto:** 21 Devocionais de Alinhamento · R$149 · Produto digital
+**Produto:** 21 Devocionais de Alinhamento · R$97 · Produto digital
 **Compra:** Link Kiwify — placeholder: `<!-- KIWIFY_LINK -->`
 
 ### Estrutura (12 seções)
 
-1. **Hero / Ativação (~100vh)** — Fundo gradiente escuro. Badge olive "21 Devocionais", H1 Playfair 56px creme "Alinhamento", subtítulo Cormorant italic 22px, parágrafo DM Sans 17px/1.7, botão CTA, preço "R$149 · Investimento único" DM Sans 14px gold. Foto/mockup do produto direita (desktop) ou abaixo (mobile). Sem navbar distrativa.
+1. **Hero / Ativação (~100vh)** — Fundo gradiente escuro. Badge olive "21 Devocionais", H1 Playfair 56px creme "Alinhamento", subtítulo Cormorant italic 22px, parágrafo DM Sans 17px/1.7, botão CTA, preço "R$97 · Investimento único" DM Sans 14px gold. Foto/mockup do produto direita (desktop) ou abaixo (mobile). Sem navbar distrativa.
 
 2. **Prova Social (~100px)** — Barra horizontal com 3 números em destaque: "88K seguidores no Instagram", "[X] alunas transformadas", "3 ciclos de formação". Fundo #F0E8DC.
 
@@ -410,7 +410,7 @@ window.addEventListener('scroll', onScroll, { passive: true });
 
 8. **Depoimentos (~400px)** — H2 "O que quem já caminhou diz". Grid 3 cards, foto circular 40px, nome, texto Cormorant italic 18px. Se sem depoimentos: placeholders com comentário `<!-- TESTIMONIAL -->`. Fundo #EDE3D4.
 
-9. **Oferta + Garantia (~480px)** — Box central, borda caramel 2px, border-radius 20px. Título Playfair 28px, lista do que está incluso, preço R$149 Playfair 52px caramel, botão CTA largo. Garantia com ícone shield: "7 dias de garantia incondicional — se não for para você, reembolso integral" DM Sans 13px.
+9. **Oferta + Garantia (~480px)** — Box central, borda caramel 2px, border-radius 20px. Título Playfair 28px, lista do que está incluso, preço R$97 Playfair 52px caramel, botão CTA largo. Garantia com ícone shield: "7 dias de garantia incondicional — se não for para você, reembolso integral" DM Sans 13px.
 
 10. **FAQ (~400px)** — Accordion simples, 5–7 perguntas. Pure JavaScript, sem jQuery — máx. 20 linhas de JS. Arrow → rotaciona 180deg ao abrir. Transition: max-height 0→auto, 0.25s ease-out. Exemplos: "Como acesso após a compra?", "É livro físico?", "Quanto tempo por dia?". Fundo branco.
 

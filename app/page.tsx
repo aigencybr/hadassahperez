@@ -172,7 +172,7 @@ function FeaturedCard({ icon, imageSrc, imageAlt = "", title, subtitle, href, de
           >
             {title}
           </p>
-          <p className="text-sm mt-1 leading-snug" style={{ color: "#DFB98A" }}>
+          <p className="text-sm mt-1 leading-snug" style={{ color: "#9A8070" }}>
             {subtitle}
           </p>
         </div>
@@ -297,9 +297,9 @@ function ComingSoonCard({ icon, imageSrc, imageAlt = "", title, subtitle, delay 
           className="text-base font-medium leading-snug flex items-center gap-2"
           style={{ fontFamily: "var(--font-dm-sans)", color: "#1C1410" }}
         >
-          {title}
+          <span className="whitespace-nowrap">{title}</span>
           <span
-            className="text-[10px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5 rounded-full"
+            className="text-[10px] font-semibold tracking-[0.08em] uppercase px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0"
             style={{ background: "rgba(107,117,88,0.15)", color: "#6B7558" }}
           >
             Em breve
@@ -370,7 +370,7 @@ export default function LinksPage() {
           <div
             className="absolute inset-0 md:hidden"
             style={{
-              backgroundImage: "url('/REG_7777.JPG')",
+              backgroundImage: "url('/REG_7777.png')",
               backgroundSize: "cover",
               backgroundPosition: "center 15%",
               backgroundColor: "#2A1C12",
@@ -540,7 +540,7 @@ export default function LinksPage() {
               imageAlt="Coach Life"
               imageSrc="/coach life hadassa.jpeg"
               title="Coach Life"
-              subtitle="Individual · Grupos · Igrejas e empresas"
+              subtitle="Individual · Grupos"
               href="#" /* TODO: COACH_LIFE_LINK */
               delay={320}
             />

@@ -55,7 +55,7 @@ export default function Author() {
             <RevealWrapper delay={80}>
               <div
                 className="mb-1 font-extrabold leading-[1.1] tracking-[-0.02em] text-[#111111]"
-                style={{ fontSize: "clamp(30px, 3.5vw, 44px)" }}
+                style={{ fontSize: "clamp(30px, 3.5vw, 44px)", fontFamily: "var(--font-silver)" }}
               >
                 Hadassah
                 <br />

@@ -22,12 +22,12 @@ export default function Problem() {
             O diagnóstico
           </div>
           <h2
-            className="mb-8 font-extrabold leading-[1.2] tracking-[-0.02em] text-[#f6f6f6]"
-            style={{ fontSize: "clamp(28px, 4vw, 48px)" }}
+            className="mb-8 font-extrabold leading-[1.4] tracking-[-0.02em] text-[#f6f6f6]"
+            style={{ fontSize: "clamp(28px, 4vw, 48px)", fontFamily: "var(--font-silver)" }}
           >
             O problema não é a sua fé.
             <br />É o{" "}
-            <span className="font-semibold italic" style={{ color: "#8fa090" }}>
+            <span className="font-semibold italic" style={{ color: "#6B7558" }}>
               ruído.
             </span>
           </h2>
