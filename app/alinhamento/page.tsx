@@ -12,7 +12,6 @@ import Pricing from "@/components/sections/Pricing";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
 import Footer from "@/components/sections/Footer";
-import StickyCtA from "@/components/StickyCtA";
 
 export default function Home() {
   return (
@@ -25,13 +24,12 @@ export default function Home() {
       <Differentials />
       <Transformation />
       <Discipline />
-      <Author />
-      <Testimonials />
       <Pricing />
+      <Author />
+      {/* <Testimonials /> */}
       <FAQ />
       <FinalCTA />
       <Footer />
-      <StickyCtA />
     </main>
   );
 }

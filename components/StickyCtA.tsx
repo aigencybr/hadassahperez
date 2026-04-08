@@ -56,7 +56,7 @@ export default function StickyCtA() {
         fontFamily: "var(--font-montserrat)",
         letterSpacing: "0.04em",
       }}
-      className="btn-grad inline-flex items-center gap-2 rounded-full px-10 py-4 text-sm font-semibold text-[#f6f6f6] shadow-[0_8px_32px_rgba(88,138,101,0.45)]"
+      className="btn-grad inline-flex items-center gap-2 rounded-full px-10 py-4 text-sm font-semibold text-[#f6f6f6] shadow-[0_8px_32px_rgba(184,120,74,0.45)]"
     >
       Quero começar minha jornada
       <ArrowRight size={15} strokeWidth={2.5} />

@@ -3,7 +3,7 @@ export default function TaglineBar() {
     <div
       aria-hidden="true"
       className="border-t border-white/[0.04] py-5 text-center"
-      style={{ background: "#131212" }}
+      style={{ background: "#16100C" }}
     >
       <p
         className="text-[11px] font-semibold tracking-[0.16em] text-white/40"

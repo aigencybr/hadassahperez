@@ -42,12 +42,12 @@ function Objection() {
       className="overflow-hidden rounded-[20px] bg-white shadow-[0_2px_10px_rgba(0,0,0,0.07)] transition-shadow duration-200 hover:shadow-[8px_8px_24px_rgba(0,0,0,0.12)]"
     >
       <button
-        className="flex w-full items-center justify-between gap-6 px-8 py-6 text-left transition-colors duration-150 hover:bg-[rgba(113,132,114,0.06)]"
+        className="flex w-full items-center justify-between gap-6 px-8 py-6 text-left transition-colors duration-150 hover:bg-[rgba(184,120,74,0.06)]"
         onClick={() => setOpen(!open)}
         aria-expanded={open}
       >
         <span
-          className="text-[15px] font-bold leading-[1.45] text-[#111111]"
+          className="text-[15px] font-bold leading-[1.45] text-[#1C1410]"
           style={{ fontFamily: "var(--font-montserrat)" }}
         >
           "Já li muitos devocionais e não mudou nada."
@@ -55,9 +55,9 @@ function Objection() {
         <span
           className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full transition-transform duration-200"
           style={{
-            background: "linear-gradient(180deg, #78AC76 0%, #588A65 100%)",
+            background: "#B8784A",
             transform: open ? "rotate(45deg)" : "rotate(0deg)",
-            boxShadow: "0 2px 8px rgba(88,138,101,0.3)",
+            boxShadow: "0 2px 8px rgba(184,120,74,0.3)",
           }}
           aria-hidden="true"
         >
@@ -71,7 +71,7 @@ function Objection() {
           transition: "max-height 0.35s cubic-bezier(0.22,1,0.36,1)",
         }}
       >
-        <p className="px-8 pb-6 text-[15px] font-light leading-[1.75] text-[rgba(17,17,17,0.62)]">
+        <p className="px-8 pb-6 text-[15px] font-light leading-[1.75] text-[#5E4535]">
           Você provavelmente leu devocionais que eram bonitos, mas não te
           levavam a lugar nenhum. O Alinhamento não é uma coletânea de textos
           inspiradores. É uma jornada com estrutura, progressão e ação — cada
@@ -90,7 +90,7 @@ export default function Transformation() {
         <RevealWrapper delay={0}>
           <div className="mb-12 text-center">
             <div
-              className="mb-6 block text-center text-[11px] font-bold tracking-[0.18em] text-[#718472]"
+              className="mb-6 block text-center text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
               style={{
                 fontFamily: "var(--font-montserrat)",
                 textTransform: "uppercase",
@@ -99,13 +99,13 @@ export default function Transformation() {
               Transformação
             </div>
             <h2
-              className="font-bold leading-[1.2] tracking-[-0.01em] text-[#111111]"
+              className="font-bold leading-[1.2] tracking-[-0.01em] text-[#1C1410]"
               style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
               Com o Alinhamento,
               <br />
               você{" "}
-              <span className="font-semibold italic" style={{ color: "#718472" }}>
+              <span className="font-semibold italic" style={{ color: "#C9996A" }}>
                 não vai mais:
               </span>
             </h2>
@@ -118,7 +118,7 @@ export default function Transformation() {
               {negatives.map((item) => (
                 <li
                   key={item}
-                  className="flex items-start gap-3.5 text-[17px] leading-[1.55] text-[#111111]"
+                  className="flex items-start gap-3.5 text-[17px] leading-[1.55] text-[#1C1410]"
                 >
                   <XIcon />
                   {item}

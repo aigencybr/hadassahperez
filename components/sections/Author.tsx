@@ -10,7 +10,7 @@ const credentials = [
 
 export default function Author() {
   return (
-    <section style={{ background: "#ebebeb" }} className="py-24 md:py-32">
+    <section style={{ background: "#EDE3D4" }} className="py-12 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[380px_1fr]">
           {/* Author photo */}
@@ -20,7 +20,7 @@ export default function Author() {
               aria-label="Foto de Hadassah Perez"
             >
               <Image
-                src="/creator.jpeg"
+                src="/creator.JPG"
                 alt="Hadassah Perez"
                 fill
                 className="object-cover object-top"
@@ -42,7 +42,7 @@ export default function Author() {
           <div>
             <RevealWrapper delay={0}>
               <div
-                className="mb-4 text-[11px] font-bold tracking-[0.18em] text-[#718472]"
+                className="mb-4 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   textTransform: "uppercase",
@@ -54,7 +54,7 @@ export default function Author() {
 
             <RevealWrapper delay={80}>
               <div
-                className="mb-1 font-extrabold leading-[1.1] tracking-[-0.02em] text-[#111111]"
+                className="mb-1 font-extrabold leading-[1.1] tracking-[-0.02em] text-[#1C1410]"
                 style={{ fontSize: "clamp(30px, 3.5vw, 44px)", fontFamily: "var(--font-silver)" }}
               >
                 Hadassah
@@ -65,19 +65,19 @@ export default function Author() {
 
             <RevealWrapper delay={80}>
               <div
-                className="mb-8 text-[12px] font-semibold tracking-[0.14em] text-[#718472]"
+                className="mb-8 text-[12px] font-semibold tracking-[0.14em] text-[#6B7558]"
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   textTransform: "uppercase",
                 }}
               >
-                Cantora · Coach · Mentora Espiritual · 88K seguidores
+                Cantora · Coach · Mentora Espiritual
               </div>
             </RevealWrapper>
 
             <RevealWrapper delay={160}>
               <p
-                className="mb-8 font-light leading-[1.85] text-[rgba(17,17,17,0.62)]"
+                className="mb-8 font-light leading-[1.75] text-[#5E4535]"
                 style={{ fontSize: "17px" }}
               >
                 Deixei o Brasil, atravessei oceanos e passei anos aprendendo —
@@ -93,7 +93,7 @@ export default function Author() {
                 profundo — de aprender a ouvir a voz de Deus no meio de tudo.
                 <br />
                 <br />
-                <em className="font-normal text-[#111111]">
+                <em className="font-normal text-[#1C1410]">
                   Este devocional é o que eu desejo que você tenha.
                 </em>
               </p>
@@ -104,13 +104,13 @@ export default function Author() {
                 {credentials.map((cred) => (
                   <div
                     key={cred}
-                    className="flex items-center gap-3 text-sm leading-[1.4] text-[rgba(17,17,17,0.62)]"
+                    className="flex items-center gap-3 text-sm leading-[1.4] text-[#5E4535]"
                     role="listitem"
                   >
                     <div
                       aria-hidden="true"
                       className="h-1.5 w-1.5 shrink-0 rounded-full"
-                      style={{ background: "#718472" }}
+                      style={{ background: "#B8784A" }}
                     />
                     {cred}
                   </div>

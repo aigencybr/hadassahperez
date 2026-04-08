@@ -9,7 +9,7 @@ export default function Hero() {
       id="hero"
       aria-label="Hero"
       className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden px-5 pb-24 pt-28 text-center"
-      style={{ background: "#1e1d1d" }}
+      style={{ background: "#16100C" }}
     >
       {/* Background image */}
       <Image
@@ -38,7 +38,7 @@ export default function Hero() {
             animationDelay: "0ms",
           }}
         >
-          Devocional Digital · 21 Dias · Hadassah Perez
+          Devocional Digital · 21 Dias ·<br /> Hadassah Perez
         </div>
 
         {/* H1 */}
@@ -55,7 +55,7 @@ export default function Hero() {
 
         {/* Subheadline */}
         <p
-          className="animate-reveal mx-auto mb-10 max-w-[500px] font-light leading-[1.75] text-white/60"
+          className="animate-reveal mx-auto max-w-[500px] font-light leading-[1.2] text-white/60"
           style={{
             fontSize: "18px",
             animationDelay: "160ms",
@@ -66,64 +66,24 @@ export default function Hero() {
 
         {/* CTA */}
         <div
-          className="animate-reveal flex flex-col items-center gap-4"
+          className="animate-reveal flex flex-col items-center gap-4 mt-20"
           style={{ animationDelay: "240ms" }}
         >
           <a
-            href={BUY_LINK}
+            href={'#pricing'}
             aria-label="Comprar agora"
-            className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(88,138,101,0.35)]"
+            className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
             style={{
               fontFamily: "var(--font-montserrat)",
               fontSize: "15px",
               letterSpacing: "0.04em",
+              background: "#6B7558",
             }}
           >
             Quero começar minha jornada
             <ArrowRight size={16} strokeWidth={2.5} />
           </a>
-
-          {/* Trust microcopy */}
-          <div
-            className="flex flex-wrap items-center justify-center gap-4 text-white/80"
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              fontSize: "12px",
-              letterSpacing: "0.06em",
-            }}
-          >
-            {["Acesso imediato", "100% digital", "Garantia de 7 dias"].map(
-              (item) => (
-                <span key={item} className="flex items-center gap-1.5">
-                  <span style={{ color: "#ffffffff", fontWeight: 700 }}>✓</span>
-                  {item}
-                </span>
-              )
-            )}
-          </div>
         </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div
-        aria-hidden="true"
-        className="absolute bottom-9 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
-        style={{
-          fontFamily: "var(--font-montserrat)",
-          fontSize: "10px",
-          letterSpacing: "0.2em",
-          textTransform: "uppercase",
-          color: "rgba(246, 246, 246, 0.83)",
-        }}
-      >
-        <div
-          className="animate-scroll-pulse h-9 w-px"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(246, 246, 246, 0.86), transparent)",
-          }}
-        />
-        <span>continuar</span>
       </div>
     </section>
   );

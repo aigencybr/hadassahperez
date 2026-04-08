@@ -37,12 +37,12 @@ function FaqItem({ q, a, delay }: { q: string; a: string; delay: number }) {
         role="listitem"
       >
         <button
-          className="flex w-full items-center justify-between gap-8 px-8 py-6 text-left transition-colors duration-150 hover:bg-[rgba(113,132,114,0.05)]"
+          className="flex w-full items-center justify-between gap-8 px-8 py-6 text-left transition-colors duration-150 hover:bg-[rgba(184,120,74,0.05)]"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
         >
           <span
-            className="text-[16px] font-bold leading-[1.45] text-[#111111]"
+            className="text-[16px] font-bold leading-[1.45] text-[#1C1410]"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             {q}
@@ -50,9 +50,9 @@ function FaqItem({ q, a, delay }: { q: string; a: string; delay: number }) {
           <span
             className="flex h-[30px] w-[30px] shrink-0 items-center justify-center rounded-full transition-transform duration-200"
             style={{
-              background: "linear-gradient(180deg, #78AC76 0%, #588A65 100%)",
+              background: "#B8784A",
               transform: open ? "rotate(45deg)" : "rotate(0deg)",
-              boxShadow: "0 2px 8px rgba(88,138,101,0.3)",
+              boxShadow: "0 2px 8px rgba(184,120,74,0.3)",
             }}
             aria-hidden="true"
           >
@@ -66,7 +66,7 @@ function FaqItem({ q, a, delay }: { q: string; a: string; delay: number }) {
             transition: "max-height 0.35s cubic-bezier(0.22,1,0.36,1)",
           }}
         >
-          <p className="px-8 pb-8 text-[16px] font-light leading-[1.8] text-[rgba(17,17,17,0.62)]">
+          <p className="px-8 pb-8 text-[16px] font-light leading-[1.8] text-[#5E4535]">
             {a}
           </p>
         </div>
@@ -82,7 +82,7 @@ export default function FAQ() {
         <RevealWrapper delay={0}>
           <div className="mb-16 text-center">
             <div
-              className="mb-6 block text-center text-[11px] font-bold tracking-[0.18em] text-[#718472]"
+              className="mb-6 block text-center text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
               style={{
                 fontFamily: "var(--font-montserrat)",
                 textTransform: "uppercase",
@@ -91,7 +91,7 @@ export default function FAQ() {
               Perguntas frequentes
             </div>
             <h2
-              className="font-bold leading-[1.2] tracking-[-0.01em] text-[#111111]"
+              className="font-bold leading-[1.2] tracking-[-0.01em] text-[#1C1410]"
               style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
             >
               Ainda tem dúvidas?

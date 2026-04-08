@@ -1,4 +1,5 @@
 import RevealWrapper from "@/components/RevealWrapper";
+import { ArrowRight } from "lucide-react";
 
 const diffs = [
   {
@@ -25,11 +26,11 @@ const diffs = [
 
 export default function Differentials() {
   return (
-    <section style={{ background: "#ebebeb" }} className="py-24 md:py-32">
+    <section style={{ background: "#EDE3D4" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div
-            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#718472]"
+            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
             style={{
               fontFamily: "var(--font-montserrat)",
               textTransform: "uppercase",
@@ -38,10 +39,10 @@ export default function Differentials() {
             Por que é diferente
           </div>
           <h2
-            className="mb-12 font-bold leading-[1.2] tracking-[-0.01em] text-[#111111]"
+            className="mb-12 font-bold leading-[1.2] tracking-[-0.01em] text-[#1C1410]"
             style={{ fontSize: "clamp(28px, 3.8vw, 44px)", fontFamily: "var(--font-silver)" }}
           >
-            Por que este devocional é diferente de tudo que você já leu
+            Por que este devocional é diferente de tudo que você já leu?
           </h2>
         </RevealWrapper>
 
@@ -50,7 +51,7 @@ export default function Differentials() {
             <RevealWrapper key={d.num} delay={80 + i * 80}>
               <div className="rounded-[28px] bg-white p-8 shadow-[0_2px_10px_rgba(0,0,0,0.07)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_24px_rgba(0,0,0,0.12)]">
                 <div
-                  className="mb-3 text-[10px] font-bold tracking-[0.18em] text-[#718472]"
+                  className="mb-3 text-[10px] font-bold tracking-[0.18em] text-[#6B7558]"
                   style={{
                     fontFamily: "var(--font-montserrat)",
                     textTransform: "uppercase",
@@ -58,15 +59,34 @@ export default function Differentials() {
                 >
                   {d.num}
                 </div>
-                <div className="mb-3 text-[19px] font-extrabold leading-[1.3] text-[#111111]">
+                <div className="mb-3 text-[19px] font-extrabold leading-[1.3] text-[#1C1410]">
                   {d.title}
                 </div>
-                <div className="text-[15px] font-light leading-[1.75] text-[rgba(17,17,17,0.62)]">
+                <div className="text-[15px] font-light leading-[1.75] text-[#5E4535]">
                   {d.text}
                 </div>
               </div>
             </RevealWrapper>
           ))}
+          <div
+            className="animate-reveal flex flex-col items-center gap-4 mt-10"
+            style={{ animationDelay: "240ms" }}
+          >
+            <a
+              href={'#pricing'}
+              aria-label="Comprar agora"
+              className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
+              style={{
+                fontFamily: "var(--font-montserrat)",
+                fontSize: "15px",
+                letterSpacing: "0.04em",
+                background: "#6B7558",
+              }}
+            >
+              Começar agora
+              <ArrowRight size={16} strokeWidth={2.5} />
+            </a>
+          </div>
         </div>
       </div>
     </section>

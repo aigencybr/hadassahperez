@@ -9,11 +9,11 @@ const features = [
 
 export default function Problem() {
   return (
-    <section style={{ background: "#131212" }} className="py-24 md:py-32">
+    <section style={{ background: "#16100C" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div
-            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[rgba(246,246,246,0.45)]"
+            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#9A8070]"
             style={{
               fontFamily: "var(--font-montserrat)",
               textTransform: "uppercase",
@@ -22,12 +22,12 @@ export default function Problem() {
             O diagnóstico
           </div>
           <h2
-            className="mb-8 font-extrabold leading-[1.4] tracking-[-0.02em] text-[#f6f6f6]"
+            className="mb-8 font-extrabold leading-[1.4] tracking-[-0.02em] text-[#F5EDD8]"
             style={{ fontSize: "clamp(28px, 4vw, 48px)", fontFamily: "var(--font-silver)" }}
           >
             O problema não é a sua fé.
             <br />É o{" "}
-            <span className="font-semibold italic" style={{ color: "#6B7558" }}>
+            <span className="font-semibold italic" style={{ color: "#C9996A" }}>
               ruído.
             </span>
           </h2>
@@ -35,7 +35,7 @@ export default function Problem() {
 
         <RevealWrapper delay={80}>
           <p
-            className="max-w-[620px] font-light leading-[1.8] text-[rgba(246,246,246,0.65)]"
+            className="max-w-[620px] font-light leading-[1.8] text-[#DFB98A]"
             style={{ fontSize: "18px" }}
           >
             Vivemos numa era que glorifica a pressa. Todo mundo tem uma opinião
@@ -48,7 +48,7 @@ export default function Problem() {
             resposta:
             <br />
             <em
-              className="font-normal not-italic text-[rgba(246,246,246,0.9)]"
+              className="font-normal not-italic text-[#F5EDD8]"
               style={{ fontSize: "22px" }}
             >
               O que Deus está dizendo para mim?
@@ -59,18 +59,18 @@ export default function Problem() {
         <RevealWrapper delay={160}>
           <div
             className="my-10 h-0.5 w-12 rounded-full"
-            style={{ background: "#718472" }}
+            style={{ background: "#B8784A" }}
           />
         </RevealWrapper>
 
         <RevealWrapper delay={160}>
           <p
-            className="mb-0 max-w-[620px] font-light leading-[1.8] text-[rgba(246,246,246,0.65)]"
+            className="mb-0 max-w-[620px] font-light leading-[1.8] text-[#DFB98A]"
             style={{ fontSize: "18px" }}
           >
             A maioria das mulheres cristãs não têm um problema de fé. Têm um
             problema de{" "}
-            <strong style={{ color: "rgba(246,246,246,0.88)", fontWeight: 600 }}>
+            <strong style={{ color: "#F5EDD8", fontWeight: 600 }}>
               alinhamento
             </strong>
             . Elas creem — mas vivem desconectadas do que Deus está falando
@@ -86,7 +86,7 @@ export default function Problem() {
                 <div
                   className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-lg"
                   style={{
-                    background: "linear-gradient(145deg, #78AC76, #588A65)",
+                    background: "#6B7558",
                   }}
                 >
                   <svg
@@ -98,7 +98,7 @@ export default function Problem() {
                   </svg>
                 </div>
                 <span
-                  className="text-[15px] font-semibold leading-[1.4] text-[rgba(246,246,246,0.88)]"
+                  className="text-[15px] font-semibold leading-[1.4] text-[#F5EDD8]"
                 >
                   {text}
                 </span>
