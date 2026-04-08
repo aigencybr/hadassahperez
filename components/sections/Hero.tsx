@@ -13,7 +13,7 @@ export default function Hero() {
     >
       {/* Background image */}
       <Image
-        src="/hero.DNG"
+        src="/hero.jpg"
         alt=""
         fill
         priority
