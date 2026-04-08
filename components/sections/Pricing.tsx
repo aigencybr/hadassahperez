@@ -120,7 +120,7 @@ export default function Pricing() {
             <div className="mb-8">
               <a
                 href={BUY_LINK}
-                className="btn-grad inline-flex items-center gap-2 rounded-full px-16 py-5 font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
+                className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   fontSize: "16px",
@@ -129,7 +129,7 @@ export default function Pricing() {
                 }}
                 aria-label="Comprar Alinhamento por R$97"
               >
-                Quero meu alinhamento com Deus
+                Quero essa mudança
                 <ArrowRight size={16} strokeWidth={2.5} />
               </a>
             </div>
@@ -146,14 +146,26 @@ export default function Pricing() {
                   style={{ fontFamily: "var(--font-montserrat)" }}
                   role="listitem"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-3.5 w-3.5 fill-[#B8784A]"
+                  <span
                     aria-hidden="true"
+                    className="flex h-[22px] w-[22px] shrink-0 items-center justify-center rounded-full"
+                    style={{ background: "#B8784A" }}
                   >
-                    <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
-                  </svg>
+                    <svg
+                      viewBox="0 0 14 14"
+                      className="h-3 w-3"
+                      fill="none"
+                      aria-hidden="true"
+                    >
+                      <polyline
+                        points="2.5,7 5.5,10 11.5,4"
+                        stroke="white"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
                   {g}
                 </div>
               ))}
@@ -170,7 +182,7 @@ export default function Pricing() {
         </RevealWrapper>
 
         {/* Trust badges */}
-        <div className="mt-16 flex flex-wrap justify-center gap-16">
+        <div className="mt-16 grid grid-cols-2 gap-x-10 gap-y-10 sm:grid-cols-4 sm:gap-x-16">
           {trustBadges.map((badge, i) => (
             <RevealWrapper key={badge.label} delay={80 + i * 80}>
               <div className="flex flex-col items-center gap-3">
