@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer
       className="border-t border-white/[0.04] px-5 py-10 text-center"
-      style={{ background: "#16100C" }}
+      style={{ background: "#3d2510" }}
     >
       <div
         className="mb-2 text-[15px] font-light italic tracking-[0.25em] text-[#9A8070]"

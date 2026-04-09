@@ -50,7 +50,7 @@ export default function Pricing() {
   return (
     <section
       id="pricing"
-      style={{ background: "#EDE3D4" }}
+      style={{ background: "#F5F5F5" }}
       className="pt-24 pb-12 md:py-32"
     >
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
@@ -125,7 +125,7 @@ export default function Pricing() {
                   fontFamily: "var(--font-montserrat)",
                   fontSize: "16px",
                   letterSpacing: "0.04em",
-                  background: "#6B7558",
+                  background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
                 }}
                 aria-label="Comprar Alinhamento por R$97"
               >

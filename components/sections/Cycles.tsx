@@ -6,21 +6,39 @@ const cycles = [
     name: "Alinhamento",
     lead: "Antes de saber para onde ir, você precisa saber quem você é.",
     desc: "Reconexão com Deus, com sua identidade em Cristo. Você vai soltar o que prende — feridas, expectativas falsas, vozes que não são de Deus.",
-    barClass: "cycle-bar-1",
+    bg: "#6F4D38",
+    bar: "#8F6448",
+    numColor: "rgba(255,255,255,0.07)",
+    labelColor: "#DFB98A",
+    titleColor: "#F5EDD8",
+    leadColor: "#EDD9C0",
+    descColor: "#C9A880",
   },
   {
     num: "02",
     name: "Direção",
     lead: "Com o coração alinhado, a voz de Deus fica mais clara.",
     desc: "Discernimento: aprender a reconhecer como Deus fala com você especificamente. Clareza espiritual para os próximos passos.",
-    barClass: "cycle-bar-2",
+    bg: "#A07856",
+    bar: "#BF9470",
+    numColor: "rgba(255,255,255,0.08)",
+    labelColor: "#F5EDD8",
+    titleColor: "#F5EDD8",
+    leadColor: "#EDD9C0",
+    descColor: "#F0E0C8",
   },
   {
     num: "03",
     name: "Ação com Fé",
     lead: "Fé sem movimento não transforma nada.",
     desc: "Transformar clareza em ação concreta. Sair da contemplação e caminhar — com fé ativa e confiança renovada.",
-    barClass: "cycle-bar-3",
+    bg: "#CBB799",
+    bar: "#DFD0B5",
+    numColor: "rgba(0,0,0,0.06)",
+    labelColor: "#5E3A1E",
+    titleColor: "#2C1A0A",
+    leadColor: "#3D2410",
+    descColor: "#5E3A1E",
   },
 ];
 
@@ -127,37 +145,39 @@ export default function Cycles() {
         {/* Cycle cards */}
         <div className="mb-24 grid grid-cols-1 gap-6 md:grid-cols-3">
           {cycles.map((c, i) => (
-            <RevealWrapper key={c.num} delay={80 + i * 80}>
+            <RevealWrapper key={c.num} delay={80 + i * 80} className="h-full">
               <div
-                className="relative cursor-default overflow-hidden rounded-[28px] bg-white px-8 pb-8 pt-7 shadow-[0_2px_10px_rgba(0,0,0,0.07)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_24px_rgba(0,0,0,0.12)]"
+                className="relative flex h-full cursor-default flex-col overflow-hidden rounded-[28px] px-8 pb-8 pt-7 shadow-[0_2px_10px_rgba(0,0,0,0.07)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[8px_8px_24px_rgba(0,0,0,0.20)]"
+                style={{ background: c.bg }}
               >
                 {/* Top color bar */}
-                <div className={`absolute inset-x-0 top-0 h-[3px] ${c.barClass}`} />
+                <div className="absolute inset-x-0 top-0 h-[3px]" style={{ background: c.bar }} />
 
                 <div
-                  className="-mb-1 font-extrabold leading-[0.85] tracking-[-0.05em] text-[rgba(2,2,2,0.04)]"
-                  style={{ fontSize: "88px" }}
+                  className="-mb-1 font-extrabold leading-[0.85] tracking-[-0.05em]"
+                  style={{ fontSize: "88px", color: c.numColor }}
                   aria-hidden="true"
                 >
                   {c.num}
                 </div>
 
                 <div
-                  className="mb-3 text-[10px] font-bold tracking-[0.18em] text-[#6B7558]"
+                  className="mb-3 text-[10px] font-bold tracking-[0.18em]"
                   style={{
                     fontFamily: "var(--font-montserrat)",
                     textTransform: "uppercase",
+                    color: c.labelColor,
                   }}
                 >
                   Semana {c.num}
                 </div>
-                <div className="mb-2 text-[22px] font-extrabold text-[#1C1410]">
+                <div className="mb-2 text-[22px] font-extrabold" style={{ color: c.titleColor }}>
                   {c.name}
                 </div>
-                <div className="mb-2 text-sm font-bold leading-[1.4] text-[#1C1410]">
+                <div className="mb-2 text-sm font-bold leading-[1.4]" style={{ color: c.leadColor }}>
                   {c.lead}
                 </div>
-                <div className="text-sm font-light leading-[1.65] text-[#5E4535]">
+                <div className="text-sm font-light leading-[1.65]" style={{ color: c.descColor }}>
                   {c.desc}
                 </div>
               </div>

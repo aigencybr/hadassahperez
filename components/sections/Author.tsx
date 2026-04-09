@@ -15,12 +15,25 @@ export default function Author() {
         <div className="grid grid-cols-1 items-start gap-16 md:grid-cols-[380px_1fr]">
           {/* Author photo */}
           <RevealWrapper delay={0}>
+            <div className="relative">
+              {/* Retângulo decorativo atrás */}
+              <div
+                aria-hidden="true"
+                className="absolute rounded-[28px]"
+                style={{
+                  background: "#2e1f0e",
+                  inset: 0,
+                  transform: "translate(-14px, -14px)",
+                  zIndex: 0,
+                }}
+              />
             <div
               className="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-[0_4px_40px_rgba(0,0,0,0.16)]"
+              style={{ zIndex: 1 }}
               aria-label="Foto de Hadassah Perez"
             >
               <Image
-                src="/creator.JPG"
+                src="/creator.jpg"
                 alt="Hadassah Perez"
                 fill
                 className="object-cover object-top"
@@ -35,6 +48,7 @@ export default function Author() {
                     "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3))",
                 }}
               />
+            </div>
             </div>
           </RevealWrapper>
 

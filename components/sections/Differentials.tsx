@@ -30,7 +30,7 @@ export default function Differentials() {
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div
-            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
+            className="mb-6 text-center text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
             style={{
               fontFamily: "var(--font-montserrat)",
               textTransform: "uppercase",
@@ -68,25 +68,22 @@ export default function Differentials() {
               </div>
             </RevealWrapper>
           ))}
-          <div
-            className="animate-reveal flex flex-col items-center gap-4 mt-10"
-            style={{ animationDelay: "240ms" }}
+        </div>
+        <div className="mt-10 flex justify-center">
+          <a
+            href={'#pricing'}
+            aria-label="Comprar agora"
+            className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
+            style={{
+              fontFamily: "var(--font-montserrat)",
+              fontSize: "15px",
+              letterSpacing: "0.04em",
+              background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
+            }}
           >
-            <a
-              href={'#pricing'}
-              aria-label="Comprar agora"
-              className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                fontSize: "15px",
-                letterSpacing: "0.04em",
-                background: "#6B7558",
-              }}
-            >
-              Começar agora
-              <ArrowRight size={16} strokeWidth={2.5} />
-            </a>
-          </div>
+            Começar agora
+            <ArrowRight size={16} strokeWidth={2.5} />
+          </a>
         </div>
       </div>
     </section>

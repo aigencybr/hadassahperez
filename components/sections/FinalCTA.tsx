@@ -8,13 +8,13 @@ export default function FinalCTA() {
     <section
       id="final-cta"
       className="relative overflow-hidden py-24 text-center md:py-32"
-      style={{ background: "#16100C" }}
+      style={{ background: "#2a1a0f" }}
     >
       {/* Radial glow */}
-      <div
+      {/* <div
         aria-hidden="true"
         className="final-glow pointer-events-none absolute bottom-[-200px] left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full"
-      />
+      /> */}
 
       <div className="relative z-10 mx-auto max-w-[560px] px-5">
         <RevealWrapper delay={0}>
@@ -58,7 +58,7 @@ export default function FinalCTA() {
               fontFamily: "var(--font-montserrat)",
               fontSize: "16px",
               letterSpacing: "0.04em",
-              background: "#6B7558",
+              background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
             }}
             aria-label="Comprar agora"
           >

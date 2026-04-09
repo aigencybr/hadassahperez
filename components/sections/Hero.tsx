@@ -17,8 +17,8 @@ export default function Hero() {
         alt=""
         fill
         priority
-        className="object-cover"
-        style={{ opacity: 0.35 }}
+        className="object-cover "
+        style={{ objectPosition: "center top", opacity: 0.35 }}
       />
 
       {/* Radial glow */}
@@ -43,7 +43,7 @@ export default function Hero() {
 
         {/* H1 */}
         <h1
-          className="animate-reveal mb-6 leading-[1.18] tracking-[-0.02em] text-[#f6f6f6]"
+          className="animate-reveal mb-12 md:mt-0 mt-6 leading-[1.18] tracking-[-0.02em] text-[#f6f6f6]"
           style={{
             fontFamily: "var(--font-silver)",
             fontSize: "clamp(30px, 5vw, 52px)",
@@ -66,18 +66,17 @@ export default function Hero() {
 
         {/* CTA */}
         <div
-          className="animate-reveal flex flex-col items-center gap-4 mt-20"
+          className="animate-reveal flex flex-col items-center gap-4 mt-15"
           style={{ animationDelay: "240ms" }}
         >
           <a
             href={'#pricing'}
             aria-label="Comprar agora"
-            className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
+            className="btn-grad inline-flex items-center text-xs md:text-md gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(60,75,35,0.45)]"
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: "15px",
               letterSpacing: "0.04em",
-              background: "#6B7558",
+              background: "linear-gradient(135deg, #688339ff 0%, #2f3d18 100%)",
             }}
           >
             Quero começar minha jornada

@@ -9,11 +9,11 @@ const features = [
 
 export default function Problem() {
   return (
-    <section style={{ background: "#16100C" }} className="py-24 md:py-32">
+    <section style={{ background: "#f5f5f5" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div
-            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#9A8070]"
+            className="mb-6 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
             style={{
               fontFamily: "var(--font-montserrat)",
               textTransform: "uppercase",
@@ -22,12 +22,12 @@ export default function Problem() {
             O diagnóstico
           </div>
           <h2
-            className="mb-8 font-extrabold leading-[1.4] tracking-[-0.02em] text-[#F5EDD8]"
+            className="mb-8 font-extrabold leading-[1.4] tracking-[-0.02em] text-[#1C1410]"
             style={{ fontSize: "clamp(28px, 4vw, 48px)", fontFamily: "var(--font-silver)" }}
           >
             O problema não é a sua fé.
             <br />É o{" "}
-            <span className="font-semibold italic" style={{ color: "#C9996A" }}>
+            <span className="font-semibold italic" style={{ color: "#B8784A" }}>
               ruído.
             </span>
           </h2>
@@ -35,7 +35,7 @@ export default function Problem() {
 
         <RevealWrapper delay={80}>
           <p
-            className="max-w-[620px] font-light leading-[1.8] text-[#DFB98A]"
+            className="max-w-[620px] font-light leading-[1.8] text-[#5E4535]"
             style={{ fontSize: "18px" }}
           >
             Vivemos numa era que glorifica a pressa. Todo mundo tem uma opinião
@@ -48,7 +48,7 @@ export default function Problem() {
             resposta:
             <br />
             <em
-              className="font-normal not-italic text-[#F5EDD8]"
+              className="font-normal not-italic text-[#1C1410]"
               style={{ fontSize: "22px" }}
             >
               O que Deus está dizendo para mim?
@@ -65,12 +65,12 @@ export default function Problem() {
 
         <RevealWrapper delay={160}>
           <p
-            className="mb-0 max-w-[620px] font-light leading-[1.8] text-[#DFB98A]"
+            className="mb-0 max-w-[620px] font-light leading-[1.8] text-[#5E4535]"
             style={{ fontSize: "18px" }}
           >
             A maioria das mulheres cristãs não têm um problema de fé. Têm um
             problema de{" "}
-            <strong style={{ color: "#F5EDD8", fontWeight: 600 }}>
+            <strong style={{ color: "#1C1410", fontWeight: 600 }}>
               alinhamento
             </strong>
             . Elas creem — mas vivem desconectadas do que Deus está falando
@@ -82,11 +82,11 @@ export default function Problem() {
         <div className="mt-16 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {features.map((text, i) => (
             <RevealWrapper key={text} delay={80 + i * 80}>
-              <div className="feature-tile-dark flex cursor-default items-center gap-6 rounded-[20px] border p-6 transition-colors duration-200">
+              <div className="flex cursor-default items-center gap-6 rounded-[20px] border border-[rgba(94,69,53,0.13)] bg-white p-6 shadow-[0_2px_8px_rgba(107,77,55,0.06)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(107,77,55,0.10)]">
                 <div
                   className="flex h-[38px] w-[38px] shrink-0 items-center justify-center rounded-lg"
                   style={{
-                    background: "#6B7558",
+                    background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
                   }}
                 >
                   <svg
@@ -98,7 +98,7 @@ export default function Problem() {
                   </svg>
                 </div>
                 <span
-                  className="text-[15px] font-semibold leading-[1.4] text-[#F5EDD8]"
+                  className="text-[15px] font-semibold leading-[1.4] text-[#1C1410]"
                 >
                   {text}
                 </span>
