@@ -35,19 +35,6 @@ export default function Discipline() {
               exige é intenção. E se você chegou até aqui nessa página, você já
               tem isso.
             </p>
-
-            {/* <a
-              href={"#pricing"}
-              className="inline-flex items-center gap-2 rounded-full border px-8 py-3.5 text-[#5E4535] text-sm font-semibold transition-colors duration-200 hover:bg-[#6B7558] hover:text-white hover:border-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                borderColor: "rgba(94,69,53,0.35)"
-              }}
-              aria-label="Comprar agora"
-            >
-              Quero começar minha jornada
-              <ArrowRight size={15} strokeWidth={2.5} />
-            </a> */}
           </div>
         </RevealWrapper>
       </div>

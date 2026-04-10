@@ -73,10 +73,9 @@ export default function Differentials() {
           <a
             href={'#pricing'}
             aria-label="Comprar agora"
-            className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
+            className="btn-grad inline-flex items-center text-xs md:text-md gap-2 rounded-full px-[52px] py-[18px] font-semibold tracking-wide text-[#f6f6f6] shadow-[0_4px_20px_rgba(107,117,88,0.40)]"
             style={{
               fontFamily: "var(--font-montserrat)",
-              fontSize: "15px",
               letterSpacing: "0.04em",
               background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
             }}

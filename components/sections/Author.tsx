@@ -27,28 +27,28 @@ export default function Author() {
                   zIndex: 0,
                 }}
               />
-            <div
-              className="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-[0_4px_40px_rgba(0,0,0,0.16)]"
-              style={{ zIndex: 1 }}
-              aria-label="Foto de Hadassah Perez"
-            >
-              <Image
-                src="/creator.jpg"
-                alt="Hadassah Perez"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 100vw, 380px"
-                priority
-              />
               <div
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3))",
-                }}
-              />
-            </div>
+                className="relative aspect-[3/4] overflow-hidden rounded-[28px] shadow-[0_4px_40px_rgba(0,0,0,0.16)]"
+                style={{ zIndex: 1 }}
+                aria-label="Foto de Hadassah Perez"
+              >
+                <Image
+                  src="/creator-2.jpg"
+                  alt="Hadassah Perez"
+                  fill
+                  className="object-cover object-top"
+                  sizes="(max-width: 768px) 100vw, 380px"
+                  priority
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.3))",
+                  }}
+                />
+              </div>
             </div>
           </RevealWrapper>
 
