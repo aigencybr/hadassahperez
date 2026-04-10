@@ -170,6 +170,7 @@
 ========================================= */
 .btn-grad {
   background: #B8784A;
+  white-space: nowrap;
   transition: filter 0.2s ease-out, transform 0.2s ease-out, box-shadow 0.2s ease-out;
 }
 
