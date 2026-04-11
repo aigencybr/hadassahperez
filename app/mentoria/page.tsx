@@ -1,10 +1,23 @@
 import Image from "next/image";
 import { ArrowRight, Check } from "lucide-react";
 import RevealWrapper from "@/components/RevealWrapper";
-import NavbarMentoria from "@/components/mentoria/NavbarMentoria";
 
 // <!-- WHATSAPP_LINK -->
 const CTA_LINK = "#pricing";
+
+/* Thin golden separator line between sections */
+function GoldLine() {
+  return (
+    <div
+      aria-hidden="true"
+      className="mx-auto h-px w-full max-w-[1160px]"
+      style={{
+        background:
+          "linear-gradient(90deg, transparent 0%, rgba(201,153,106,0.4) 20%, rgba(201,153,106,0.4) 80%, transparent 100%)",
+      }}
+    />
+  );
+}
 const WA_APPLY_LINK =
   "https://wa.me/5562998791555?text=Olá+Hadassah,+quero+me+inscrever+no+Caminho+de+Ester";
 
@@ -16,33 +29,55 @@ function Hero() {
     <section
       id="a-mentoria"
       aria-label="Hero — Caminho de Ester"
-      className="relative overflow-hidden pt-24 pb-0 md:pt-0"
+      className="relative overflow-hidden pt-12 pb-0 md:pt-0"
       style={{ background: "#F0E8DC", minHeight: "90vh" }}
     >
       <div className="mx-auto grid max-w-[1160px] min-h-[90vh] grid-cols-1 items-center px-5 md:grid-cols-[55%_45%] md:px-10">
         {/* Left — text */}
-        <div className="py-20 md:py-32 md:pr-12">
+        <div className="py-16 md:py-28 md:pr-12">
+          {/* Badge */}
+          <p
+            className="animate-reveal mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
+            style={{ fontFamily: "var(--font-montserrat)", animationDelay: "0ms" }}
+          >
+            Mentoria Caminho de Ester
+          </p>
+
+          {/* Logo */}
+          <div
+            className="animate-reveal mb-7 flex justify-start"
+            style={{ animationDelay: "40ms" }}
+          >
+            <Image
+              src="/logo-olive.png"
+              alt="Hadassah Perez"
+              width={220}
+              height={68}
+              className="h-[68px] w-auto"
+              priority
+            />
+          </div>
+
           <h1
-            className="animate-reveal mb-7 leading-[1.12] tracking-[-0.025em] text-[#1C1410]"
+            className="animate-reveal mb-7 max-w-[500px] leading-[1.08] tracking-[-0.03em] text-[#1C1410]"
             style={{
               fontFamily: "var(--font-silver)",
-              fontSize: "clamp(32px, 4.5vw, 56px)",
+              fontSize: "clamp(36px, 4.8vw, 58px)",
               animationDelay: "80ms",
             }}
           >
-            Saia do ciclo de viver{" "}
-            <span style={{ color: "#B8784A" }}>dividida</span>{" "}
+            Saia do ciclo de viver dividida
             entre quem você é hoje e quem Deus te chamou pra ser.
           </h1>
 
           <p
-            className="animate-reveal mb-10 max-w-[460px] font-light leading-[1.75] text-[#5E4535]"
-            style={{ fontSize: "17px", animationDelay: "160ms" }}
+            className="animate-reveal mb-10 max-w-[460px] font-light leading-[1.45] text-[#5E4535]"
+            style={{ fontSize: "clamp(16px, 2vw, 18px)", animationDelay: "160ms" }}
           >
             Se você sente que existe uma versão sua que sabe do seu propósito, mas na
             prática ainda trava, se cala ou recua — essa mentoria te guia a reconstruir
             sua identidade em Deus, alinhar seu chamado e se posicionar com segurança,
-            sem continuar voltando pro mesmo lugar.
+            <span className="text-black font-semibold"> sem continuar voltando pro mesmo lugar.</span>
           </p>
 
           <div
@@ -51,7 +86,7 @@ function Hero() {
           >
             <a
               href={CTA_LINK}
-              className="btn-grad inline-flex items-center gap-2 rounded-full px-[44px] py-[17px] text-[13px] font-semibold tracking-wide text-white"
+              className="btn-grad inline-flex items-center gap-2 rounded-full px-[36px] py-[10px] text-[15px] font-semibold tracking-wide text-white"
               style={{
                 fontFamily: "var(--font-montserrat)",
                 letterSpacing: "0.04em",
@@ -83,7 +118,7 @@ function Hero() {
             style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}
           >
             <Image
-              src="/IMG_5582.JPG"
+              src="/RCF-2345.jpeg"
               alt="Hadassah Perez"
               fill
               priority
@@ -121,7 +156,7 @@ function MentalActivation() {
           <div className="h-full md:flex md:flex-col md:py-20 md:pr-6">
             <div className="relative h-[420px] overflow-hidden rounded-[24px] md:h-auto md:flex-1">
               <Image
-                src="/IMG_5536.JPG"
+                src="/coroa.jpeg"
                 alt="Hadassah Perez"
                 fill
                 className="object-cover"
@@ -144,7 +179,7 @@ function MentalActivation() {
         <div className="flex flex-col justify-center px-8 py-16 md:px-14 md:py-20">
           <RevealWrapper delay={80}>
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Você reconhece isso?
@@ -153,7 +188,7 @@ function MentalActivation() {
 
           <RevealWrapper delay={120}>
             <h2
-              className="mb-7 leading-[1.18] tracking-[-0.02em] text-[#1C1410]"
+              className="mb-5 leading-[1.18] tracking-[-0.02em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
                 fontSize: "clamp(22px, 2.8vw, 34px)",
@@ -163,48 +198,99 @@ function MentalActivation() {
             </h2>
           </RevealWrapper>
 
-          <RevealWrapper delay={170}>
-            <p
-              className="mb-5 font-light leading-[1.8] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
-            >
-              Que você finalmente entendeu quem você é e o que Deus já te mostrou sobre
-              você. Mas quando chega a hora de se posicionar de verdade, algo em você
-              trava. Você se cala, volta atrás, se questiona… e no final, parece que nada
-              mudou.
-            </p>
-          </RevealWrapper>
-
-          <RevealWrapper delay={220}>
-            <p
-              className="mb-7 font-light leading-[1.8] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
-            >
-              É como se existissem duas versões suas: uma que sabe quem é, e outra que
-              sempre te puxa de volta pro mesmo lugar.
-            </p>
-          </RevealWrapper>
-
-          <RevealWrapper delay={270}>
-            <p
-              className="leading-[1.55] text-[#1C1410]"
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontStyle: "italic",
-                fontSize: "clamp(19px, 2vw, 23px)",
-              }}
-            >
-              &ldquo;E o mais cansativo é perceber que você até avança por um momento,
-              mas nunca consegue sustentar.&rdquo;
-            </p>
-          </RevealWrapper>
-
-          <RevealWrapper delay={310}>
+          <RevealWrapper delay={150}>
             <div
-              className="mt-8 h-px w-16"
-              style={{ background: "#C9996A", opacity: 0.55 }}
+              className="mb-6 h-px w-12"
+              style={{ background: "#C9996A" }}
               aria-hidden="true"
             />
+          </RevealWrapper>
+
+          <RevealWrapper delay={170}>
+            <p
+              className="mb-4 text-[#1C1410]"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontStyle: "italic",
+                fontSize: "clamp(18px, 2vw, 22px)",
+              }}
+            >
+              Mas...
+            </p>
+          </RevealWrapper>
+
+          <RevealWrapper delay={200}>
+            <ul className="mb-7 flex flex-col gap-3" role="list">
+              {[
+                "Trava na hora de se posicionar",
+                "Se cala quando deveria falar",
+                "Avança por um tempo e volta pro mesmo lugar",
+                "Sente que não é suficiente pra sustentar o que Deus te mostrou",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3" role="listitem">
+                  <span
+                    className="mt-[2px] flex h-5 w-5 shrink-0 items-center justify-center rounded-[4px]"
+                    style={{ background: "rgba(184,120,74,0.12)", color: "#B8784A" }}
+                    aria-hidden="true"
+                  >
+                    <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" className="h-3 w-3">
+                      <line x1="2" y1="2" x2="10" y2="10" />
+                      <line x1="10" y1="2" x2="2" y2="10" />
+                    </svg>
+                  </span>
+                  <span className="text-[14px] font-light leading-[1.6] text-[#5E4535]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </RevealWrapper>
+
+          <RevealWrapper delay={250}>
+            <p
+              className="mb-4 font-light leading-[1.8] text-[#5E4535]"
+              style={{ fontSize: "clamp(16px, 2vw, 18px)" }}
+            >
+              Você finalmente entendeu quem você é e o que Deus já te mostrou
+              sobre você...
+            </p>
+          </RevealWrapper>
+
+          <RevealWrapper delay={290}>
+            <p
+              className="mb-6 font-light leading-[1.8] text-[#5E4535]"
+              style={{ fontSize: "clamp(16px, 2vw, 18px)" }}
+            >
+              É como se existissem duas versões suas: uma que sabe quem é, e outra que
+              sempre te puxa de volta pra onde você sempre esteve.
+            </p>
+          </RevealWrapper>
+
+          <RevealWrapper delay={330}>
+            <blockquote
+              className="mb-6 border-l-[3px] pl-5"
+              style={{ borderColor: "#C9996A" }}
+            >
+              <p
+                className="leading-[1.6] text-[#5E4535]"
+                style={{
+                  fontFamily: "Georgia, serif",
+                  fontStyle: "italic",
+                  fontSize: "clamp(15px, 1.8vw, 17px)",
+                }}
+              >
+                &ldquo;E o mais cansativo é perceber que você até avança por um momento,
+                mas nunca consegue sustentar.&rdquo;
+              </p>
+            </blockquote>
+          </RevealWrapper>
+
+          <RevealWrapper delay={370}>
+            <p
+              className="font-light leading-[1.8] text-[#5E4535]"
+              style={{ fontSize: "clamp(16px, 2vw, 18px)" }}
+            >
+              Não é fraqueza. Não é falta de fé. É algo muito mais profundo — e é
+              exatamente isso que a Mentoria Caminho de Ester foi criada pra transformar.
+            </p>
           </RevealWrapper>
         </div>
       </div>
@@ -219,80 +305,79 @@ function LogicProof() {
   return (
     <section style={{ background: "white" }} className="py-20 md:py-28">
       <div className="mx-auto max-w-[760px] px-5 md:px-10">
-        {/* Pull Quote */}
         <RevealWrapper delay={0}>
-          <div className="mb-14 text-center">
-            <p
-              className="mx-auto max-w-[620px] leading-[1.3] tracking-[-0.01em] text-[#1C1410]"
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontStyle: "italic",
-                fontSize: "clamp(24px, 3.5vw, 36px)",
-              }}
-            >
-              &ldquo;Você não está travada por falta de fé,{" "}
-              <span style={{ color: "#B8784A" }}>nem por falta de vontade</span> de
-              mudar — porque se fosse isso, você já teria conseguido.&rdquo;
-            </p>
-            <div
-              className="mx-auto mt-6 h-px w-16"
-              style={{ background: "rgba(201,153,106,0.5)" }}
-              aria-hidden="true"
-            />
-          </div>
-        </RevealWrapper>
-
-        <div className="space-y-5">
-          <RevealWrapper delay={80}>
-            <p className="font-light leading-[1.85] text-[#5E4535]" style={{ fontSize: "16px" }}>
-              Você tenta, se aproxima de Deus, decide fazer diferente… mas, depois de um
-              tempo, tudo volta pro mesmo lugar.
-            </p>
-          </RevealWrapper>
-
-          <RevealWrapper delay={130}>
-            <p
-              className="text-[18px] font-semibold leading-[1.5] text-[#1C1410]"
-              style={{ fontFamily: "var(--font-silver)" }}
-            >
-              Não é falta de esforço. É falta de base.
-            </p>
-          </RevealWrapper>
-
-          <RevealWrapper delay={180}>
-            <p className="font-light leading-[1.85] text-[#5E4535]" style={{ fontSize: "16px" }}>
-              Quando a sua identidade não está firmada, qualquer tentativa de se
-              posicionar vira esforço — e não sustenta. Você até tem momentos de clareza,
-              força e direção, mas logo se vê se questionando, se calando e se escondendo
-              de novo.
-            </p>
-          </RevealWrapper>
-        </div>
-
-        <RevealWrapper delay={260}>
-          <div
-            className="mt-10 rounded-[20px] p-8"
+          <h2
+            className="mb-8 leading-[1.12] tracking-[-0.025em] text-[#1C1410]"
             style={{
-              background: "#F9F4EF",
-              border: "1px solid rgba(184,120,74,0.18)",
+              fontFamily: "var(--font-silver)",
+              fontSize: "clamp(32px, 5vw, 52px)",
             }}
           >
+            Você não está travada por falta de fé, nem por falta de vontade de mudar
+            — porque se fosse isso, você já teria conseguido.
+          </h2>
+        </RevealWrapper>
+
+        <RevealWrapper delay={80}>
+          <blockquote
+            className="mb-8 rounded-[14px] border-l-[3px] p-6"
+            style={{ borderColor: "#C9996A", background: "#F9F4EF" }}
+          >
             <p
-              className="leading-[1.65] text-[#1C1410]"
+              className="leading-[1.65] text-[#5E4535]"
               style={{
-                fontFamily: "var(--font-cormorant)",
+                fontFamily: "Georgia, serif",
                 fontStyle: "italic",
-                fontSize: "clamp(18px, 2.2vw, 22px)",
+                fontSize: "clamp(14px, 1.7vw, 16px)",
+              }}
+            >
+              &ldquo;Você não está travada por falta de fé, nem por falta de vontade de mudar
+              — porque se fosse isso, você já teria conseguido.&rdquo;
+            </p>
+          </blockquote>
+        </RevealWrapper>
+
+        <RevealWrapper delay={140}>
+          <p className="mb-5 font-light leading-[1.85] text-[#5E4535]" style={{ fontSize: "clamp(16px, 2vw, 18px)" }}>
+            Você tenta, se aproxima de Deus, decide fazer diferente… mas, depois de um
+            tempo, tudo volta pro mesmo lugar.
+          </p>
+        </RevealWrapper>
+
+        <RevealWrapper delay={190}>
+          <p
+            className="mb-5 font-semibold leading-[1.5] text-[#1C1410]"
+            style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
+          >
+            Não é falta de esforço. É falta de base.
+          </p>
+        </RevealWrapper>
+
+        <RevealWrapper delay={230}>
+          <p className="mb-8 font-light leading-[1.85] text-[#5E4535]" style={{ fontSize: "clamp(16px, 2vw, 18px)" }}>
+            Quando a sua identidade não está firmada, qualquer tentativa de se
+            posicionar vira esforço — e não sustenta.
+          </p>
+        </RevealWrapper>
+
+        <RevealWrapper delay={290}>
+          <blockquote
+            className="rounded-[14px] border-l-[3px] p-6"
+            style={{ borderColor: "#C9996A", background: "#F9F4EF" }}
+          >
+            <p
+              className="leading-[1.65] text-[#5E4535]"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontStyle: "italic",
+                fontSize: "clamp(14px, 1.7vw, 16px)",
               }}
             >
               &ldquo;Não porque você quer, mas porque ainda não existe dentro de você uma
-              estrutura que sustente quem você sabe que é.{" "}
-              <span style={{ color: "#B8784A" }}>
-                E é exatamente isso que precisa ser construído.
-              </span>
-              &rdquo;
+              estrutura que sustente quem você sabe que é. E é exatamente isso que precisa
+              ser construído.&rdquo;
             </p>
-          </div>
+          </blockquote>
         </RevealWrapper>
       </div>
     </section>
@@ -342,7 +427,7 @@ function SixStages() {
         <RevealWrapper delay={0}>
           <div className="mb-4 text-center">
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               O Método
@@ -358,7 +443,7 @@ function SixStages() {
             </h2>
             <p
               className="mx-auto max-w-[520px] font-light leading-[1.7] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
+              style={{ fontSize: "clamp(16px, 2vw, 18px)" }}
             >
               Um caminho guiado e estruturado em etapas — do despertar à constância.
             </p>
@@ -373,9 +458,16 @@ function SixStages() {
               border: "1px solid rgba(184,120,74,0.15)",
             }}
           >
-            <p className="font-light leading-[1.8] text-[#5E4535]" style={{ fontSize: "15px" }}>
-              Não é sobre tentar mais uma vez. É sobre sair da confusão interna e
-              finalmente se tornar a mulher que Deus te chamou pra ser.
+            <p
+              className="font-light leading-[1.8] text-[#5E4535]"
+              style={{
+                fontFamily: "Georgia, serif",
+                fontStyle: "italic",
+                fontSize: "clamp(14px, 1.7vw, 16px)",
+              }}
+            >
+              &ldquo;Não é sobre tentar mais uma vez. É sobre sair da confusão interna e
+              finalmente se tornar a mulher que Deus te chamou pra ser.&rdquo;
             </p>
           </div>
         </RevealWrapper>
@@ -384,30 +476,23 @@ function SixStages() {
           {stages.map((stage, i) => (
             <RevealWrapper key={stage.title} delay={80 + i * 60}>
               <div
-                className="group relative overflow-hidden rounded-[18px] p-7 transition-shadow duration-200 hover:shadow-[0_8px_32px_rgba(107,77,55,0.12)]"
+                className="rounded-[18px] p-7 transition-shadow duration-200 hover:shadow-[0_8px_32px_rgba(107,77,55,0.12)]"
                 style={{
                   background: "white",
                   border: "1px solid rgba(94,69,53,0.08)",
                 }}
               >
-                <div className="mb-5 flex items-center gap-3">
-                  <div
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] font-bold text-white"
-                    style={{
-                      background: "linear-gradient(135deg, #C9996A 0%, #B8784A 100%)",
-                      fontFamily: "var(--font-cormorant)",
-                      fontStyle: "italic",
-                      fontSize: "15px",
-                    }}
-                    aria-hidden="true"
-                  >
-                    {stage.num}
-                  </div>
-                  <div
-                    className="h-px flex-1 opacity-30"
-                    style={{ background: "#C9996A" }}
-                    aria-hidden="true"
-                  />
+                <div
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-full font-bold text-white"
+                  style={{
+                    background: "linear-gradient(135deg, #C9996A 0%, #B8784A 100%)",
+                    fontFamily: "Georgia, serif",
+                    fontStyle: "italic",
+                    fontSize: "15px",
+                  }}
+                  aria-hidden="true"
+                >
+                  {stage.num}
                 </div>
                 <h3
                   className="mb-2 text-[16px] font-bold text-[#1C1410]"
@@ -426,9 +511,9 @@ function SixStages() {
         <RevealWrapper delay={460}>
           <p
             className="mt-10 text-center font-light italic leading-[1.7] text-[#5E4535]"
-            style={{ fontFamily: "var(--font-cormorant)", fontSize: "clamp(17px, 2vw, 20px)" }}
+            style={{ fontFamily: "Georgia, serif", fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
-            Porque no final, não é só sobre entender quem você é — é sobre conseguir viver isso com constância.
+            &ldquo;Porque no final, não é só sobre entender quem você é — é sobre conseguir viver isso com constância.&rdquo;
           </p>
         </RevealWrapper>
       </div>
@@ -441,35 +526,20 @@ function SixStages() {
 ───────────────────────────────────────────── */
 const pillars = [
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
-        <path d="M12 2L2 7l10 5 10-5-10-5z" />
-        <path d="M2 17l10 5 10-5" />
-        <path d="M2 12l10 5 10-5" />
-      </svg>
-    ),
-    label: "Identidade Espiritual",
+    emoji: "👑",
+    title: "Identidade Espiritual",
     sub: "Quem você é em Deus",
     desc: "Enquanto você não tem clareza de quem é, tudo vira dúvida. Aqui você reconstrói sua identidade a partir da verdade — não do que você sente, não do que viveu, mas do que Deus já estabeleceu sobre você. É isso que tira você da confusão e te dá direção.",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
-        <circle cx="12" cy="12" r="10" />
-        <path d="M12 8v4l3 3" />
-      </svg>
-    ),
-    label: "Mente e Posicionamento",
+    emoji: "🧠",
+    title: "Mente e Posicionamento",
     sub: "Como você se sustenta",
     desc: "Não adianta saber quem é e continuar se anulando na prática. Aqui você desenvolve clareza emocional, segurança e posicionamento, aprendendo a se sustentar na mulher que está se tornando.",
   },
   {
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" className="h-6 w-6">
-        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg>
-    ),
-    label: "Corpo e Preparação",
+    emoji: "🌱",
+    title: "Corpo e Preparação",
     sub: "A base que sustenta tudo",
     desc: "Sem estrutura, nada se mantém. Aqui você aprende a alinhar sua rotina, seus hábitos e sua vida com aquilo que você quer viver, criando consistência e presença. Porque posicionamento não é só decisão — é sustentação.",
   },
@@ -480,15 +550,15 @@ function ThreePillars() {
     <section style={{ background: "white" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
-          <div className="mb-4 text-center">
+          <div className="mb-16 text-center">
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Pilares do Método
             </p>
             <h2
-              className="mb-4 leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
+              className="leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
                 fontSize: "clamp(28px, 3.8vw, 46px)",
@@ -496,51 +566,37 @@ function ThreePillars() {
             >
               Três pilares, uma mudança real
             </h2>
-            <p
-              className="mx-auto mb-16 max-w-[540px] font-light leading-[1.7] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
-            >
-              Essa mentoria não trabalha só motivação ou teoria. Ela é construída sobre
-              três pilares que sustentam uma mudança real — de dentro pra fora.
-            </p>
           </div>
         </RevealWrapper>
 
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
           {pillars.map((pillar, i) => (
-            <RevealWrapper key={pillar.label} delay={80 + i * 80}>
-              <div
-                className="flex flex-col rounded-[20px] p-8"
-                style={{
-                  background: "#F9F4EF",
-                  border: "1px solid rgba(94,69,53,0.08)",
-                }}
-              >
-                <div
-                  className="mb-4 flex h-12 w-12 items-center justify-center rounded-[14px]"
-                  style={{ background: "rgba(184,120,74,0.10)", color: "#B8784A" }}
+            <RevealWrapper key={pillar.title} delay={80 + i * 80}>
+              <div className="flex flex-col items-center px-4 text-center">
+                <span
+                  className="mb-5 leading-none"
+                  style={{ fontSize: "36px" }}
                   aria-hidden="true"
                 >
-                  {pillar.icon}
-                </div>
+                  {pillar.emoji}
+                </span>
+                <h3
+                  className="mb-1 leading-[1.2] text-[#1C1410]"
+                  style={{
+                    fontFamily: "var(--font-silver)",
+                    fontStyle: "italic",
+                    fontSize: "clamp(18px, 2.2vw, 22px)",
+                  }}
+                >
+                  {pillar.title}
+                </h3>
                 <p
-                  className="mb-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#6B7558]"
+                  className="mb-4 text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8784A]"
                   style={{ fontFamily: "var(--font-montserrat)" }}
                 >
-                  {pillar.label}
-                </p>
-                <div
-                  className="mb-4 h-[3px] w-10 rounded-full"
-                  style={{ background: "linear-gradient(90deg, #C9996A, transparent)" }}
-                  aria-hidden="true"
-                />
-                <h3
-                  className="mb-3 text-[18px] font-bold text-[#1C1410]"
-                  style={{ fontFamily: "var(--font-silver)" }}
-                >
                   {pillar.sub}
-                </h3>
-                <p className="text-[14px] font-light leading-[1.75] text-[#5E4535]">
+                </p>
+                <p className="text-[13px] font-light leading-[1.75] text-[#5E4535]">
                   {pillar.desc}
                 </p>
               </div>
@@ -550,11 +606,11 @@ function ThreePillars() {
 
         <RevealWrapper delay={340}>
           <p
-            className="mt-12 text-center font-light italic leading-[1.7] text-[#5E4535]"
-            style={{ fontFamily: "var(--font-cormorant)", fontSize: "clamp(17px, 2vw, 20px)" }}
+            className="mt-16 text-center font-light italic leading-[1.7] text-[#5E4535]"
+            style={{ fontFamily: "Georgia, serif", fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
-            Quando esses três pilares se alinham, você para de viver em tentativa e começa
-            a viver com clareza, firmeza e constância.
+            &ldquo;Quando esses três pilares se alinham, você para de viver em tentativa e começa
+            a viver com clareza, firmeza e constância.&rdquo;
           </p>
         </RevealWrapper>
       </div>
@@ -579,19 +635,19 @@ function Differentials() {
             "radial-gradient(circle, rgba(184,120,74,0.08) 0%, transparent 70%)",
         }}
       />
-      <div className="relative mx-auto max-w-[720px] px-5 text-center md:px-10">
+      <div className="relative mx-auto max-w-[860px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <p
-            className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+            className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Por que é diferente
           </p>
           <h2
-            className="mb-8 leading-[1.2] tracking-[-0.02em] text-[#F5EDD8]"
+            className="mb-8 leading-[1.1] tracking-[-0.025em] text-[#F5EDD8]"
             style={{
               fontFamily: "var(--font-silver)",
-              fontSize: "clamp(26px, 3.5vw, 42px)",
+              fontSize: "clamp(36px, 5vw, 58px)",
             }}
           >
             Não foi criada para te motivar por alguns dias
@@ -601,7 +657,7 @@ function Differentials() {
         <RevealWrapper delay={100}>
           <p
             className="mb-6 font-light leading-[1.85] text-[#DFB98A]"
-            style={{ fontSize: "16px" }}
+            style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
             A Mentoria Caminho de Ester foi criada para te transformar de um jeito que
             você consiga sustentar. Aqui, você não recebe apenas direcionamento espiritual
@@ -612,8 +668,8 @@ function Differentials() {
 
         <RevealWrapper delay={170}>
           <p
-            className="mb-12 font-light leading-[1.85] text-[#DFB98A]"
-            style={{ fontSize: "16px" }}
+            className="mb-10 font-light leading-[1.85] text-[#DFB98A]"
+            style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
             E se hoje você sente que já tentou mudar antes e não conseguiu, o problema não
             é você. É que, até agora, faltou um caminho que realmente te sustentasse.
@@ -622,22 +678,21 @@ function Differentials() {
 
         <RevealWrapper delay={240}>
           <div
-            className="rounded-[20px] px-8 py-7"
+            className="rounded-[16px] px-8 py-7 text-center"
             style={{
-              background: "rgba(201,153,106,0.10)",
-              border: "1px solid rgba(201,153,106,0.22)",
+              background: "rgba(255,255,255,0.04)",
+              border: "1px solid rgba(201,153,106,0.15)",
             }}
           >
             <p
               className="leading-[1.5] text-[#F5EDD8]"
               style={{
-                fontFamily: "var(--font-cormorant)",
+                fontFamily: "Georgia, serif",
                 fontStyle: "italic",
-                fontSize: "clamp(20px, 2.5vw, 28px)",
+                fontSize: "clamp(16px, 2vw, 20px)",
               }}
             >
-              Aqui, a transformação não vem de intensidade,{" "}
-              <span style={{ color: "#DFB98A" }}>mas de estrutura.</span>
+              &ldquo;Aqui, a transformação não vem de intensidade, mas de estrutura.&rdquo;
             </p>
           </div>
         </RevealWrapper>
@@ -659,147 +714,152 @@ function PersonalProof() {
 
   return (
     <section
-      className="relative overflow-hidden py-24 md:py-32"
+      className="relative py-24 md:py-32"
       style={{ background: "#2a1a0f" }}
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full"
-        style={{
-          background:
-            "radial-gradient(circle, rgba(184,120,74,0.10) 0%, transparent 70%)",
-        }}
-      />
-
-      <div className="relative mx-auto grid max-w-[1000px] grid-cols-1 items-center gap-16 px-5 md:grid-cols-[1fr_360px] md:px-10">
+      <div className="relative mx-auto grid max-w-[1160px] grid-cols-1 items-start gap-16 px-5 md:grid-cols-[1fr_420px] md:px-10">
         {/* Text */}
         <div>
           <RevealWrapper delay={0}>
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+              className="mb-4 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Quem criou esse caminho
             </p>
           </RevealWrapper>
 
-          <RevealWrapper delay={80}>
-            <blockquote
-              className="mb-10 leading-[1.25] tracking-[-0.01em]"
+          <RevealWrapper delay={60}>
+            <h2
+              className="mb-5 leading-[1.05] tracking-[-0.02em] text-[#F5EDD8]"
               style={{
-                fontFamily: "var(--font-cormorant)",
+                fontFamily: "var(--font-silver)",
+                fontSize: "clamp(48px, 6.5vw, 76px)",
+              }}
+            >
+              Hadassah Perez
+            </h2>
+          </RevealWrapper>
+
+          <RevealWrapper delay={100}>
+            <p
+              className="mb-8 leading-[1.55] text-[#DFB98A]"
+              style={{
+                fontFamily: "Georgia, serif",
                 fontStyle: "italic",
-                fontSize: "clamp(26px, 3.5vw, 40px)",
-                color: "#F5EDD8",
+                fontSize: "clamp(15px, 1.8vw, 17px)",
               }}
             >
               &ldquo;Por muito tempo, eu também me senti assim — dividida entre a mulher
               que mostrava ao mundo e a versão que ninguém via.&rdquo;
-            </blockquote>
+            </p>
           </RevealWrapper>
 
-          <RevealWrapper delay={160}>
+          <RevealWrapper delay={150}>
             <p
               className="mb-5 font-light leading-[1.8] text-[#DFB98A]"
-              style={{ fontSize: "16px" }}
+              style={{ fontSize: "clamp(14px, 1.7vw, 16px)" }}
             >
-              No fundo, sempre parecia que algo não encaixava. Eu sabia que carregava um
-              chamado, sabia que Deus já tinha me mostrado muita coisa… mas, na prática,
-              não conseguia sustentar. Me posicionava por um tempo e depois recuava. Me
-              sentia segura em alguns momentos, mas logo me perdia de novo.
+              No fundo, sempre parecia que algo não encaixava. Eu fazia tudo certo, mas havia
+              uma distância entre o que eu sabia e o que eu vivia.
             </p>
           </RevealWrapper>
 
-          <RevealWrapper delay={220}>
+          <RevealWrapper delay={190}>
             <p
-              className="mb-10 font-light leading-[1.8] text-[#DFB98A]"
-              style={{ fontSize: "16px" }}
+              className="mb-5 font-light leading-[1.8] text-[#DFB98A]"
+              style={{ fontSize: "clamp(14px, 1.7vw, 16px)" }}
             >
-              Até perceber que o problema não era falta de fé, mas falta de identidade
-              firmada. Foi nesse processo que eu deixei de viver dividida e comecei, de
-              fato, a me tornar a mulher que Deus me chamou pra ser. E foi a partir disso
-              que nasceu a Mentoria Caminho de Ester — não como teoria, mas como um
-              caminho vivido.
+              Eu sabia que carregava um chamado, sabia que Deus já tinha me mostrado muita
+              coisa. Mas na prática, eu continuava voltando pro mesmo lugar — como se tivesse
+              um teto invisível que eu não conseguia ultrapassar.
             </p>
           </RevealWrapper>
 
-          <RevealWrapper delay={270}>
+          <RevealWrapper delay={230}>
+            <p
+              className="mb-5 font-light leading-[1.8] text-[#DFB98A]"
+              style={{ fontSize: "clamp(14px, 1.7vw, 16px)" }}
+            >
+              Até perceber que o problema não era falta de fé, mas falta de identidade firmada.
+              Quando eu entendi isso, tudo começou a mudar de verdade.
+            </p>
+          </RevealWrapper>
+
+          <RevealWrapper delay={260}>
+            <p
+              className="mb-8 font-light leading-[1.8] text-[#DFB98A]"
+              style={{ fontSize: "clamp(14px, 1.7vw, 16px)" }}
+            >
+              E foi a partir disso que nasceu a Mentoria Caminho de Ester — não de teoria, mas
+              de um processo real de construção de identidade.
+            </p>
+          </RevealWrapper>
+
+          <RevealWrapper delay={300}>
             <div
-              className="mb-10 rounded-[16px] p-5"
+              className="mb-8 rounded-[14px] p-5"
               style={{
-                background: "rgba(201,153,106,0.08)",
-                border: "1px solid rgba(201,153,106,0.18)",
+                background: "rgba(255,255,255,0.04)",
+                border: "1px solid rgba(201,153,106,0.15)",
               }}
             >
               <p
-                className="leading-[1.6] text-[#F5EDD8]"
+                className="leading-[1.6] text-[#DFB98A]"
                 style={{
-                  fontFamily: "var(--font-cormorant)",
+                  fontFamily: "Georgia, serif",
                   fontStyle: "italic",
-                  fontSize: "clamp(17px, 2vw, 20px)",
+                  fontSize: "clamp(14px, 1.7vw, 16px)",
                 }}
               >
-                Porque, no final, não é sobre se tornar alguém diferente, mas sobre
-                sustentar quem você já foi chamada pra ser.
+                &ldquo;Porque, no final, não é sobre se tornar alguém diferente, mas sobre
+                sustentar quem você já foi chamada pra ser.&rdquo;
               </p>
             </div>
           </RevealWrapper>
 
-          <RevealWrapper delay={320}>
-            <div className="flex flex-col gap-3" role="list">
+          <RevealWrapper delay={340}>
+            <ul className="flex flex-col gap-2" role="list">
               {credentials.map((cred) => (
-                <div
+                <li
                   key={cred}
-                  className="flex items-center gap-3 text-[13px] leading-[1.4] text-[#9A8070]"
+                  className="flex items-center gap-3 text-[13px] font-light leading-[1.5] text-[#9A8070]"
                   role="listitem"
                 >
-                  <div
-                    aria-hidden="true"
-                    className="h-1.5 w-1.5 shrink-0 rounded-full"
-                    style={{ background: "#C9996A" }}
-                  />
+                  <span aria-hidden="true" className="shrink-0 text-[#C9996A]">•</span>
                   {cred}
-                </div>
+                </li>
               ))}
-            </div>
+            </ul>
           </RevealWrapper>
         </div>
 
-        {/* Photo */}
-        <RevealWrapper delay={0}>
-          <div className="relative mx-auto w-full max-w-[360px]">
-            <div
-              aria-hidden="true"
-              className="absolute rounded-[28px]"
-              style={{
-                inset: 0,
-                transform: "translate(14px, 14px)",
-                background: "rgba(201,153,106,0.15)",
-                borderRadius: "28px",
-              }}
+        {/* Photo — sticky */}
+        <div className="hidden md:block md:sticky md:top-[96px] md:self-start">
+          <div
+            className="relative overflow-hidden rounded-[24px]"
+            style={{
+              aspectRatio: "3/4",
+              boxShadow: "0 8px 48px rgba(0,0,0,0.40)",
+            }}
+          >
+            <Image
+              src="/foto (prova pessoal).JPG"
+              alt="Hadassah Perez"
+              fill
+              className="object-cover object-top"
+              sizes="400px"
             />
             <div
-              className="relative aspect-[3/4] overflow-hidden rounded-[28px]"
-              style={{ boxShadow: "0 8px 48px rgba(0,0,0,0.30)" }}
-            >
-              <Image
-                src="/RCF-2345.jpeg"
-                alt="Hadassah Perez"
-                fill
-                className="object-cover object-top"
-                sizes="(max-width: 768px) 90vw, 360px"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.30))",
-                }}
-              />
-            </div>
+              aria-hidden="true"
+              className="absolute inset-0"
+              style={{
+                background:
+                  "linear-gradient(to bottom, transparent 60%, rgba(0,0,0,0.30))",
+              }}
+            />
           </div>
-        </RevealWrapper>
+        </div>
       </div>
     </section>
   );
@@ -810,31 +870,30 @@ function PersonalProof() {
 ───────────────────────────────────────────── */
 function SocialProof() {
   return (
-    <section style={{ background: "#F7F1E8" }} className="py-20 md:py-28">
-      <div className="mx-auto max-w-[720px] px-5 text-center md:px-10">
+    <section style={{ background: "#F7F1E8" }} className="py-24 md:py-32">
+      <div className="mx-auto max-w-[860px] px-5 text-center md:px-10">
         <RevealWrapper delay={0}>
           <p
-            className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+            className="mb-5 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
             style={{ fontFamily: "var(--font-montserrat)" }}
           >
             Algo ressoa em você?
           </p>
           <h2
-            className="mb-8 leading-[1.2] tracking-[-0.02em] text-[#1C1410]"
+            className="mb-10 leading-[1.12] tracking-[-0.03em] text-[#1C1410]"
             style={{
               fontFamily: "var(--font-silver)",
-              fontSize: "clamp(24px, 3.2vw, 38px)",
+              fontSize: "clamp(38px, 5.5vw, 62px)",
             }}
           >
-            Se você chegou até aqui, é porque em algum nível você se reconheceu em tudo
-            isso.
+            Se você chegou até aqui, é porque em algum nível você se reconheceu em tudo isso.
           </h2>
         </RevealWrapper>
 
         <RevealWrapper delay={100}>
           <p
-            className="mb-6 font-light leading-[1.85] text-[#5E4535]"
-            style={{ fontSize: "16px" }}
+            className="mb-5 font-light leading-[1.85] text-[#5E4535]"
+            style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
             Não só na dor de se sentir dividida, mas na sensação de saber que existe algo
             maior em você que ainda não está sendo vivido como deveria.
@@ -843,8 +902,8 @@ function SocialProof() {
 
         <RevealWrapper delay={160}>
           <p
-            className="mb-8 font-light leading-[1.85] text-[#5E4535]"
-            style={{ fontSize: "16px" }}
+            className="mb-10 font-light leading-[1.85] text-[#5E4535]"
+            style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
             A Mentoria Caminho de Ester não foi construída a partir de teoria ou de
             promessas vazias, mas de um processo real, que toca exatamente no ponto que
@@ -854,22 +913,22 @@ function SocialProof() {
 
         <RevealWrapper delay={220}>
           <div
-            className="rounded-[20px] p-8"
+            className="rounded-[18px] px-10 py-7"
             style={{
-              background: "rgba(184,120,74,0.08)",
-              border: "1px solid rgba(184,120,74,0.15)",
+              background: "rgba(255,255,255,0.70)",
+              border: "1px solid rgba(184,120,74,0.18)",
             }}
           >
             <p
-              className="leading-[1.5] text-[#1C1410]"
+              className="leading-[1.55] text-[#5E4535]"
               style={{
-                fontFamily: "var(--font-cormorant)",
+                fontFamily: "Georgia, serif",
                 fontStyle: "italic",
-                fontSize: "clamp(20px, 2.5vw, 26px)",
+                fontSize: "clamp(16px, 2vw, 20px)",
               }}
             >
-              Porque quando é o caminho certo, você não precisa ser convencida —{" "}
-              <span style={{ color: "#B8784A" }}>você reconhece.</span>
+              &ldquo;Porque quando é o caminho certo, você não precisa ser convencida —{" "}
+              <span style={{ color: "#B8784A" }}>você reconhece.</span>&rdquo;
             </p>
           </div>
         </RevealWrapper>
@@ -941,29 +1000,22 @@ function WhatYouReceive() {
     <section style={{ background: "#F9F4EF" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
-          <div className="mb-4 text-center">
+          <div className="mb-16 text-center">
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
-              style={{ fontFamily: "var(--font-montserrat)" }}
+              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em]"
+              style={{ fontFamily: "var(--font-montserrat)", color: "#B8784A" }}
             >
               O que você recebe
             </p>
             <h2
-              className="mb-4 leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
+              className="leading-[1.12] tracking-[-0.03em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
-                fontSize: "clamp(28px, 3.8vw, 46px)",
+                fontSize: "clamp(36px, 5vw, 58px)",
               }}
             >
               Estrutura completa para sustentar sua transformação
             </h2>
-            <p
-              className="mx-auto mb-16 max-w-[520px] font-light leading-[1.7] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
-            >
-              Não só durante os encontros, mas principalmente na forma como você passa a
-              viver depois deles.
-            </p>
           </div>
         </RevealWrapper>
 
@@ -978,19 +1030,24 @@ function WhatYouReceive() {
                 }}
               >
                 <div
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-[12px]"
-                  style={{ background: "rgba(184,120,74,0.10)", color: "#B8784A" }}
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-[10px]"
+                  style={{ background: "rgba(107,117,88,0.08)", color: "#6B7558" }}
                   aria-hidden="true"
                 >
                   {item.icon}
                 </div>
                 <h3
-                  className="mb-2 text-[15px] font-bold text-[#1C1410]"
-                  style={{ fontFamily: "var(--font-montserrat)" }}
+                  className="mb-2 leading-[1.3]"
+                  style={{
+                    fontFamily: "Georgia, serif",
+                    fontStyle: "italic",
+                    fontSize: "clamp(15px, 1.8vw, 17px)",
+                    color: "#5E4535",
+                  }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-[13px] font-light leading-[1.7] text-[#5E4535]">
+                <p className="text-[13px] font-light leading-[1.7] text-[#9A8070]">
                   {item.desc}
                 </p>
               </div>
@@ -1009,19 +1066,24 @@ function WhatYouReceive() {
                 }}
               >
                 <div
-                  className="mb-4 flex h-11 w-11 items-center justify-center rounded-[12px]"
-                  style={{ background: "rgba(184,120,74,0.10)", color: "#B8784A" }}
+                  className="mb-4 flex h-10 w-10 items-center justify-center rounded-[10px]"
+                  style={{ background: "rgba(107,117,88,0.08)", color: "#6B7558" }}
                   aria-hidden="true"
                 >
                   {item.icon}
                 </div>
                 <h3
-                  className="mb-2 text-[15px] font-bold text-[#1C1410]"
-                  style={{ fontFamily: "var(--font-montserrat)" }}
+                  className="mb-2 leading-[1.3]"
+                  style={{
+                    fontFamily: "Georgia, serif",
+                    fontStyle: "italic",
+                    fontSize: "clamp(15px, 1.8vw, 17px)",
+                    color: "#5E4535",
+                  }}
                 >
                   {item.title}
                 </h3>
-                <p className="text-[13px] font-light leading-[1.7] text-[#5E4535]">
+                <p className="text-[13px] font-light leading-[1.7] text-[#9A8070]">
                   {item.desc}
                 </p>
               </div>
@@ -1032,10 +1094,9 @@ function WhatYouReceive() {
         <RevealWrapper delay={500}>
           <p
             className="mt-12 text-center font-light italic leading-[1.7] text-[#5E4535]"
-            style={{ fontFamily: "var(--font-cormorant)", fontSize: "clamp(17px, 2vw, 20px)" }}
+            style={{ fontFamily: "Georgia, serif", fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
-            Aqui, você não recebe apenas conteúdo — você recebe estrutura para viver o que
-            aprende.
+            &ldquo;Aqui, você não recebe apenas conteúdo — você recebe estrutura para viver o que aprende.&rdquo;
           </p>
         </RevealWrapper>
       </div>
@@ -1062,34 +1123,36 @@ const costItems = [
 
 function Pricing() {
   return (
-    <section id="pricing" style={{ background: "#F5F5F5" }} className="py-24 md:py-32">
+    <section id="pricing" style={{ background: "#F7F1E8" }} className="py-24 md:py-32">
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         {/* Quanto custa */}
         <RevealWrapper delay={0}>
           <div className="mb-16 text-center">
             <p
-              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#6B7558]"
+              className="mb-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#B8784A]"
               style={{ fontFamily: "var(--font-montserrat)" }}
             >
               Investimento
             </p>
             <h2
-              className="mb-8 leading-[1.2] tracking-[-0.02em] text-[#1C1410]"
+              className="mb-10 leading-[1.1] tracking-[-0.03em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
-                fontSize: "clamp(26px, 3.5vw, 40px)",
+                fontSize: "clamp(36px, 5vw, 54px)",
               }}
             >
               Quanto custa continuar vivendo assim?
             </h2>
-            <div className="mx-auto mb-8 flex max-w-[540px] flex-col gap-4 text-left">
+            <div className="mx-auto mb-8 flex max-w-[480px] flex-col gap-4 text-center">
               {costItems.map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div
-                    className="mt-[8px] h-1.5 w-1.5 shrink-0 rounded-full"
-                    style={{ background: "#B8784A" }}
+                <div key={i} className="flex items-start justify-center gap-3">
+                  <span
+                    className="mt-[3px] shrink-0 font-light text-[#B8784A]"
+                    style={{ fontSize: "15px" }}
                     aria-hidden="true"
-                  />
+                  >
+                    —
+                  </span>
                   <p
                     className="font-light leading-[1.7] text-[#5E4535]"
                     style={{ fontSize: "15px" }}
@@ -1101,7 +1164,7 @@ function Pricing() {
             </div>
             <p
               className="mx-auto max-w-[520px] font-light leading-[1.85] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
+              style={{ fontSize: "clamp(15px, 1.8vw, 17px)" }}
             >
               A Mentoria Caminho de Ester encurta esse caminho. Ela te entrega direção,
               estrutura e acompanhamento para que você saia da tentativa e comece, de
@@ -1112,10 +1175,16 @@ function Pricing() {
 
         {/* Pricing card */}
         <RevealWrapper delay={100}>
-          <div className="relative mx-auto max-w-[680px] overflow-hidden rounded-[28px] bg-white px-8 py-20 text-center shadow-[0_8px_60px_rgba(0,0,0,0.14)] md:px-20">
+          <div
+            className="relative mx-auto max-w-[580px] overflow-hidden rounded-[24px] bg-white px-8 py-16 text-center md:px-16"
+            style={{
+              border: "1.5px solid rgba(201,153,106,0.30)",
+              boxShadow: "0 8px 48px rgba(0,0,0,0.10)",
+            }}
+          >
             {/* Top gradient bar */}
             <div
-              className="absolute inset-x-0 top-0 h-1"
+              className="absolute inset-x-0 top-0 h-[3px]"
               style={{
                 background: "linear-gradient(90deg, #C9996A 0%, #B8784A 100%)",
               }}
@@ -1126,6 +1195,7 @@ function Pricing() {
               className="mb-4 leading-[1.2] tracking-[-0.025em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
+                fontStyle: "italic",
                 fontSize: "clamp(22px, 3vw, 30px)",
               }}
             >
@@ -1133,8 +1203,8 @@ function Pricing() {
             </h2>
 
             <p
-              className="mx-auto mb-10 max-w-[420px] font-light leading-[1.8] text-[#5E4535]"
-              style={{ fontSize: "16px" }}
+              className="mx-auto mb-10 max-w-[380px] font-light leading-[1.8] text-[#5E4535]"
+              style={{ fontSize: "clamp(14px, 1.7vw, 16px)" }}
             >
               Você já sabe o que precisa mudar. Sabe o que não dá mais pra sustentar. E
               sabe que não é falta de capacidade — é falta de estrutura.
@@ -1145,14 +1215,14 @@ function Pricing() {
               {includes.map((item) => (
                 <div key={item} className="flex items-center gap-3">
                   <span
-                    className="mt-[2px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
-                    style={{ background: "#B8784A" }}
+                    className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
+                    style={{ background: "#6B7558" }}
                     aria-hidden="true"
                   >
                     <Check size={10} color="#fff" strokeWidth={3} />
                   </span>
                   <span
-                    className="text-[14px] font-light leading-[1.6] text-[#5E4535]"
+                    className="text-[14px] font-light leading-[1.6] text-[#B8784A]"
                     style={{ fontFamily: "var(--font-montserrat)" }}
                   >
                     {item}
@@ -1162,61 +1232,51 @@ function Pricing() {
             </div>
 
             {/* Price */}
-            <div
-              className="mb-3 flex items-start justify-center gap-1"
-              aria-label="R$ 997"
-            >
-              <span
-                className="mt-[20px] text-[26px] font-bold text-[#1C1410]"
-                aria-hidden="true"
+            <div className="mb-8 text-center" aria-label="R$ 997 à vista ou parcelado">
+              <p
+                className="leading-none tracking-[-0.03em]"
+                style={{
+                  fontFamily: "var(--font-silver)",
+                  fontSize: "clamp(36px, 9vw, 48px)",
+                  color: "#1C1410",
+                }}
+              >
+                10x de R$ 99,70
+              </p>
+              <p
+                className="mt-2 text-[16px] tracking-[0.04em] text-[#9A8070]"
                 style={{ fontFamily: "var(--font-montserrat)" }}
               >
-                R$
-              </span>
-              <span
-                className="font-extrabold leading-none tracking-[-0.04em] text-[#1C1410]"
-                aria-hidden="true"
-                style={{
-                  fontFamily: "var(--font-montserrat)",
-                  fontSize: "clamp(72px, 12vw, 96px)",
-                }}
-              >
-                997
-              </span>
+                ou R$ 997 à vista
+              </p>
             </div>
-
-            <p
-              className="mb-8 text-[13px] tracking-[0.05em] text-[#9A8070]"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              à vista ou parcelado
-            </p>
 
             {/* CTA */}
-            <div className="mb-6 flex justify-center">
-              <a
-                href={WA_APPLY_LINK}
-                className="btn-grad flex w-full items-center justify-center gap-2 rounded-full px-8 py-[16px] text-[12px] font-semibold text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)] whitespace-nowrap md:w-auto md:px-[52px] md:py-[18px] md:text-[13px]"
-                style={{
-                  fontFamily: "var(--font-montserrat)",
-                  letterSpacing: "0.04em",
-                  background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
-                }}
-                aria-label="Quero minha identidade firmada"
-              >
-                Quero minha identidade firmada
-                <ArrowRight size={15} strokeWidth={2.5} />
-              </a>
-            </div>
-
-            <p
-              className="mx-auto max-w-[380px] font-light italic leading-[1.7] text-[#9A8070]"
-              style={{ fontSize: "13px" }}
+            <a
+              href={WA_APPLY_LINK}
+              className="btn-grad mb-0 flex w-full items-center justify-center gap-2 rounded-full px-8 py-[13px] text-[13px] font-semibold text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)]"
+              style={{
+                fontFamily: "var(--font-montserrat)",
+                letterSpacing: "0.10em",
+                background: "linear-gradient(135deg, #688339 0%, #2f3d18 100%)",
+                textTransform: "uppercase",
+              }}
+              aria-label="Quero minha identidade firmada"
             >
-              A decisão de sair desse ciclo ainda é sua. E talvez essa seja a decisão que
-              muda tudo.
-            </p>
+              Quero minha identidade firmada
+              <ArrowRight size={14} strokeWidth={2.5} />
+            </a>
           </div>
+        </RevealWrapper>
+
+        {/* Bottom quote */}
+        <RevealWrapper delay={280}>
+          <p
+            className="mt-10 text-center font-light italic leading-[1.7] text-[#9A8070]"
+            style={{ fontFamily: "Georgia, serif", fontSize: "13px" }}
+          >
+            &ldquo;A decisão de sair desse ciclo ainda é sua. E talvez essa seja a decisão que muda tudo.&rdquo;
+          </p>
         </RevealWrapper>
       </div>
     </section>
@@ -1275,16 +1335,22 @@ function FooterMentoria() {
 export default function MentoriaPage() {
   return (
     <>
-      <NavbarMentoria />
       <main>
         <Hero />
+        <GoldLine />
         <MentalActivation />
+        <GoldLine />
         <LogicProof />
+        <GoldLine />
         <SixStages />
+        <GoldLine />
         <ThreePillars />
         <Differentials />
+        <GoldLine />
         <PersonalProof />
+        <GoldLine />
         <SocialProof />
+        <GoldLine />
         <WhatYouReceive />
         <Pricing />
       </main>
