@@ -22,19 +22,7 @@ function Hero() {
       <div className="mx-auto grid max-w-[1160px] min-h-[90vh] grid-cols-1 items-center px-5 md:grid-cols-[55%_45%] md:px-10">
         {/* Left — text */}
         <div className="py-20 md:py-32 md:pr-12">
-          {/* Badge */}
-          <div
-            className="animate-reveal mb-8 inline-block rounded-full border px-5 py-2 text-[10px] font-bold tracking-[0.22em] text-[#6B7558]"
-            style={{
-              fontFamily: "var(--font-montserrat)",
-              textTransform: "uppercase",
-              background: "rgba(107,117,88,0.08)",
-              borderColor: "rgba(107,117,88,0.22)",
-              animationDelay: "0ms",
-            }}
-          >
-            Uma jornada de mulheres a propósito
-          </div>
+
 
           {/* H1 */}
           <h1
@@ -46,16 +34,7 @@ function Hero() {
             }}
           >
             Saia do ciclo de viver{" "}
-            <em
-              className="not-italic"
-              style={{
-                fontFamily: "var(--font-cormorant)",
-                fontStyle: "italic",
-                color: "#B8784A",
-              }}
-            >
-              dividida
-            </em>{" "}
+            <span style={{ color: "#B8784A" }}>dividida</span>{" "}
             entre quem você é hoje e quem Deus te chamou pra ser.
           </h1>
 
@@ -86,31 +65,26 @@ function Hero() {
               Iniciar Minha Transformação
               <ArrowRight size={15} strokeWidth={2.5} />
             </a>
-            <span
-              className="text-[12px] text-[#9A8070]"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Vagas limitadas · Seleção por propósito
-            </span>
+
           </div>
         </div>
 
         {/* Right — photo */}
-        <div className="relative hidden h-full min-h-[90vh] md:block">
+        <div className="relative hidden self-stretch md:flex md:flex-col md:py-32">
           {/* Decorative rectangle */}
           <div
             aria-hidden="true"
             className="absolute rounded-[28px]"
             style={{
               background: "rgba(184,120,74,0.12)",
-              bottom: "48px",
+              top: "calc(128px + 16px)",
+              bottom: "calc(128px + 16px)",
               right: "0",
-              left: "20px",
-              top: "48px",
+              left: "24px",
             }}
           />
           <div
-            className="absolute inset-y-12 right-0 left-8 overflow-hidden rounded-[28px]"
+            className="relative ml-8 flex-1 overflow-hidden rounded-[28px]"
             style={{ boxShadow: "0 8px 40px rgba(0,0,0,0.12)" }}
           >
             <Image
@@ -148,43 +122,34 @@ function ProblemIdentification() {
     >
       <div className="mx-auto grid max-w-[1160px] grid-cols-1 md:grid-cols-2">
         {/* Photo */}
-        <RevealWrapper delay={0}>
-          <div
-            className="relative h-[420px] overflow-hidden md:h-full"
-            style={{ minHeight: "420px" }}
-          >
-            <Image
-              src="/IMG_5536.JPG"
-              alt="Hadassah Perez"
-              fill
-              className="object-cover"
-              style={{ objectPosition: "center 15%" }}
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+        <RevealWrapper delay={0} className="h-full">
+          <div className="h-full md:flex md:flex-col md:py-20 md:pr-6">
             <div
-              aria-hidden="true"
-              className="absolute inset-0"
-              style={{
-                background:
-                  "linear-gradient(to right, transparent 60%, rgba(247,241,232,0.4))",
-              }}
-            />
+              className="relative h-[420px] overflow-hidden rounded-[24px] md:h-auto md:flex-1"
+            >
+              <Image
+                src="/IMG_5536.JPG"
+                alt="Hadassah Perez"
+                fill
+                className="object-cover"
+                style={{ objectPosition: "center 15%" }}
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div
+                aria-hidden="true"
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to right, transparent 60%, rgba(247,241,232,0.4))",
+                }}
+              />
+            </div>
           </div>
         </RevealWrapper>
 
         {/* Text */}
         <div className="flex flex-col justify-center px-8 py-16 md:px-14 md:py-20">
-          <RevealWrapper delay={0}>
-            <div
-              className="mb-5 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              O que você sente
-            </div>
-          </RevealWrapper>
+
 
           <RevealWrapper delay={80}>
             <h2
@@ -195,15 +160,7 @@ function ProblemIdentification() {
               }}
             >
               Você sente que está apenas{" "}
-              <em
-                style={{
-                  fontFamily: "var(--font-cormorant)",
-                  fontStyle: "italic",
-                  color: "#B8784A",
-                }}
-              >
-                sobrevivendo
-              </em>{" "}
+              <span style={{ color: "#B8784A" }}>sobrevivendo</span>{" "}
               ao peso das suas escolhas?
             </h2>
           </RevealWrapper>
@@ -403,15 +360,6 @@ function SixStages() {
         {/* Header */}
         <RevealWrapper delay={0}>
           <div className="mb-16 text-center">
-            <div
-              className="mb-5 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              A metodologia
-            </div>
             <h2
               className="mb-4 leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
               style={{
@@ -527,15 +475,7 @@ function ThreePillars() {
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div className="mb-16 text-center">
-            <div
-              className="mb-5 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              A estrutura da mentoria
-            </div>
+
             <h2
               className="leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
               style={{
@@ -617,18 +557,6 @@ function AuthorGuide() {
       <div className="relative mx-auto grid max-w-[1000px] grid-cols-1 items-center gap-16 px-5 md:grid-cols-[1fr_360px] md:px-10">
         {/* Text */}
         <div>
-          <RevealWrapper delay={0}>
-            <div
-              className="mb-6 text-[11px] font-bold tracking-[0.22em] text-[#9A8070]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              Guia te guia
-            </div>
-          </RevealWrapper>
-
           <RevealWrapper delay={80}>
             <blockquote
               className="mb-10 leading-[1.25] tracking-[-0.01em]"
@@ -707,7 +635,7 @@ function AuthorGuide() {
               }}
             >
               <Image
-                src="/creator-2.jpg"
+                src="/RCF-2345.jpeg"
                 alt="Hadassah Perez"
                 fill
                 className="object-cover object-top"
@@ -799,15 +727,7 @@ function WhatYouReceive() {
       <div className="mx-auto max-w-[1000px] px-5 md:px-10">
         <RevealWrapper delay={0}>
           <div className="mb-16 text-center">
-            <div
-              className="mb-5 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              O que está incluído
-            </div>
+
             <h2
               className="leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
               style={{
@@ -894,134 +814,6 @@ function WhatYouReceive() {
 }
 
 /* ─────────────────────────────────────────────
-   TESTIMONIALS (placeholder)
-───────────────────────────────────────────── */
-const testimonials = [
-  // <!-- TESTIMONIAL -->
-  {
-    name: "Ana Carolina M.",
-    role: "Empreendedora · São Paulo",
-    quote:
-      "O Caminho de Ester foi o que me faltava para entender quem eu sou de verdade. Pela primeira vez em anos, sinto que minhas decisões partem de um lugar de clareza, não de medo.",
-  },
-  // <!-- TESTIMONIAL -->
-  {
-    name: "Priscila R.",
-    role: "Pastora · Curitiba",
-    quote:
-      "Eu já tinha lido dezenas de livros sobre propósito. Mas a Hadassah foi a primeira pessoa que me ajudou a encarnar esse propósito na minha vida concreta, dia a dia.",
-  },
-  // <!-- TESTIMONIAL -->
-  {
-    name: "Fernanda L.",
-    role: "Professora · Belo Horizonte",
-    quote:
-      "Entrei com dúvidas sobre minha carreira e minha identidade. Saí sabendo exatamente quem Deus diz que sou — e com um plano para agir a partir disso.",
-  },
-];
-
-function Testimonials() {
-  return (
-    <section
-      id="depoimentos"
-      style={{ background: "#EDE3D4" }}
-      className="py-24 md:py-32"
-    >
-      <div className="mx-auto max-w-[1000px] px-5 md:px-10">
-        <RevealWrapper delay={0}>
-          <div className="mb-16 text-center">
-            <div
-              className="mb-5 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              Transformações reais
-            </div>
-            <h2
-              className="leading-[1.15] tracking-[-0.02em] text-[#1C1410]"
-              style={{
-                fontFamily: "var(--font-silver)",
-                fontSize: "clamp(28px, 3.8vw, 46px)",
-              }}
-            >
-              O que quem já caminhou diz
-            </h2>
-          </div>
-        </RevealWrapper>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {testimonials.map((t, i) => (
-            <RevealWrapper key={t.name} delay={80 + i * 80}>
-              <div
-                className="flex flex-col rounded-[20px] p-8"
-                style={{
-                  background: "#2a1a0f",
-                  border: "1px solid rgba(201,153,106,0.18)",
-                }}
-              >
-                {/* Quote mark */}
-                <div
-                  className="mb-5 text-[40px] leading-none"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontStyle: "italic",
-                    color: "rgba(201,153,106,0.45)",
-                    lineHeight: 1,
-                  }}
-                  aria-hidden="true"
-                >
-                  &ldquo;
-                </div>
-
-                <p
-                  className="mb-7 flex-1 font-light leading-[1.75]"
-                  style={{
-                    fontFamily: "var(--font-cormorant)",
-                    fontStyle: "italic",
-                    fontSize: "17px",
-                    color: "#F5EDD8",
-                  }}
-                >
-                  {t.quote}
-                </p>
-
-                <div className="flex items-center gap-3">
-                  <div
-                    className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-[12px] font-bold text-white"
-                    style={{
-                      background: "linear-gradient(135deg, #C9996A 0%, #B8784A 100%)",
-                    }}
-                    aria-hidden="true"
-                  >
-                    {t.name.charAt(0)}
-                  </div>
-                  <div>
-                    <div
-                      className="text-[13px] font-semibold text-[#DFB98A]"
-                      style={{ fontFamily: "var(--font-montserrat)" }}
-                    >
-                      {t.name}
-                    </div>
-                    <div
-                      className="text-[11px] text-[#9A8070]"
-                      style={{ fontFamily: "var(--font-montserrat)" }}
-                    >
-                      {t.role}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </RevealWrapper>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-/* ─────────────────────────────────────────────
    PRICING / CTA
 ───────────────────────────────────────────── */
 const includes = [
@@ -1054,15 +846,7 @@ function Pricing() {
               aria-hidden="true"
             />
 
-            <div
-              className="mb-8 text-[11px] font-bold tracking-[0.18em] text-[#6B7558]"
-              style={{
-                fontFamily: "var(--font-montserrat)",
-                textTransform: "uppercase",
-              }}
-            >
-              Investimento na sua identidade
-            </div>
+
 
             <h2
               className="mb-4 leading-[1.2] tracking-[-0.025em] text-[#1C1410]"
@@ -1219,7 +1003,6 @@ function FooterMentoria() {
 export default function MentoriaPage() {
   return (
     <>
-      <NavbarMentoria />
       <main>
         <Hero />
         <ProblemIdentification />
@@ -1228,9 +1011,7 @@ export default function MentoriaPage() {
         <ThreePillars />
         <AuthorGuide />
         <WhatYouReceive />
-        <Testimonials />
         <Pricing />
-        <FAQMentoria />
       </main>
       <FooterMentoria />
     </>
