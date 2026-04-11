@@ -466,7 +466,7 @@ function SixStages() {
                 fontSize: "clamp(14px, 1.7vw, 16px)",
               }}
             >
-              &ldquo;Não é sobre tentar mais uma vez. É sobre sair da confusão interna e
+              &ldquo;Não é tentar mais uma vez. É sair da confusão interna e
               finalmente se tornar a mulher que Deus te chamou pra ser.&rdquo;
             </p>
           </div>
@@ -513,7 +513,7 @@ function SixStages() {
             className="mt-10 text-center font-light italic leading-[1.7] text-[#5E4535]"
             style={{ fontFamily: "Georgia, serif", fontSize: "clamp(15px, 1.8vw, 17px)" }}
           >
-            &ldquo;Porque no final, não é só sobre entender quem você é — é sobre conseguir viver isso com constância.&rdquo;
+            &ldquo;Porque no final, não é só sobre entender quem você é — conseguir viver isso com constância.&rdquo;
           </p>
         </RevealWrapper>
       </div>
@@ -812,7 +812,7 @@ function PersonalProof() {
                   fontSize: "clamp(14px, 1.7vw, 16px)",
                 }}
               >
-                &ldquo;Porque, no final, não é sobre se tornar alguém diferente, mas sobre
+                &ldquo;Porque, no final, não é se tornar alguém diferente, mas
                 sustentar quem você já foi chamada pra ser.&rdquo;
               </p>
             </div>
