@@ -852,7 +852,7 @@ function Pricing() {
               className="mb-4 leading-[1.2] tracking-[-0.025em] text-[#1C1410]"
               style={{
                 fontFamily: "var(--font-silver)",
-                fontSize: "clamp(28px, 4vw, 40px)",
+                fontSize: "clamp(22px, 3vw, 30px)",
               }}
             >
               Chegou a hora de assumir seu lugar.
@@ -867,9 +867,9 @@ function Pricing() {
             </p>
 
             {/* Includes list */}
-            <div className="mb-10 flex flex-col gap-3 text-left">
+            <div className="mb-10 mx-auto flex w-fit flex-col gap-3 text-left">
               {includes.map((item) => (
-                <div key={item} className="flex items-start gap-3">
+                <div key={item} className="flex items-center gap-3">
                   <span
                     className="mt-[2px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full"
                     style={{ background: "#B8784A" }}
@@ -895,7 +895,7 @@ function Pricing() {
               <span
                 className="mt-[20px] text-[26px] font-bold text-[#1C1410]"
                 aria-hidden="true"
-                style={{ fontFamily: "var(--font-silver)" }}
+                style={{ fontFamily: "var(--font-montserrat)" }}
               >
                 R$
               </span>
@@ -903,7 +903,7 @@ function Pricing() {
                 className="font-extrabold leading-none tracking-[-0.04em] text-[#1C1410]"
                 aria-hidden="true"
                 style={{
-                  fontFamily: "var(--font-silver)",
+                  fontFamily: "var(--font-montserrat)",
                   fontSize: "clamp(72px, 12vw, 96px)",
                 }}
               >
@@ -911,18 +911,11 @@ function Pricing() {
               </span>
             </div>
 
-            <div
-              className="mb-10 text-[13px] tracking-[0.06em] text-[#9A8070]"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              ou em até 10x de R$99,70 · acesso permanente ao material
-            </div>
-
             {/* CTA */}
-            <div className="mb-8">
+            <div className="mb-8 flex justify-center">
               <a
                 href={WA_APPLY_LINK}
-                className="btn-grad inline-flex items-center gap-2 rounded-full px-[52px] py-[18px] text-[13px] font-semibold tracking-wide text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)]"
+                className="btn-grad flex w-full items-center justify-center gap-2 rounded-full px-8 py-[16px] text-[12px] font-semibold text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)] whitespace-nowrap md:w-auto md:px-[52px] md:py-[18px] md:text-[13px]"
                 style={{
                   fontFamily: "var(--font-montserrat)",
                   letterSpacing: "0.04em",
@@ -934,13 +927,6 @@ function Pricing() {
                 <ArrowRight size={15} strokeWidth={2.5} />
               </a>
             </div>
-
-            <p
-              className="text-[12px] tracking-[0.04em] text-[#9A8070]"
-              style={{ fontFamily: "var(--font-montserrat)" }}
-            >
-              Inscrições abertas · Vagas limitadas · Seleção por alinhamento de propósito
-            </p>
           </div>
         </RevealWrapper>
       </div>
