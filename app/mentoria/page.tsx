@@ -1254,7 +1254,7 @@ function Pricing() {
             {/* CTA */}
             <a
               href={WA_APPLY_LINK}
-              className="btn-grad mb-0 flex w-full items-center justify-center gap-2 rounded-full px-8 py-[13px] text-[13px] font-semibold text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)]"
+              className="btn-grad mb-0 flex w-full items-center justify-center gap-2 rounded-full px-8 py-[13px] text-[10px] font-semibold text-white shadow-[0_4px_20px_rgba(60,75,35,0.35)]"
               style={{
                 fontFamily: "var(--font-montserrat)",
                 letterSpacing: "0.10em",
