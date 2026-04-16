@@ -45,8 +45,47 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Hadassah Perez",
-  description: "Coach · Mentora · Cantora Cristã",
+  title: {
+    default: "Hadassah Perez — Coach, Mentora e Cantora Cristã",
+    template: "%s · Hadassah Perez",
+  },
+  description:
+    "Hadassah Perez é coach, mentora e cantora cristã que conecta mulheres ao chamado que Deus preparou para elas. Mentoria, devocionais e música para mulheres que querem viver com propósito.",
+  metadataBase: new URL("https://www.hadassahperez.com.br"),
+  manifest: "/manifest.json",
+  keywords: [
+    "Hadassah Perez",
+    "coach cristã",
+    "mentoria cristã",
+    "mentoria para mulheres",
+    "devocional feminino",
+    "propósito de vida cristã",
+    "cantora cristã brasileira",
+  ],
+  authors: [{ name: "Hadassah Perez", url: "https://www.hadassahperez.com.br" }],
+  openGraph: {
+    title: "Hadassah Perez — Coach, Mentora e Cantora Cristã",
+    description:
+      "Conectando mulheres ao chamado que Deus preparou. Mentoria, devocionais e música.",
+    url: "https://www.hadassahperez.com.br",
+    siteName: "Hadassah Perez",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hadassah Perez — Coach, Mentora e Cantora Cristã",
+    description:
+      "Conectando mulheres ao chamado que Deus preparou. Mentoria, devocionais e música.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
 };
 
 export default function RootLayout({
