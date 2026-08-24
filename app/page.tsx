@@ -373,7 +373,7 @@ export default function LinksPage() {
           <div
             className="absolute inset-0 md:hidden"
             style={{
-              backgroundImage: "url('/REG_7777.png')",
+              backgroundImage: "url('/hero-mobile.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center 15%",
               backgroundColor: "#2A1C12",
