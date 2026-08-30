@@ -6,11 +6,44 @@ export const alt = "Alinhamento — 21 Devocionais · Hadassah Perez";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Palavra por palavra, em linhas escolhidas à mão: registrar uma fonte
+// customizada faz o Satori (next/og) usá-la como padrão pra QUALQUER texto do
+// card (mesmo sem fontFamily explícito) — e texto multi-palavra nessa fonte
+// sai com espaçamento irregular. Cada palavra como item de flex evita o bug,
+// e escolher as linhas manualmente evita quebras órfãs.
+function WrappedLines({
+  lines,
+  style,
+  gap = "0.26em",
+}: {
+  lines: string[];
+  style: React.CSSProperties;
+  gap?: string;
+}) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      {lines.map((line, li) => (
+        <div key={li} style={{ display: "flex", flexWrap: "wrap" }}>
+          {line.split(" ").map((word, wi) => (
+            <div key={wi} style={{ ...style, display: "flex", marginRight: gap }}>
+              {word}
+            </div>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default async function Image() {
   const tabletData = readFileSync(
     join(process.cwd(), "public/tablet alinhamento.png")
   );
   const tabletBase64 = `data:image/png;base64,${tabletData.toString("base64")}`;
+
+  const fontData = readFileSync(
+    join(process.cwd(), "public/TheSilverEditorial-Regular.ttf")
+  );
 
   return new ImageResponse(
     (
@@ -85,71 +118,42 @@ export default async function Image() {
               border: "1px solid rgba(255,255,255,0.25)",
               borderRadius: "9999px",
               padding: "10px 22px",
-              fontSize: "14px",
-              fontWeight: 700,
-              letterSpacing: "2px",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.8)",
               marginBottom: "30px",
             }}
           >
-            Devocional Digital · 21 Dias
+            <WrappedLines
+              lines={["Devocional Digital · 21 Dias"]}
+              gap="0.05em"
+              style={{
+                fontSize: "14px",
+                fontWeight: 700,
+                letterSpacing: "2px",
+                textTransform: "uppercase",
+                color: "rgba(255,255,255,0.8)",
+              }}
+            />
           </div>
 
-          {/* Headline — linhas manuais, sem auto-wrap (evita espaçamento irregular do Satori) */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginBottom: "24px",
-            }}
-          >
-            <div
+          {/* Headline — quebra escolhida à mão */}
+          <div style={{ display: "flex", marginBottom: "24px" }}>
+            <WrappedLines
+              lines={["Volte a sentir", "a presença de Deus", "na sua rotina"]}
               style={{
+                fontFamily: "SilverEditorial",
                 fontSize: "46px",
-                lineHeight: 1.22,
+                lineHeight: 1.24,
                 letterSpacing: "-0.5px",
                 color: "#f6f6f6",
-                display: "flex",
               }}
-            >
-              Volte a sentir a presença
-            </div>
-            <div
-              style={{
-                fontSize: "46px",
-                lineHeight: 1.22,
-                letterSpacing: "-0.5px",
-                color: "#f6f6f6",
-                display: "flex",
-              }}
-            >
-              de Deus na sua rotina
-            </div>
+            />
           </div>
 
-          {/* Subtitle — linhas manuais */}
-          <div style={{ display: "flex", flexDirection: "column" }}>
-            <div
-              style={{
-                fontSize: "19px",
-                lineHeight: 1.5,
-                color: "rgba(255,255,255,0.6)",
-                display: "flex",
-              }}
-            >
-              Um caminho guiado de 21 dias
-            </div>
-            <div
-              style={{
-                fontSize: "19px",
-                lineHeight: 1.5,
-                color: "rgba(255,255,255,0.6)",
-                display: "flex",
-              }}
-            >
-              pra retomar sua conexão com Deus.
-            </div>
+          {/* Subtitle */}
+          <div style={{ display: "flex" }}>
+            <WrappedLines
+              lines={["Um caminho guiado de 21 dias", "pra retomar sua conexão com Deus."]}
+              style={{ fontSize: "19px", lineHeight: 1.5, color: "rgba(255,255,255,0.6)" }}
+            />
           </div>
 
           {/* Footer */}
@@ -177,6 +181,9 @@ export default async function Image() {
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [{ name: "SilverEditorial", data: fontData, style: "normal" }],
+    }
   );
 }

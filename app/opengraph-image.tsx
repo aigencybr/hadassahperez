@@ -6,6 +6,30 @@ export const alt = "Hadassah Perez — Coach, Mentora e Cantora Cristã";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// Palavra por palavra: registrar uma fonte customizada faz o Satori (next/og)
+// usá-la como padrão pra QUALQUER texto do card, e texto multi-palavra nessa
+// fonte sai com espaçamento irregular. Cada palavra como item de flex evita
+// o bug.
+function WrappedText({
+  text,
+  style,
+  gap = "0.24em",
+}: {
+  text: string;
+  style: React.CSSProperties;
+  gap?: string;
+}) {
+  return (
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      {text.split(" ").map((word, i) => (
+        <div key={i} style={{ ...style, display: "flex", marginRight: gap }}>
+          {word}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default async function Image() {
   const photoData = readFileSync(
     join(process.cwd(), "public/coach life hadassa.jpeg")
@@ -14,6 +38,10 @@ export default async function Image() {
 
   const logoData = readFileSync(join(process.cwd(), "public/logo-olive.png"));
   const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
+
+  const fontData = readFileSync(
+    join(process.cwd(), "public/TheSilverEditorial-Regular.ttf")
+  );
 
   return new ImageResponse(
     (
@@ -94,17 +122,18 @@ export default async function Image() {
           </div>
 
           {/* Nome */}
-          <div
-            style={{
-              fontSize: "58px",
-              fontWeight: 400,
-              color: "#F5EDD8",
-              lineHeight: 1.05,
-              marginBottom: "20px",
-              letterSpacing: "-0.5px",
-            }}
-          >
-            Hadassah Perez
+          <div style={{ display: "flex", marginBottom: "20px" }}>
+            <WrappedText
+              text="Hadassah Perez"
+              style={{
+                fontFamily: "SilverEditorial",
+                fontSize: "62px",
+                fontWeight: 400,
+                color: "#F5EDD8",
+                lineHeight: 1.05,
+                letterSpacing: "-0.5px",
+              }}
+            />
           </div>
 
           {/* Linha decorativa */}
@@ -119,19 +148,24 @@ export default async function Image() {
           />
 
           {/* Tagline */}
-          <div
-            style={{
-              fontSize: "17px",
-              color: "#DFB98A",
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-            }}
-          >
-            Coach · Mentora · Cantora Cristã
+          <div style={{ display: "flex" }}>
+            <WrappedText
+              text="Coach · Mentora · Cantora Cristã"
+              gap="0"
+              style={{
+                fontSize: "17px",
+                color: "#DFB98A",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            />
           </div>
         </div>
       </div>
     ),
-    { ...size }
+    {
+      ...size,
+      fonts: [{ name: "SilverEditorial", data: fontData, style: "normal" }],
+    }
   );
 }
