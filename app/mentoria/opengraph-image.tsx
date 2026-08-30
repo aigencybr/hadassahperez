@@ -15,10 +15,6 @@ export default async function Image() {
   const logoData = readFileSync(join(process.cwd(), "public/logo-olive.png"));
   const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
 
-  const fontData = readFileSync(
-    join(process.cwd(), "public/TheSilverEditorial-Regular.ttf")
-  );
-
   return new ImageResponse(
     (
       <div
@@ -101,7 +97,6 @@ export default async function Image() {
           {/* Headline */}
           <div
             style={{
-              fontFamily: "SilverEditorial",
               fontSize: "44px",
               lineHeight: 1.18,
               letterSpacing: "-0.5px",
@@ -152,9 +147,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: "SilverEditorial", data: fontData, style: "normal" }],
-    }
+    { ...size }
   );
 }

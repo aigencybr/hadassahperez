@@ -12,10 +12,6 @@ export default async function Image() {
   );
   const tabletBase64 = `data:image/png;base64,${tabletData.toString("base64")}`;
 
-  const fontData = readFileSync(
-    join(process.cwd(), "public/TheSilverEditorial-Regular.ttf")
-  );
-
   return new ImageResponse(
     (
       <div
@@ -43,19 +39,30 @@ export default async function Image() {
           }}
         />
 
-        {/* Mockup do tablet — lado direito */}
-        <img
-          src={tabletBase64}
+        {/* Mockup do tablet — lado direito, centralizado por flex (sem transform) */}
+        <div
           style={{
             position: "absolute",
-            right: "-40px",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "460px",
-            height: "460px",
-            objectFit: "contain",
+            right: "0px",
+            top: "0px",
+            bottom: "0px",
+            width: "540px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
+        >
+          <img
+            src={tabletBase64}
+            width={460}
+            height={460}
+            style={{
+              width: "460px",
+              height: "460px",
+              objectFit: "contain",
+            }}
+          />
+        </div>
 
         {/* Conteúdo — lado esquerdo */}
         <div
@@ -89,32 +96,60 @@ export default async function Image() {
             Devocional Digital · 21 Dias
           </div>
 
-          {/* Headline */}
+          {/* Headline — linhas manuais, sem auto-wrap (evita espaçamento irregular do Satori) */}
           <div
             style={{
-              fontFamily: "SilverEditorial",
-              fontSize: "46px",
-              lineHeight: 1.2,
-              letterSpacing: "-0.5px",
-              color: "#f6f6f6",
-              marginBottom: "24px",
               display: "flex",
+              flexDirection: "column",
+              marginBottom: "24px",
             }}
           >
-            Volte a sentir a presença de Deus na sua rotina
+            <div
+              style={{
+                fontSize: "46px",
+                lineHeight: 1.22,
+                letterSpacing: "-0.5px",
+                color: "#f6f6f6",
+                display: "flex",
+              }}
+            >
+              Volte a sentir a presença
+            </div>
+            <div
+              style={{
+                fontSize: "46px",
+                lineHeight: 1.22,
+                letterSpacing: "-0.5px",
+                color: "#f6f6f6",
+                display: "flex",
+              }}
+            >
+              de Deus na sua rotina
+            </div>
           </div>
 
-          {/* Subtitle */}
-          <div
-            style={{
-              fontSize: "19px",
-              lineHeight: 1.5,
-              color: "rgba(255,255,255,0.6)",
-              maxWidth: "480px",
-              display: "flex",
-            }}
-          >
-            Um caminho guiado de 21 dias pra retomar sua conexão com Deus.
+          {/* Subtitle — linhas manuais */}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                fontSize: "19px",
+                lineHeight: 1.5,
+                color: "rgba(255,255,255,0.6)",
+                display: "flex",
+              }}
+            >
+              Um caminho guiado de 21 dias
+            </div>
+            <div
+              style={{
+                fontSize: "19px",
+                lineHeight: 1.5,
+                color: "rgba(255,255,255,0.6)",
+                display: "flex",
+              }}
+            >
+              pra retomar sua conexão com Deus.
+            </div>
           </div>
 
           {/* Footer */}
@@ -142,9 +177,6 @@ export default async function Image() {
         </div>
       </div>
     ),
-    {
-      ...size,
-      fonts: [{ name: "SilverEditorial", data: fontData, style: "normal" }],
-    }
+    { ...size }
   );
 }
