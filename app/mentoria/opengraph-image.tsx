@@ -15,22 +15,39 @@ function WrappedLines({
   lines,
   style,
   gap = "0.26em",
+  lineGaps,
 }: {
   lines: string[];
   style: React.CSSProperties;
   gap?: string;
+  // Por linha, gap sob medida por espaço entre palavras (index = posição do
+  // espaço). Necessário porque o bearing do glifo final de cada palavra varia
+  // nessa fonte (ex: "o" deixa mais respiro visual que "e"), então um gap
+  // uniforme em em produz espaçamento com aparência irregular.
+  lineGaps?: (string[] | undefined)[];
 }) {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
-      {lines.map((line, li) => (
-        <div key={li} style={{ display: "flex", flexWrap: "wrap" }}>
-          {line.split(" ").map((word, wi) => (
-            <div key={wi} style={{ ...style, display: "flex", marginRight: gap }}>
-              {word}
-            </div>
-          ))}
-        </div>
-      ))}
+      {lines.map((line, li) => {
+        const words = line.split(" ");
+        const gaps = lineGaps?.[li];
+        return (
+          <div key={li} style={{ display: "flex", flexWrap: "wrap" }}>
+            {words.map((word, wi) => (
+              <div
+                key={wi}
+                style={{
+                  ...style,
+                  display: "flex",
+                  marginRight: wi < words.length - 1 ? gaps?.[wi] ?? gap : 0,
+                }}
+              >
+                {word}
+              </div>
+            ))}
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -130,6 +147,7 @@ export default async function Image() {
           <div style={{ display: "flex", marginBottom: "20px" }}>
             <WrappedLines
               lines={["Mentoria", "Caminho de Ester"]}
+              lineGaps={[undefined, ["0.14em", "0.36em"]]}
               style={{
                 fontFamily: "SilverEditorial",
                 fontSize: "50px",
