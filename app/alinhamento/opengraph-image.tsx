@@ -36,10 +36,11 @@ function WrappedLines({
 }
 
 export default async function Image() {
-  const tabletData = readFileSync(
-    join(process.cwd(), "public/tablet alinhamento.png")
-  );
-  const tabletBase64 = `data:image/png;base64,${tabletData.toString("base64")}`;
+  const photoData = readFileSync(join(process.cwd(), "public/hero.jpg"));
+  const photoBase64 = `data:image/jpeg;base64,${photoData.toString("base64")}`;
+
+  const logoData = readFileSync(join(process.cwd(), "public/logo-olive.png"));
+  const logoBase64 = `data:image/png;base64,${logoData.toString("base64")}`;
 
   const fontData = readFileSync(
     join(process.cwd(), "public/TheSilverEditorial-Regular.ttf")
@@ -57,126 +58,109 @@ export default async function Image() {
           overflow: "hidden",
         }}
       >
-        {/* Glow olive quente atrás do tablet */}
+        {/* Foto — lado direito (mesmo tratamento da home) */}
+        <img
+          src={photoBase64}
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            width: "540px",
+            height: "630px",
+            objectFit: "cover",
+            objectPosition: "60% center",
+          }}
+        />
+
+        {/* Gradiente de transição foto → texto */}
         <div
           style={{
             position: "absolute",
-            right: "-120px",
-            top: "-80px",
-            width: "700px",
-            height: "700px",
-            borderRadius: "9999px",
+            right: 0,
+            top: 0,
+            width: "540px",
+            height: "630px",
             background:
-              "radial-gradient(ellipse at center, rgba(104,131,57,0.35) 0%, rgba(104,131,57,0.08) 45%, transparent 70%)",
+              "linear-gradient(to right, #16100C 0%, rgba(22,16,12,0.6) 45%, transparent 100%)",
             display: "flex",
           }}
         />
 
-        {/* Mockup do tablet — lado direito, centralizado por flex (sem transform) */}
-        <div
-          style={{
-            position: "absolute",
-            right: "0px",
-            top: "0px",
-            bottom: "0px",
-            width: "540px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <img
-            src={tabletBase64}
-            width={460}
-            height={460}
-            style={{
-              width: "460px",
-              height: "460px",
-              objectFit: "contain",
-            }}
-          />
-        </div>
-
         {/* Conteúdo — lado esquerdo */}
         <div
           style={{
-            position: "relative",
+            position: "absolute",
+            left: 0,
+            top: 0,
             width: "700px",
             height: "630px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "60px 76px",
+            padding: "60px 80px",
           }}
         >
-          {/* Badge */}
+          {/* Logo em container creme (mesmo da home) */}
           <div
             style={{
-              display: "flex",
-              alignSelf: "flex-start",
-              background: "rgba(246,246,246,0.06)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              borderRadius: "9999px",
-              padding: "10px 22px",
-              marginBottom: "30px",
-            }}
-          >
-            <WrappedLines
-              lines={["Devocional Digital · 21 Dias"]}
-              gap="0.05em"
-              style={{
-                fontSize: "14px",
-                fontWeight: 700,
-                letterSpacing: "2px",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.8)",
-              }}
-            />
-          </div>
-
-          {/* Headline — quebra escolhida à mão */}
-          <div style={{ display: "flex", marginBottom: "24px" }}>
-            <WrappedLines
-              lines={["Volte a sentir", "a presença de Deus", "na sua rotina"]}
-              style={{
-                fontFamily: "SilverEditorial",
-                fontSize: "46px",
-                lineHeight: 1.24,
-                letterSpacing: "-0.5px",
-                color: "#f6f6f6",
-              }}
-            />
-          </div>
-
-          {/* Subtitle */}
-          <div style={{ display: "flex" }}>
-            <WrappedLines
-              lines={["Um caminho guiado de 21 dias", "pra retomar sua conexão com Deus."]}
-              style={{ fontSize: "19px", lineHeight: 1.5, color: "rgba(255,255,255,0.6)" }}
-            />
-          </div>
-
-          {/* Footer */}
-          <div
-            style={{
+              background: "#F7F1E8",
+              borderRadius: "14px",
+              padding: "10px 14px",
               display: "flex",
               alignItems: "center",
-              gap: "12px",
-              marginTop: "48px",
+              justifyContent: "center",
+              width: "64px",
+              height: "64px",
+              marginBottom: "28px",
             }}
           >
-            <div
+            <img
+              src={logoBase64}
               style={{
-                width: "5px",
-                height: "5px",
-                borderRadius: "9999px",
-                background: "#8ba85a",
-                display: "flex",
+                width: "44px",
+                height: "44px",
+                objectFit: "contain",
               }}
             />
-            <div style={{ fontSize: "15px", color: "rgba(255,255,255,0.65)", display: "flex" }}>
-              hadassahperez.com.br
-            </div>
+          </div>
+
+          {/* Título — nome do produto */}
+          <div style={{ display: "flex", marginBottom: "20px" }}>
+            <WrappedLines
+              lines={["Alinhamento"]}
+              style={{
+                fontFamily: "SilverEditorial",
+                fontSize: "62px",
+                lineHeight: 1.05,
+                letterSpacing: "-0.5px",
+                color: "#F5EDD8",
+              }}
+            />
+          </div>
+
+          {/* Linha decorativa */}
+          <div
+            style={{
+              width: "48px",
+              height: "1px",
+              background: "#C9996A",
+              marginBottom: "20px",
+              display: "flex",
+            }}
+          />
+
+          {/* Caption */}
+          <div style={{ display: "flex" }}>
+            <WrappedLines
+              lines={["Devocional Digital · 21 Dias"]}
+              gap="0.15em"
+              style={{
+                fontSize: "15px",
+                color: "#DFB98A",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            />
           </div>
         </div>
       </div>

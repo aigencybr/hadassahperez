@@ -10,7 +10,7 @@ export const contentType = "image/png";
 // customizada faz o Satori (next/og) usá-la como padrão pra QUALQUER texto do
 // card (mesmo sem fontFamily explícito) — e texto multi-palavra nessa fonte
 // sai com espaçamento irregular. Cada palavra como item de flex evita o bug,
-// e escolher as linhas manualmente evita quebras órfãs (uma palavra sozinha).
+// e escolher as linhas manualmente evita quebras órfãs.
 function WrappedLines({
   lines,
   style,
@@ -55,121 +55,114 @@ export default async function Image() {
           width: "1200px",
           height: "630px",
           display: "flex",
-          background: "#F0E8DC",
+          background: "#16100C",
           position: "relative",
           overflow: "hidden",
         }}
       >
-        {/* Foto — cartão arredondado à direita (radius direto na img, o clip do wrapper não é confiável no Satori) */}
+        {/* Foto — lado direito (mesmo tratamento da home) */}
+        <img
+          src={photoBase64}
+          style={{
+            position: "absolute",
+            right: 0,
+            top: 0,
+            width: "540px",
+            height: "630px",
+            objectFit: "cover",
+            objectPosition: "center top",
+          }}
+        />
+
+        {/* Gradiente de transição foto → texto */}
         <div
           style={{
             position: "absolute",
-            right: "48px",
-            top: "48px",
-            bottom: "48px",
-            width: "420px",
+            right: 0,
+            top: 0,
+            width: "540px",
+            height: "630px",
+            background:
+              "linear-gradient(to right, #16100C 0%, rgba(22,16,12,0.6) 45%, transparent 100%)",
             display: "flex",
-            boxShadow: "0 8px 40px rgba(0,0,0,0.12)",
           }}
-        >
-          <img
-            src={photoBase64}
-            style={{
-              width: "420px",
-              height: "534px",
-              objectFit: "cover",
-              objectPosition: "center top",
-              borderRadius: "28px",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              inset: 0,
-              borderRadius: "28px",
-              background:
-                "linear-gradient(to bottom, transparent 55%, rgba(16,10,6,0.22))",
-              display: "flex",
-            }}
-          />
-        </div>
+        />
 
         {/* Conteúdo — lado esquerdo */}
         <div
           style={{
-            position: "relative",
-            width: "660px",
+            position: "absolute",
+            left: 0,
+            top: 0,
+            width: "700px",
             height: "630px",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            padding: "60px 76px",
+            padding: "60px 80px",
           }}
         >
-          {/* Eyebrow */}
-          <div style={{ display: "flex", marginBottom: "22px" }}>
-            <WrappedLines
-              lines={["Mentoria Caminho de Ester"]}
-              gap="0.05em"
-              style={{
-                fontSize: "14px",
-                fontWeight: 700,
-                letterSpacing: "2.5px",
-                textTransform: "uppercase",
-                color: "#B8784A",
-              }}
-            />
-          </div>
-
-          {/* Logo */}
-          <img
-            src={logoBase64}
-            style={{ width: "54px", height: "54px", objectFit: "contain", marginBottom: "26px" }}
-          />
-
-          {/* Headline — quebra escolhida à mão (evita "dividida" órfã) */}
-          <div style={{ display: "flex", marginBottom: "22px" }}>
-            <WrappedLines
-              lines={["Saia do ciclo", "de viver dividida"]}
-              style={{
-                fontFamily: "SilverEditorial",
-                fontSize: "44px",
-                lineHeight: 1.24,
-                letterSpacing: "-0.5px",
-                color: "#1C1410",
-              }}
-            />
-          </div>
-
-          {/* Subtitle */}
-          <div style={{ display: "flex" }}>
-            <WrappedLines
-              lines={["entre quem você é hoje", "e quem Deus te chamou pra ser."]}
-              style={{ fontSize: "19px", lineHeight: 1.5, color: "#5E4535" }}
-            />
-          </div>
-
-          {/* Footer */}
+          {/* Logo em container creme (mesmo da home) */}
           <div
             style={{
+              background: "#F7F1E8",
+              borderRadius: "14px",
+              padding: "10px 14px",
               display: "flex",
               alignItems: "center",
-              gap: "12px",
-              marginTop: "40px",
+              justifyContent: "center",
+              width: "64px",
+              height: "64px",
+              marginBottom: "28px",
             }}
           >
-            <div
+            <img
+              src={logoBase64}
               style={{
-                width: "5px",
-                height: "5px",
-                borderRadius: "9999px",
-                background: "#B8784A",
-                display: "flex",
+                width: "44px",
+                height: "44px",
+                objectFit: "contain",
               }}
             />
-            <div style={{ fontSize: "15px", color: "#5E4535", display: "flex" }}>
-              hadassahperez.com.br
-            </div>
+          </div>
+
+          {/* Título — nome do produto */}
+          <div style={{ display: "flex", marginBottom: "20px" }}>
+            <WrappedLines
+              lines={["Mentoria", "Caminho de Ester"]}
+              style={{
+                fontFamily: "SilverEditorial",
+                fontSize: "50px",
+                lineHeight: 1.1,
+                letterSpacing: "-0.5px",
+                color: "#F5EDD8",
+              }}
+            />
+          </div>
+
+          {/* Linha decorativa */}
+          <div
+            style={{
+              width: "48px",
+              height: "1px",
+              background: "#C9996A",
+              marginBottom: "20px",
+              display: "flex",
+            }}
+          />
+
+          {/* Caption */}
+          <div style={{ display: "flex" }}>
+            <WrappedLines
+              lines={["Mentoria Individual"]}
+              gap="0.15em"
+              style={{
+                fontSize: "15px",
+                color: "#DFB98A",
+                letterSpacing: "0.2em",
+                textTransform: "uppercase",
+              }}
+            />
           </div>
         </div>
       </div>

@@ -151,7 +151,7 @@ export default async function Image() {
           <div style={{ display: "flex" }}>
             <WrappedText
               text="Coach · Mentora · Cantora Cristã"
-              gap="0"
+              gap="0.15em"
               style={{
                 fontSize: "17px",
                 color: "#DFB98A",
